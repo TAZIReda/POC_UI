@@ -1,0 +1,16 @@
+.actions{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.bx--forms-container{
+    padding-right: 24px;
+    padding-left: 24px;
+    // overflow: scroll;
+
+}
+
+.grid_container{
+    display: grid;
+    grid-template-columns: 300px 600px;
+}

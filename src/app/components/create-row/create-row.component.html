@@ -1,5 +1,73 @@
 <app-header-content></app-header-content>
-<content>
-  <lib-form [formControls]="formControls" [(formData)]="form_data"></lib-form>
-  <custom-button (click)="create_row()">create</custom-button>
- </content>
+
+<div class="grid_container">
+  <div
+    class="bx--progress-indicator-container bx--progress-indicator-vertical"
+  >
+    <ibm-progress-indicator
+      orientation="vertical"
+      [steps]="steps"
+      [current]="current"
+      [spacing]="'default'"
+    >
+    </ibm-progress-indicator>
+  </div>
+  <div class="bx--col-lg-14 bx--col-md-13" [ngSwitch]="current">
+    <div class="form"><ibm-loading
+      [overlay]="true"
+      *ngIf="isLoading"
+      size="normal"K
+    ></ibm-loading>
+    <div class="bx--forms-container">
+      <ng-container *ngSwitchCase="0">
+     <lib-form #form [formControls]="formControls" [(formData)]="form_data"></lib-form>
+      </ng-container>
+  
+      <ng-container  *ngSwitchCase="1">
+        <lib-form #form [formControls]="formControls2" [(formData)]="form_data"></lib-form>
+  
+      </ng-container>
+      <ng-container  *ngSwitchCase="2">
+        <lib-form #form [formControls]="formControls3" [(formData)]="form_data"></lib-form>
+  
+      </ng-container>
+    </div>
+  </div>
+    
+      
+    
+  </div>
+</div>
+
+
+<div class="actions">
+  <div class="cancel">
+    <button 
+    (click)="back()" ibmButton="ghost">Cancel</button>
+  </div>
+ <div class="step">
+ 
+  <button
+  *ngIf="showBacktButton"
+  (click)="PreviousStep()"
+  ibmButton="secondary"
+>
+  Back
+</button>
+<button
+  *ngIf="showNextButton"
+  (click)="nextStep()"
+  ibmButton="primary"
+>
+  Next
+</button>
+<button
+  *ngIf="showCreateButton"
+  (click)="onCreate()"
+  ibmButton="primary"
+>
+  {{ isLoading ? "Creating..." : "Create" }}
+</button>
+ </div>
+
+</div>

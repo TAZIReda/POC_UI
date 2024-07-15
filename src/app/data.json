@@ -49,6 +49,39 @@
       "date": [
         "2024-07-28T23:00:00.000Z"
       ]
+    },
+    {
+      "id": "3515",
+      "country": "USA",
+      "employer": "aaa",
+      "jobTitle": "asw",
+      "email": "qqqqqq"
+    }
+  ],
+  "work": [
+    {
+      "id": "9aab",
+      "firstName": "Smartest",
+      "lastName": "Algeria",
+      "dob": "02/21/2019",
+      "country": "USA",
+      "description": "Tech Company ",
+      "phone": "023234576",
+      "email": "smartest@algeria.dz",
+      "jobTitle": "Info",
+      "employer": "SOVAC"
+    },
+    {
+      "id": "e4f9",
+      "firstName": "Smartest",
+      "lastName": "Algeria",
+      "dob": "02/21/2019",
+      "country": "USA",
+      "description": "Tech Company ",
+      "phone": "023234576",
+      "email": "smartest@algeria.dz",
+      "jobTitle": "Odoo",
+      "employer": "SOVAC"
     }
   ]
 }
