@@ -3,6 +3,7 @@ import { TableHeaderItem, TableItem, TableModel,TableModule,DialogModule,NFormsM
 import { HeaderContentComponent } from "../header-content/header-content.component";
 import { Router } from '@angular/router';
 import { DataService } from '../../data.service';
+import { Target } from 'ui-components-lib/lib/components/dialog/overflow-menu/overflow-menu-option.component';
 
 
 @Component({
@@ -15,10 +16,22 @@ import { DataService } from '../../data.service';
   styleUrl: './crud.component.scss'
 })
 export class CrudComponent {
+
+  
+confirmDelete() {
+  this.open=false;
+  this.dataService.deleteRow(this.datatoDelete).subscribe((res:any)=>{
+    if(res){this.fetchData()}
+  });
+  }
+private _self: Target;
+
 cancel() {
   this.open=false
 }
 showCloseButton: boolean=false;
+
+datatoDelete:any = {}
 
 clickEdit(data:any) {
   this.router.navigate(['/update'])
@@ -26,25 +39,17 @@ clickEdit(data:any) {
 }
 
 clickDelete(data:any) {
-  if (this.open == false){
-    this.open=true
-  }else 
-  {
-    this.open=false;
-    this.dataService.deleteRow(data).subscribe((res:any)=>{
-      if(res){this.fetchData()}
-    });
-    
-  }
+  this.datatoDelete = data;
+    this.open = true
 }
 
 clickDetails(data:any) {
   this.dataService.detailsRow(data)
 }
 
-@ViewChild("overflowMenuItemTemplate", { static: false })
-overflowMenuItemTemplate: TemplateRef<any> | undefined;
-secondOption: any;
+@ViewChild("overflowMenuItemTemplate")
+overflowMenuItemTemplate: TemplateRef<any>[] | undefined;
+
 
 navigateToRoute() {
 this.router.navigate(['/create'])
@@ -59,19 +64,17 @@ constructor(private router: Router, private dataService:DataService) {}
   ngOnInit() {
     this.fetchData();
   }
-
   fetchData(){
-
     const arryData: any=[]
   this.dataService.getData().subscribe((elements)=>{ 
   elements.forEach((element: any) => {
-    
     arryData.push([
       new TableItem({ data: element.firstName}),
       new TableItem({ data: element.lastName }),
       new TableItem({ data: element.dob }),
       new TableItem({ data: element.country }),
       new TableItem({ data: element.description }),
+      new TableItem({ data: element.gender}),
       new TableItem({ data: element.phone }),
       new TableItem({ data: element.email }),
       new TableItem({ data: element.jobTitle }),
@@ -99,6 +102,11 @@ this.model.data = arryData;
         className: 'my-class',
       }),
       new TableHeaderItem({
+        data: 'Gender',
+        dataType: 'advanced_select',
+        className: 'my-class',
+      }),
+      new TableHeaderItem({
         data: 'Country',
         dataType: 'select',
         title: 'my-class',
@@ -109,6 +117,7 @@ this.model.data = arryData;
         dataType: 'textarea',
         className: 'my-class',
       }),
+     
       new TableHeaderItem({
         data: 'Phone',
         dataType: 'text',
@@ -158,6 +167,8 @@ this.model.data = arryData;
   showCreateButton = false;
   showNextButton = true;
   showBacktButton = false;  
+
+  selectedIndex = null;
   
   nextStep() {
       if (this.current < this.maxStep) {
@@ -182,5 +193,4 @@ this.model.data = arryData;
   back() {
     this.router.navigate(['/crud'])
   }
-
 }

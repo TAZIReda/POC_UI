@@ -60,27 +60,16 @@
   ],
   "work": [
     {
-      "id": "9aab",
-      "firstName": "Smartest",
+      "id": "51e1",
+      "firstName": "Smartest 33",
       "lastName": "Algeria",
       "dob": "02/21/2019",
+      "gender": "Woman",
       "country": "USA",
       "description": "Tech Company ",
       "phone": "023234576",
       "email": "smartest@algeria.dz",
       "jobTitle": "Info",
-      "employer": "SOVAC"
-    },
-    {
-      "id": "e4f9",
-      "firstName": "Smartest",
-      "lastName": "Algeria",
-      "dob": "02/21/2019",
-      "country": "USA",
-      "description": "Tech Company ",
-      "phone": "023234576",
-      "email": "smartest@algeria.dz",
-      "jobTitle": "Odoo",
       "employer": "SOVAC"
     }
   ]
