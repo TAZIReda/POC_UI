@@ -3,7 +3,6 @@ import { TableHeaderItem, TableItem, TableModel,TableModule,DialogModule,NFormsM
 import { HeaderContentComponent } from "../header-content/header-content.component";
 import { Router } from '@angular/router';
 import { DataService } from '../../data.service';
-import { Target } from 'ui-components-lib/lib/components/dialog/overflow-menu/overflow-menu-option.component';
 
 
 @Component({
@@ -24,7 +23,6 @@ confirmDelete() {
     if(res){this.fetchData()}
   });
   }
-private _self: Target;
 
 cancel() {
   this.open=false
@@ -79,6 +77,7 @@ constructor(private router: Router, private dataService:DataService) {}
       new TableItem({ data: element.email }),
       new TableItem({ data: element.jobTitle }),
       new TableItem({ data: element.employer }),
+      new TableItem({ data: element.dow }),
       new TableItem({ data: element , template: this.overflowMenuItemTemplate })
     ]) 
  } 
@@ -141,7 +140,12 @@ this.model.data = arryData;
       new TableHeaderItem({ 
         data: 'Actions',
         dataType: 'string',
-        className: 'my-class', })
+        className: 'my-class', }),
+        new TableHeaderItem({
+          data: 'Date Of Work',
+          dataType: 'date',
+          className: 'my-class',
+        }),
     ];
 
     this.model.rowsSelectedChange.subscribe((event) => console.log(event));

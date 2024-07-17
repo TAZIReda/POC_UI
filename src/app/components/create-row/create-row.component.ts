@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { TableModule, NFormsModule, ProgressIndicatorModule,LoadingModule, FormComponent } from 'ui-components-lib';
+import { TableModule, NFormsModule, ProgressIndicatorModule,LoadingModule, FormComponent, range } from 'ui-components-lib';
 import { HeaderContentComponent } from "../header-content/header-content.component";
 import { DataService } from '../../data.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,8 +28,12 @@ export class CreateRowComponent {
 
 onCreate() {
   if(this.form && this.form.validateAll()){
+
+   const a : any = this.form_data.gender[0]
+   this.form_data.gender=a.content
     this.dataService.setData(this.form_data).subscribe(()=>{})
     this.router.navigate(['/crud'])
+
   }
 
 }
@@ -46,6 +50,7 @@ form_data=
     firstName:'Smartest',
     lastName:'Algeria',
     dob:'02/21/2019',
+    gender:'',
     country:'USA',
     description:'Tech Company ',
     phone:'023234576',
@@ -57,7 +62,7 @@ form_data=
 ;
 formControls=[
     
-  {
+{
   label:'First Name',
   type:'text',
   name:'firstName',
@@ -78,6 +83,7 @@ formControls=[
   type:'datepicker',
   name:'dob',
   options: {
+    label:'Date Of Birth',
     placeholder: 'Please enter your date of birth',
   },
 },
@@ -118,16 +124,18 @@ formControls=[
             ],
           },
 },
+{
+  label:'Height',
+  type:'number',
+  name:'tall',
+  options: {
+    displayFormat:"#0.## cm"
+ },
+},
     {
       label: 'Description',
       type: 'textarea',
       name: 'description',
-      validators: [
-        {
-          type: 'required',
-          Description: 'Description is required',
-        },
-      ],
       options: {
         invalidText: 'Description is required',
         disabled: false,
@@ -137,7 +145,8 @@ formControls=[
   ]
   
 
-formControls2=[ {
+formControls2=[ 
+  {
  
     label:'Phone',
     type:'text',
@@ -162,7 +171,8 @@ formControls2=[ {
         },
   }, ]
 
-formControls3=[{
+formControls3=[
+  {
  
     label:'Job Title',
     type:'text',
@@ -172,6 +182,61 @@ formControls3=[{
     label:'Employer',
     type:'text',
     name:'employer'
+  },
+  {
+    label:'Date Of start work',
+    type:'datepicker',
+    name:'dow',
+    options: {
+      placeholder: 'Please enter your date of birth',
+      range:true,
+      rangeLabel:'Date Of end work',
+      label:'Date Of start work'
+    },
+  }, 
+  {
+    label:'Hobies',
+    type:'advanced_select',
+    name:'hobies',
+    options: {
+      displaySelectedValues: true,
+      placeholder:"select hobies",
+      type:'multi',
+      isGrouped:'true',
+      items: [
+        
+
+            {parent:'Sport',
+            content: "Hiking"
+          },
+          {parent:'Sport',
+            content: "Kayaking"
+       
+          },
+        {parent:'literature',
+          content: "Reading"
+        },
+        {parent:'literature',
+          content: "Writing"
+        },
+        {parent:'Sport',
+          content: "Fishing"
+        },
+        {parent:'Sport',
+          content: "Surfing"
+        },
+        {parent:'Sport',
+          content: "Swiming"
+        },
+      ],
+     
+    },
+  },
+  {
+    label:'Do you agree with Terms',
+    type:'checkbox',
+    name:'agree',
+
   }, ]
 
 
