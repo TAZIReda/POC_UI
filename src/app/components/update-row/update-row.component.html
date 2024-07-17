@@ -1,1 +1,17 @@
-<p>update-row works!</p>
+<app-header-content></app-header-content>
+<div class="form">
+  <lib-form [formControls]="formControls" [(formData)]="form_data"></lib-form>
+
+</div>
+<div class="actions">
+  <button 
+  (click)="back()" ibmButton="ghost">Cancel
+</button>
+  <button
+
+  (click)="onCreate()"
+  ibmButton="primary"
+>
+  {{ isLoading ? "Creating..." : "Create" }}
+</button>
+</div>

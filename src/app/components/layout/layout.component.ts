@@ -10,38 +10,34 @@ import {
   TableHeaderItem,
   TableItem
 } from 'ui-components-lib';
-import { HeaderContentComponent } from "./components/header-content/header-content.component";
-@Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    imports: [
-        RouterOutlet,
-        PanelModule,
-        HeaderModule,
-        SideNavModule,
-        HeaderContentComponent,
-        TableModule,
-        HttpClientModule
-    ]
-})
-export class AppComponent {
-theme: any;
-expanded($event: MouseEvent) {
-this.active=! this.active
-}
-  title = 'POC_UI';
+import { HeaderContentComponent } from '../header-content/header-content.component';
 
+
+@Component({
+  selector: 'app-layout',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    PanelModule,
+    HeaderModule,
+    SideNavModule,
+    HeaderContentComponent,
+    TableModule,
+    HttpClientModule
+],
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.scss'
+})
+export class LayoutComponent {
+  model = new TableModel();
+  headerItems=[];
   active = true;
   simpleModel: TableModel;
+
   constructor() {
     this.simpleModel = new TableModel();
   }
-  model = new TableModel();
-
-  headerItems=[];
-
+  
   ngOnInit() {
     this.model.header = [
       new TableHeaderItem({
@@ -121,4 +117,7 @@ this.active=! this.active
    
   }
 
+  expanded($event: MouseEvent) {
+    this.active=! this.active
+    }
 }

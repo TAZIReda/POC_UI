@@ -49,6 +49,28 @@
       "date": [
         "2024-07-28T23:00:00.000Z"
       ]
+    },
+    {
+      "id": "3515",
+      "country": "USA",
+      "employer": "aaa",
+      "jobTitle": "asw",
+      "email": "qqqqqq"
+    }
+  ],
+  "work": [
+    {
+      "id": "51e1",
+      "firstName": "Smartest 33",
+      "lastName": "Algeria",
+      "dob": "02/21/2019",
+      "gender": "Woman",
+      "country": "USA",
+      "description": "Tech Company ",
+      "phone": "023234576",
+      "email": "smartest@algeria.dz",
+      "jobTitle": "Info",
+      "employer": "SOVAC"
     }
   ]
 }

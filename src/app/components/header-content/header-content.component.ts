@@ -4,7 +4,8 @@ import {
   PanelModule,
   SideNavModule,
   HeaderModule,
-  BreadcrumbModule
+  BreadcrumbModule,
+  Breadcrumb
 } from 'ui-components-lib';
 @Component({
   selector: 'app-header-content',
@@ -23,4 +24,5 @@ export class HeaderContentComponent {
   action =false;
   headerItems=[];
   title='CRUD Operations'
+  breadrums:Breadcrumb[]
 }
