@@ -1,76 +1,95 @@
 {
-  "form-data": [
-    {
-      "id": "8c44",
-      "a": 4
-    },
-    {
-      "id": "e10e",
-      "a": 9
-    }
-  ],
-  "form": [
-    {
-      "id": "41c7",
-      "number": 2
-    },
-    {
-      "id": "52cb",
-      "number": 2,
-      "date": [
-        "2024-07-23T23:00:00.000Z"
-      ],
-      "string": "ssss",
-      "Boolean": true
-    },
-    {
-      "id": "1d2d",
-      "number": 2
-    },
-    {
-      "id": "0b2b",
-      "number": 2,
-      "Boolean": true
-    },
-    {
-      "id": "1fea",
-      "number": 7,
-      "string": "row",
-      "Boolean": false,
-      "date": [
-        "2024-07-15T23:00:00.000Z"
-      ]
-    },
-    {
-      "id": "9e1c",
-      "number": 5,
-      "string": "true",
-      "Boolean": true,
-      "date": [
-        "2024-07-28T23:00:00.000Z"
-      ]
-    },
-    {
-      "id": "3515",
-      "country": "USA",
-      "employer": "aaa",
-      "jobTitle": "asw",
-      "email": "qqqqqq"
-    }
-  ],
   "work": [
     {
-      "id": "51e1",
-      "firstName": "Smartest 33",
-      "lastName": "Algeria",
-      "dob": "02/21/2019",
-      "gender": "Woman",
+      "id": "39c8",
+      "tall": 175,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "reda",
+      "lastName": "mohamed",
+      "dob": [
+        "1996-07-01"
+      ],
       "country": "USA",
-      "description": "Tech Company ",
-      "phone": "023234576",
+      "description": "Software engineer",
+      "phone": "112-222-2222",
+      "email": "mohamed@reda.dz",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Hiking",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Kayaking",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Fishing",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Surfing",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Swiming",
+          "selected": true
+        }
+      ],
+      "jobTitle": "Full stack developer",
+      "employer": "Smartest",
+      "dow": [
+        "2023-08-21",
+        "2024-07-17"
+      ],
+      "agree": true
+    },
+    {
+      "id": "4547",
+      "tall": 1,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "smartest",
+      "lastName": "algeria",
+      "dob": [
+        "2019-07-03"
+      ],
+      "country": "USA",
+      "description": "SMARTEST is an IT solutions provider",
+      "phone": "112-222-2222",
       "email": "smartest@algeria.dz",
-      "jobTitle": "Info",
-      "employer": "SOVAC"
+      "hobbies": [
+        {
+          "parent": "literature",
+          "content": "Reading",
+          "selected": true
+        },
+        {
+          "parent": "literature",
+          "content": "Writing",
+          "selected": true
+        }
+      ],
+      "jobTitle": "Oil & Gas",
+      "employer": "SOVAC",
+      "dow": [
+        "2024-07-08",
+        "2024-07-18"
+      ],
+      "agree": true
     }
   ]
 }

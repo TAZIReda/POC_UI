@@ -18,6 +18,9 @@ export class DataService {
   getData() {
   return this.http.get<any>('http://localhost:8000/work')
   }
+  getDataById(id:any) {
+    return this.http.get<any>('http://localhost:8000/work/'+id)
+    }
 
   deleteRow(data:any){
     return this.http.delete('http://localhost:8000/work/'+ data.id)
@@ -32,8 +35,8 @@ export class DataService {
     return this.data
   }
 
-  detailsRow(data:any){
-    this.router.navigate(['/details'])
+  detailsRow(id:any){
+    this.router.navigate(['/details',id])
   }
  a:any='';
   login(data:any):Observable<Boolean>{

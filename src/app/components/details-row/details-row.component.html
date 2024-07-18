@@ -1,1 +1,18 @@
-<p>details-row works!</p>
+<app-header-content title="Details {{data.firstName}} {{data.lastName}}" [breadcrumps]="breadcrumps"></app-header-content>
+<cds-tabs
+			[type]="'line'"
+			[followFocus]="true"
+			[isNavigation]="true"
+			[cacheActive]="true">
+			<cds-tab heading="Personal Informations">
+                <lib-form #form [formControls]="formControls" [(formData)]="form_data"></lib-form>
+
+
+            </cds-tab>
+			<cds-tab heading="Contact">
+                <lib-form #form [formControls]="formControls2" [(formData)]="form_data"></lib-form>
+            </cds-tab>
+			<cds-tab heading="Professional Informations">
+                <lib-form #form [formControls]="formControls3" [(formData)]="form_data"></lib-form>
+            </cds-tab>
+		</cds-tabs>

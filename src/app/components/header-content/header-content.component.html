@@ -5,20 +5,18 @@
     </div>
     <div class="header_content">
         <div class="breadcrumb">
-            <cds-breadcrumb [noTrailingSlash]="true">
-                <cds-breadcrumb-item href="#1">
-                    Breadcrumb 1
+            <cds-breadcrumb [items]="breadcrumps" [noTrailingSlash]="true">
+
+               
+                <!-- <cds-breadcrumb-item *ngIf="breadcrumps[1]" href="{{breadcrumps[1].route}}">
+                    {{breadcrumps[1].title}}
                 </cds-breadcrumb-item>
-                <cds-breadcrumb-item href="#2">
-                    Breadcrumb 2
-                </cds-breadcrumb-item>
-                <cds-breadcrumb-item href="#3">
-                    Breadcrumb 3
-                </cds-breadcrumb-item>
+                <cds-breadcrumb-item *ngIf="breadcrumps[2]" href="{{breadcrumps[2].route}}">
+                    {{breadcrumps[2].title}}
+                </cds-breadcrumb-item> -->
             </cds-breadcrumb>
           </div>
           <div class="action" *ngIf="action">
-            ssss
           </div>
     </div>
   

@@ -26,40 +26,19 @@ export class CreateRowComponent {
 
 @ViewChild("form") form:FormComponent
 
-onCreate() {
-  if(this.form && this.form.validateAll()){
-
-   const a : any = this.form_data.gender[0]
-   this.form_data.gender=a.content
-    this.dataService.setData(this.form_data).subscribe(()=>{})
-    this.router.navigate(['/crud'])
-
-  }
-
-}
-
   constructor(
     private dataService :DataService,
     private router: Router
   ){}
+  breadcrumps=[{
+    content:'Users',
+    href:'users'
+  },{
+    content:'Create',
+  },
+  ]
 
-
-form_data=
-
-  {
-    firstName:'Smartest',
-    lastName:'Algeria',
-    dob:'02/21/2019',
-    gender:'',
-    country:'USA',
-    description:'Tech Company ',
-    phone:'023234576',
-    email:'smartest@algeria.dz',
-    jobTitle:'Info',
-    employer:'SOVAC'
-
-  }
-;
+form_data:any = {};
 formControls=[
     
 {
@@ -69,6 +48,11 @@ formControls=[
   options: {
     placeholder: 'Your First Name',
   },
+  validators: [
+    {
+      type: 'required',
+    },
+  ],
 },
 {
   label:'Last Name',
@@ -77,6 +61,11 @@ formControls=[
   options: {
     placeholder: 'Your Last Name',
   },
+  validators: [
+    {
+      type: 'required',
+    },
+  ],
 },
 {
   label:'Date Of Birth',
@@ -86,6 +75,11 @@ formControls=[
     label:'Date Of Birth',
     placeholder: 'Please enter your date of birth',
   },
+  validators: [
+    {
+      type: 'required',
+    },
+  ],
 },
 {
   label:'Gender',
@@ -105,6 +99,11 @@ formControls=[
     ],
    
   },
+  validators: [
+    {
+      type: 'required',
+    },
+  ],
 },
 {
   label:'Country',
@@ -123,6 +122,11 @@ formControls=[
               { label: 'UK', value: 'UK' },
             ],
           },
+          validators: [
+            {
+              type: 'required',
+            },
+          ],
 },
 {
   label:'Height',
@@ -154,6 +158,12 @@ formControls2=[
     options: {
       placeholder: 'Please enter your phone number',
     },
+    validators: [
+      {
+        type: 'regexp',
+        pattern:'^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$'
+      },
+    ],
   },
   
   {
@@ -161,9 +171,9 @@ formControls2=[
     type:'text',
     name:'email',
           validators: [
-          {
-            type: 'required',
-            // patern: '^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+         {
+            type: 'regexp',
+            pattern:'^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$'
           },
         ],
         options: {
@@ -173,15 +183,30 @@ formControls2=[
 
 formControls3=[
   {
- 
     label:'Job Title',
     type:'text',
-    name:'jobTitle'
+    name:'jobTitle',
+    options: {
+      placeholder: 'Please enter your Job',
+    },
+    validators: [
+      {
+        type: 'required',
+      },
+    ],
   },
   {
     label:'Employer',
     type:'text',
-    name:'employer'
+    name:'employer',
+    options: {
+      // placeholder: 'Please enter your employer',
+    },
+    validators: [
+      {
+        type: 'required',
+      },
+    ],
   },
   {
     label:'Date Of start work',
@@ -193,14 +218,15 @@ formControls3=[
       rangeLabel:'Date Of end work',
       label:'Date Of start work'
     },
+   
   }, 
   {
-    label:'Hobies',
+    label:'Hobbies',
     type:'advanced_select',
-    name:'hobies',
+    name:'hobbies',
     options: {
       displaySelectedValues: true,
-      placeholder:"select hobies",
+      placeholder:"select hobbies",
       type:'multi',
       isGrouped:'true',
       items: [
@@ -235,9 +261,8 @@ formControls3=[
   {
     label:'Do you agree with Terms',
     type:'checkbox',
-    name:'agree',
-
-  }, ]
+    name:'agree'
+  } ]
 
 
 steps = [
@@ -289,5 +314,25 @@ back() {
   this.router.navigate(['/crud'])
 
 }
+onCreate() {
+
+  if(this.form && this.form.validateAll()){
+
+
+   this.form_data.dow = this.form_data.dow.map((dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0]; 
+   });
+   this.form_data.dob = this.form_data.dob.map((dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0]; 
+   });
+    this.dataService.setData(this.form_data).subscribe(()=>{})
+    this.router.navigate(['/users'])
+
+  }
+
+}
+
 
 }

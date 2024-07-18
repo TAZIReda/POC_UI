@@ -18,7 +18,7 @@ export const routes: Routes = [
     component:LayoutComponent,
     children:[
         {
-            path:'crud',
+            path:'users',
             component:CrudComponent
         },{
             path:'widgets',
@@ -32,7 +32,7 @@ export const routes: Routes = [
             component:UpdateRowComponent
         },
         {
-            path:'details',
+            path:'details/:id',
             component:DetailsRowComponent
         },
     ]

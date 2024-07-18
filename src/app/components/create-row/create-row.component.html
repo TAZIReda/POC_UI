@@ -1,4 +1,4 @@
-<app-header-content></app-header-content>
+<app-header-content title="Create" [breadcrumps]="breadcrumps"></app-header-content>
 
 <div class="grid_container">
   <div
@@ -10,7 +10,7 @@
       [current]="current"
       [spacing]="'default'"
     >
-    </ibm-progress-indicator>
+    </ibm-progress-indicator> 
   </div>
   <div class="bx--col-lg-14 bx--col-md-13" [ngSwitch]="current">
     <div class="form"><ibm-loading
@@ -28,7 +28,7 @@
   
       </ng-container>
       <ng-container  *ngSwitchCase="2">
-        <lib-form #form [formControls]="formControls3" [(formData)]="form_data"></lib-form>
+        <lib-form #form  [formControls]="formControls3" [(formData)]="form_data"></lib-form>
   
       </ng-container>
     </div>

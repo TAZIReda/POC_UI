@@ -22,19 +22,27 @@ export class UpdateRowComponent {
     private dataService :DataService,
     private router: Router
   ){}
-
+  form_data={};
+  data:any
 ngOnInit(){
   this.form_data= this.dataService.update()
+  this.data=this.form_data
 }
+breadcrumps=[{
+  content:'Users',
+  href:'users'
+},{
+  content:'Edit',
+},
+]
 
 
   onCreate() {
     this.dataService.updateRow(this.form_data).subscribe(()=>{})
-    this.router.navigate(['/crud'])
+    this.router.navigate(['/users'])
   }
 
-form_data={}
-;
+
 
 
 formControls=[
@@ -42,64 +50,112 @@ formControls=[
     label:'Personal Information',
   type:'group',
   name:'personal',
-  items:[  {
-    label:'First Name',
-    type:'text',
-    name:'firstName',
-    options: {
-      placeholder: 'Your First Name',
+  items:[    
+    {
+      label:'First Name',
+      type:'text',
+      name:'firstName',
+      options: {
+        placeholder: 'Your First Name',
+      },
+      validators: [
+        {
+          type: 'required',
+        },
+      ],
     },
-  },
-  {
-    label:'Last Name',
-    type:'text',
-    name:'lastName',
-    options: {
-      placeholder: 'Your Last Name',
+    {
+      label:'Last Name',
+      type:'text',
+      name:'lastName',
+      options: {
+        placeholder: 'Your Last Name',
+      },
+      validators: [
+        {
+          type: 'required',
+        },
+      ],
     },
-  },
-  {
-    label:'Date Of Birth',
-    type:'datepicker',
-    name:'dob',
-    options: {
-      placeholder: 'Please enter your date of birth',
+    {
+      label:'Date Of Birth',
+      type:'datepicker',
+      name:'dob',
+      options: {
+        placeholder: 'Please enter your date of birth',
+      },
+      validators: [
+        {
+          type: 'required',
+        },
+      ],
     },
-  },
-  {
-    label:'Country',
-    type:'select',
-    name:'country',
-    options: {
-             
-              invalidText: 'Country ',
-              invalid: true,
-              warn: false,
-              warnText: '',
-              display: '',
-              options: [
-                { label: 'USA', value: 'USA' },
-                { label: 'Canada', value: 'Canada' },
-                { label: 'UK', value: 'UK' },
-              ],
-            },
-  },
-  {
-        label: 'Description',
-        type: 'textarea',
-        name: 'description',
-        validators: [
+    {
+      label:'Gender',
+      type:'advanced_select',
+      name:'gender',
+      options: {
+        displaySelectedValues: false,
+        placeholder:"select your gender",
+        type:'single',
+        items: [
           {
-            type: 'required',
-            Description: 'Description is required',
+            content: "Man"
+          },
+          {
+            content: "Woman"
           },
         ],
-        options: {
-          invalidText: 'Description is required',
-          disabled: false,
-          placeholder: 'Enter your Description',
+       
+      },
+      validators: [
+        {
+          type: 'required',
         },
-  },  ]
+      ],
+    },
+    {
+      label:'Country',
+      type:'select',
+      name:'country',
+      options: {
+               
+                invalidText: 'Country ',
+                invalid: true,
+                warn: false,
+                warnText: '',
+                display: '',
+                options: [
+                  { label: 'USA', value: 'USA' },
+                  { label: 'Canada', value: 'Canada' },
+                  { label: 'UK', value: 'UK' },
+                ],
+              },
+              validators: [
+                {
+                  type: 'required',
+                },
+              ],
+    },
+    {
+      label:'Height',
+      type:'number',
+      name:'tall',
+      options: {
+        displayFormat:"#0.## cm"
+     },
+    },
+        {
+          label: 'Description',
+          type: 'textarea',
+          name: 'description',
+          options: {
+            invalidText: 'Description is required',
+            disabled: false,
+            placeholder: 'Enter your Description',
+          },
+        },
+      ] 
   },
   {
     label:'Contact',
@@ -135,16 +191,80 @@ formControls=[
     type:'group',
     name:'professional',
     items:[ 
-
       {
         label:'Job Title',
         type:'text',
-        name:'jobTitle'
+        name:'jobTitle',
+        validators: [
+          {
+            type: 'required',
+          },
+        ],
       },
       {
         label:'Employer',
         type:'text',
-        name:'employer'
+        name:'employer',
+        validators: [
+          {
+            type: 'required',
+          },
+        ],
+      },
+      {
+        label:'Date Of work',
+        type:'datepicker',
+        name:'dow',
+        options: {
+          placeholder: 'Please enter your date of birth',
+          range:true,
+          rangeLabel:'Date Of end work',
+          label:'Date Of start work'
+        },
+       
+      }, 
+      {
+        label:'Hobbies',
+        type:'advanced_select',
+        name:'hobbies',
+        options: {
+          displaySelectedValues: true,
+          placeholder:"select hobbies",
+          type:'multi',
+          isGrouped:'true',
+          items: [
+            
+    
+                {parent:'Sport',
+                content: "Hiking"
+              },
+              {parent:'Sport',
+                content: "Kayaking"
+           
+              },
+            {parent:'literature',
+              content: "Reading"
+            },
+            {parent:'literature',
+              content: "Writing"
+            },
+            {parent:'Sport',
+              content: "Fishing"
+            },
+            {parent:'Sport',
+              content: "Surfing"
+            },
+            {parent:'Sport',
+              content: "Swiming"
+            },
+          ],
+         
+        },
+      },
+      {
+        label:'Do you agree with Terms',
+        type:'checkbox',
+        name:'agree'
       },
     ]
   },
@@ -191,7 +311,7 @@ PreviousStep() {
 }
 
 back() {
-  this.router.navigate(['/crud'])
+  this.router.navigate(['/users'])
 
 }
 
