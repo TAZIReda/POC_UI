@@ -22,3 +22,13 @@
   ::ng-deep .cds--btn--primary{
     width: 100%;
   }
+
+  .check-field{
+display: grid;
+grid-template-columns: 1fr 3fr;
+ margin-bottom: 10px;
+  }
+
+  ::ng-deep .check-field .cds--label {
+    margin-top: 4px
+}
