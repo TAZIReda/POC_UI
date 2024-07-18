@@ -51,8 +51,10 @@ formControls=[
   validators: [
     {
       type: 'required',
+      message: 'First Name is required'
     },
   ],
+ 
 },
 {
   label:'Last Name',
@@ -64,6 +66,7 @@ formControls=[
   validators: [
     {
       type: 'required',
+      message: 'Last Name is required'
     },
   ],
 },
@@ -78,6 +81,7 @@ formControls=[
   validators: [
     {
       type: 'required',
+      message: 'Date Of Birth is required'
     },
   ],
 },
@@ -102,6 +106,7 @@ formControls=[
   validators: [
     {
       type: 'required',
+      message: 'Gender is required'
     },
   ],
 },
@@ -125,6 +130,7 @@ formControls=[
           validators: [
             {
               type: 'required',
+              message: 'Country is required'
             },
           ],
 },
@@ -141,7 +147,6 @@ formControls=[
       type: 'textarea',
       name: 'description',
       options: {
-        invalidText: 'Description is required',
         disabled: false,
         placeholder: 'Enter your Description',
       },
@@ -156,12 +161,13 @@ formControls2=[
     type:'text',
     name:'phone',
     options: {
-      placeholder: 'Please enter your phone number',
+      placeholder: '111-111-1111',
     },
     validators: [
       {
         type: 'regexp',
-        pattern:'^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$'
+        pattern:'^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$',
+        message:'Invalid Format Number'
       },
     ],
   },
@@ -173,11 +179,12 @@ formControls2=[
           validators: [
          {
             type: 'regexp',
-            pattern:'^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$'
+            pattern:'^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$',
+            message:'Invalid Format Email'
           },
         ],
         options: {
-          placeholder: 'Please enter your email',
+          placeholder: 'example123@exam.com',
         },
   }, ]
 
@@ -192,6 +199,7 @@ formControls3=[
     validators: [
       {
         type: 'required',
+        message: 'Job Title is required'
       },
     ],
   },
@@ -200,11 +208,11 @@ formControls3=[
     type:'text',
     name:'employer',
     options: {
-      // placeholder: 'Please enter your employer',
     },
     validators: [
       {
         type: 'required',
+        message: 'Employer is required'
       },
     ],
   },
