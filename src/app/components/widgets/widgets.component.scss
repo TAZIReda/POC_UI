@@ -1,0 +1,24 @@
+.container{
+    display: grid;
+    grid-template-columns: 3fr 1fr; 
+}
+
+.side_nav{
+    background-color: rgb(245, 245, 245);
+}
+
+::ng-deep .cds--label {
+    margin-block-end:0;
+}
+
+.form-field {
+    margin-bottom: 16px; /* Adjust the spacing as per your design */
+  }
+
+  .button-field{
+    margin-top: 8px;
+  }
+
+  ::ng-deep .cds--btn--primary{
+    width: 100%;
+  }

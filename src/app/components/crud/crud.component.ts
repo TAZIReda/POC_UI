@@ -45,7 +45,7 @@ clickDetails(data:any) {
   this.dataService.detailsRow(data.id)
 }
 breadcrumps=[{
-  content:'Users',
+  // content:'Users',
 
 },
 ]
