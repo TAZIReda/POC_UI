@@ -1,17 +1,17 @@
-<app-header-content></app-header-content>
+<app-header-content title="Edit {{data.firstName}} {{data.lastName}} "[breadcrumps]="breadcrumps"></app-header-content>
 <div class="form">
   <lib-form [formControls]="formControls" [(formData)]="form_data"></lib-form>
-
 </div>
+
 <div class="actions">
   <button 
   (click)="back()" ibmButton="ghost">Cancel
 </button>
-  <button
 
+  <button
   (click)="onCreate()"
   ibmButton="primary"
 >
-  {{ isLoading ? "Creating..." : "Create" }}
+Save
 </button>
 </div>

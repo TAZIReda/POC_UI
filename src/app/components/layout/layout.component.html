@@ -1,20 +1,17 @@
 <div class="container" >
     <cds-header name="[Platform]" [brand]="'Smartest'">
       <cds-hamburger (click)="expanded($event)" style="color: white;"></cds-hamburger>
-      <cds-header-navigation [navigationItems]="headerItems">
-      </cds-header-navigation>
     </cds-header>
   
 <div class="nav">
-  <cds-sidenav [navigationItems]="headerItems" [expanded]="active" style="margin-top: 3rem;border-right: 1px solid rgb(210, 210, 210);">
+  <cds-sidenav  [expanded]="active" style="margin-top: 3rem;border-right: 1px solid rgb(210, 210, 210);">
     
-    <cds-sidenav-item [route]="['crud']">
+    <cds-sidenav-item [route]="['users']">
       <svg cdsIcon="fade" size="16"></svg>
-      CRUD
-    </cds-sidenav-item>
+Users    </cds-sidenav-item>
     <cds-sidenav-item [route]="['widgets']">
       <svg cdsIcon="fade" size="16"></svg>
-      Widgets
+      Widget settings
     </cds-sidenav-item>
 </cds-sidenav>
 </div>
