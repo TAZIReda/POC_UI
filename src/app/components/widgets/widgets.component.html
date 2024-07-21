@@ -1,1 +1,140 @@
-<p>widgets works!</p>
+<app-header-content title="Widget settings"[breadcrumps]="breadcrumps"></app-header-content>
+<div class="container">
+    <div class="charts">
+    </div>
+    <div class="side_nav">
+    
+        <cds-tabs
+			[type]="'line'"
+			[followFocus]="true"
+			[isNavigation]="true"
+			[cacheActive]="true">
+			<cds-tab heading="Content">
+             
+                <div class="form-field">
+                  <cds-label>Name</cds-label>
+                  <cds-text-label [(value)]="nameValue"></cds-text-label>
+                </div>
+              
+                <div class="form-field">
+                  <cds-label>Description</cds-label>
+                  <cds-textarea-label [(value)]="descriptionValue"></cds-textarea-label>
+                </div>
+              
+                <div class="form-field">
+                  <cds-label>Wellbore</cds-label>
+                  <cds-combo-box [items]="wellboreData" [(values)]="wellboreValue">
+                    <cds-dropdown-list></cds-dropdown-list>
+                  </cds-combo-box>
+                </div>
+              
+                <div class="form-field">
+                  <cds-label>Operations</cds-label>
+                  <cds-combo-box [items]="operationsData" [(values)]="operationsValue">
+                    <cds-dropdown-list></cds-dropdown-list>
+                  </cds-combo-box>
+                </div>
+              
+                <div class="form-field">
+                  <cds-label>Section</cds-label>
+                  <cds-combo-box [items]="sectionData" [(values)]="sectionValue" [type]="'multi'">
+                    <cds-dropdown-list></cds-dropdown-list>
+                  </cds-combo-box>
+                </div>
+              
+                <div class="form-field">
+                  <cds-label>Tubular</cds-label>
+                  <cds-combo-box [items]="tubularData" [(values)]="tubularValue" [type]="'multi'">
+                    <cds-dropdown-list></cds-dropdown-list>
+                  </cds-combo-box>
+                </div>
+              
+                <div class="form-field">
+                  <cds-label>Entity</cds-label>
+                  <lib-tag-box [availableItems]="availableItems"></lib-tag-box>
+                </div>
+              
+                <div class="button-field">
+                  <custom-button style="width: 100%;" (click)="apply()">Apply</custom-button>
+                </div>
+              
+            </cds-tab>
+			<cds-tab heading="Settings">
+                <div class="form-field">
+                <cds-label>Chart Type</cds-label>
+                <cds-combo-box [items]="chartTypeData"  [(values)]="chartTypeValue" (valuesChange)="updateDate($event)"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
+                </div>
+                <div class="chart_type">
+
+                    <div class="chart_type_line_or_bar" *ngIf="chartValue === 'Bar' || chartValue === 'Line'"> 
+
+                        <div class="form-field">
+                           <cds-label>X Axis Name</cds-label>
+                           <cds-text-label [(value)]="xAxisName" ></cds-text-label>
+                        </div>
+
+                        <div class="form-field">
+                            <cds-label>X Axis Unit</cds-label>
+                            <cds-combo-box  [items]="yUnitData" [(values)]="yUnitValue"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
+                        </div>
+                      
+                        <div class="form-field">
+                            <cds-label>X Axis Min</cds-label>
+                            <cds-number [(value)]="xMin"></cds-number>
+                        </div>
+                
+                    <div class="form-field">
+                            <cds-label>X Axis Max</cds-label>
+                            <cds-number [(value)]="xMax"></cds-number>
+                        </div>
+                        
+                        <div class="form-field">
+                            <cds-label>Y Axis Name</cds-label>
+                            <cds-text-label [(value)]="yName"></cds-text-label>
+                        </div>
+                   
+                         <div class="form-field">
+                            <cds-label>Y Axis Unit</cds-label>
+                            <cds-combo-box [items]="xUnitData" [(values)]="xUnitValue"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
+                        </div>
+                      
+                          <div class="form-field">
+                            <cds-label>Y Axis Min</cds-label>
+                            <cds-number [(value)]="yMin"></cds-number>
+                        </div>
+
+                        <div class="form-field">
+                            <cds-label>Y Axis Max</cds-label>
+                            <cds-number [(value)]="yMax"></cds-number>
+                        </div>
+                        
+                    </div>
+                    <div class="chart_type_pie" *ngIf="chartValue === 'Pie'">
+
+                         <div class="form-field">         
+                             <cds-label>Pie size</cds-label>
+                         <cds-number [displayFormat]="format" [min]="0" [max]="100" [(value)]="pieSize"></cds-number>
+                    </div>
+                </div>
+
+           <div class="check-field">
+            
+            <cds-checkbox [(checked)]="legendState"></cds-checkbox>
+            <cds-label>Show legend</cds-label>
+           </div>
+
+
+           <div class="form-field">
+            <cds-label>Legend position</cds-label>
+            <cds-combo-box [items]="positions" [(values)]="positionLegendValue"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
+           </div>
+
+                </div>
+                <div class="button-field">
+                <custom-button (click)="applySettings()">Apply</custom-button>
+                </div>
+            </cds-tab>
+		</cds-tabs>
+    </div>
+
+</div>

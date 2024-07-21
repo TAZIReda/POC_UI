@@ -17,11 +17,13 @@ import { DataService } from '../../data.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-a={}
+
+isUser = {}
+
 login() {
-  this.a=this.dataService.login(this.form_data)
-  if(this.a === true){
-this.router.navigate(['crud'])
+  this.isUser = this.dataService.login(this.form_data)
+  if(this.isUser === true){
+this.router.navigate(['users'])
   }else{
     alert('invalid password or username')
   }
@@ -53,9 +55,4 @@ formControls=[
   },
 },
 ]
-
-back() {
-  this.router.navigate(['/crud'])
-
-}
 }

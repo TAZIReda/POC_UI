@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   PanelModule,
@@ -20,9 +20,9 @@ import {
   styleUrl: './header-content.component.scss'
 })
 export class HeaderContentComponent {
+  @Input() title:string;
+  @Input() breadcrumps:any [];
   active = true;
   action =false;
   headerItems=[];
-  title='CRUD Operations'
-  breadrums:Breadcrumb[]
 }

@@ -27,10 +27,6 @@ import { HeaderContentComponent } from "./components/header-content/header-conte
     ]
 })
 export class AppComponent {
-theme: any;
-expanded($event: MouseEvent) {
-this.active=! this.active
-}
   title = 'POC_UI';
 
   active = true;

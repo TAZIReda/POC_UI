@@ -32,8 +32,7 @@ showCloseButton: boolean=false;
 datatoDelete:any = {}
 
 clickEdit(data:any) {
-  this.router.navigate(['/update'])
-  this.dataService.updateRow(data)
+  this.dataService.updateRow(data.id)
 }
 
 clickDelete(data:any) {
@@ -42,9 +41,12 @@ clickDelete(data:any) {
 }
 
 clickDetails(data:any) {
-  this.dataService.detailsRow(data)
+  this.dataService.detailsRow(data.id)
 }
+breadcrumps=[{
 
+},
+]
 @ViewChild("overflowMenuItemTemplate")
 overflowMenuItemTemplate: TemplateRef<any>[] | undefined;
 
@@ -66,25 +68,40 @@ constructor(private router: Router, private dataService:DataService) {}
     const arryData: any=[]
   this.dataService.getData().subscribe((elements)=>{ 
   elements.forEach((element: any) => {
+  element.hobbies = element.hobbies.map((hobby: any) => hobby.content);
+  element.dow = element.dow.map((dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0]; 
+   });
+   element.dob = element.dob.map((dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0]; 
+   });
+    element.gender = element.gender[0].content
     arryData.push([
       new TableItem({ data: element.firstName}),
       new TableItem({ data: element.lastName }),
       new TableItem({ data: element.dob }),
+      new TableItem({ data: element.gender }),
       new TableItem({ data: element.country }),
+      new TableItem({ data: element.tall }),
       new TableItem({ data: element.description }),
-      new TableItem({ data: element.gender}),
       new TableItem({ data: element.phone }),
       new TableItem({ data: element.email }),
       new TableItem({ data: element.jobTitle }),
       new TableItem({ data: element.employer }),
       new TableItem({ data: element.dow }),
+      new TableItem({ data: element.hobbies }),
+      new TableItem({ data: element.agree }),
       new TableItem({ data: element , template: this.overflowMenuItemTemplate })
     ]) 
  } 
 )
+
 this.model.data = arryData;
 });
-    this.model.header = [
+
+const myHeaders= [
       new TableHeaderItem({
         data: 'First Name',
         dataType: 'string',
@@ -110,13 +127,16 @@ this.model.data = arryData;
         dataType: 'select',
         title: 'my-class',
       }),
-      
+      new TableHeaderItem({
+        data: 'Height (cm)',
+        dataType: 'string',
+        title: 'my-class',
+      }),
       new TableHeaderItem({
         data: 'Description',
         dataType: 'textarea',
         className: 'my-class',
       }),
-     
       new TableHeaderItem({
         data: 'Phone',
         dataType: 'text',
@@ -137,16 +157,30 @@ this.model.data = arryData;
         dataType: 'text',
         className: 'my-class',
       }),
+      new TableHeaderItem({
+        data: 'Date Of Work',
+        dataType: 'date',
+        className: 'my-class',
+      }),
+         new TableHeaderItem({
+          data: 'Hobbies',
+          dataType: 'advanced_select',
+          className: 'my-class',
+        }),
+        new TableHeaderItem({
+          data: 'Agree',
+          dataType: 'boolean',
+          className: 'my-class',
+        }),
       new TableHeaderItem({ 
         data: 'Actions',
         dataType: 'string',
-        className: 'my-class', }),
-        new TableHeaderItem({
-          data: 'Date Of Work',
-          dataType: 'date',
-          className: 'my-class',
-        }),
+        className: 'my-class',
+       }),
+
     ];
+
+    this.model.initializeHeaders(myHeaders)
 
     this.model.rowsSelectedChange.subscribe((event) => console.log(event));
     this.model.selectAllChange.subscribe((event) =>
@@ -195,6 +229,6 @@ this.model.data = arryData;
   }
 
   back() {
-    this.router.navigate(['/crud'])
+    this.router.navigate(['/users'])
   }
 }

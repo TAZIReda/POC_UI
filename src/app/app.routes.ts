@@ -21,7 +21,7 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'crud',
+        path: 'users',
         component: CrudComponent,
       },
       {
@@ -45,11 +45,11 @@ export const routes: Routes = [
         component: CreateRowComponent,
       },
       {
-        path: 'update',
+        path: 'update/:id',
         component: UpdateRowComponent,
       },
       {
-        path: 'details',
+        path: 'details/:id',
         component: DetailsRowComponent,
       },
     ],

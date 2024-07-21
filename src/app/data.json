@@ -1,100 +1,207 @@
 {
-  "form-data": [
-    {
-      "id": "8c44",
-      "a": 4
-    },
-    {
-      "id": "e10e",
-      "a": 9
-    }
-  ],
-  "form": [
-    {
-      "id": "41c7",
-      "number": 2
-    },
-    {
-      "id": "52cb",
-      "number": 2,
-      "date": [
-        "2024-07-23T23:00:00.000Z"
-      ],
-      "string": "ssss",
-      "Boolean": true
-    },
-    {
-      "id": "1d2d",
-      "number": 2
-    },
-    {
-      "id": "0b2b",
-      "number": 2,
-      "Boolean": true
-    },
-    {
-      "id": "1fea",
-      "number": 7,
-      "string": "row",
-      "Boolean": false,
-      "date": [
-        "2024-07-15T23:00:00.000Z"
-      ]
-    },
-    {
-      "id": "9e1c",
-      "number": 5,
-      "string": "true",
-      "Boolean": true,
-      "date": [
-        "2024-07-28T23:00:00.000Z"
-      ]
-    },
-    {
-      "id": "3515",
-      "country": "USA",
-      "employer": "aaa",
-      "jobTitle": "asw",
-      "email": "qqqqqq"
-    }
-  ],
   "work": [
     {
-      "id": "51e1",
-      "firstName": "Smartest 33",
-      "lastName": "Algeria",
-      "dob": "02/21/2019",
-      "gender": "Woman",
-      "country": "UK",
-      "description": "Tech Company ",
-      "phone": "023234576",
-      "email": "smartest@algeria.dz",
-      "jobTitle": "Info",
-      "employer": "SOVAC"
+      "id": "bdfd",
+      "tall": 123,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "lastName": "Alpha",
+      "firstName": "User",
+      "dob": [
+        "2013-07-03"
+      ],
+      "country": "Canada",
+      "description": "User alpha description",
+      "phone": "112-222-2222",
+      "email": "userAlpha@example.com",
+      "hobbies": [
+        {
+          "parent": "literature",
+          "content": "Writing",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Fishing",
+          "selected": true
+        }
+      ],
+      "jobTitle": "Data Analyst",
+      "employer": "Smartest",
+      "dow": [
+        "2024-06-30",
+        "2024-08-09"
+      ],
+      "agree": true
     },
     {
-      "id": "9d78",
-      "firstName": "Smartest",
-      "lastName": "Algeria",
-      "dob": "02/21/2019",
-      "gender": "Man",
+      "id": "921c",
+      "tall": 120,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "user",
+      "lastName": "alpha",
+      "dob": [
+        "2024-06-30"
+      ],
       "country": "USA",
-      "description": "Tech Company ",
-      "phone": "023234576",
-      "email": "smartest@algeria.dz",
-      "jobTitle": "Info",
-      "employer": "SOVAC",
+      "description": "desc",
+      "phone": "112-222-2222",
+      "email": "example123@example.com",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Hiking",
+          "selected": true
+        },
+        {
+          "parent": "literature",
+          "content": "Reading",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Fishing",
+          "selected": true
+        }
+      ],
+      "dow": [
+        "2024-07-01",
+        "2024-07-03"
+      ],
+      "jobTitle": "Oil & Gas",
+      "employer": "Smartest",
+      "agree": true
+    },
+    {
+      "id": "28c2",
       "tall": null,
-      "hobies": [
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "reda",
+      "lastName": "s",
+      "dob": [
+        "2024-07-01T23:00:00.000Z"
+      ],
+      "country": "Canada",
+      "description": "sqsqx",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Kayaking",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Fishing",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Surfing",
+          "selected": true
+        }
+      ],
+      "jobTitle": "DFVD",
+      "employer": "DFV",
+      "dow": [
+        "2024-07-02T23:00:00.000Z",
+        "2024-07-12T23:00:00.000Z"
+      ],
+      "agree": true
+    },
+    {
+      "id": "aa89",
+      "tall": null,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "wccccc",
+      "lastName": "Smartest",
+      "dob": [
+        "2024-07-01T23:00:00.000Z"
+      ],
+      "description": "zrthhrt",
+      "country": "USA",
+      "phone": "111-111-1111",
+      "email": "azdzd@sjs.com",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Hiking",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Kayaking",
+          "selected": true
+        }
+      ],
+      "jobTitle": "zda",
+      "employer": "sqdqz",
+      "dow": [
+        "2024-07-02T23:00:00.000Z",
+        "2024-07-17T23:00:00.000Z"
+      ],
+      "agree": true
+    },
+    {
+      "id": "59fa",
+      "tall": 230,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "Last",
+      "lastName": "Test updated",
+      "dob": [
+        "2024-07-20T23:00:00.000Z"
+      ],
+      "country": "USA",
+      "description": "desc test",
+      "phone": "112-222-2222",
+      "email": "smartest@algeria.dz",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Hiking",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Kayaking",
+          "selected": true
+        },
         {
           "parent": "literature",
           "content": "Reading",
           "selected": true
         }
       ],
+      "jobTitle": "Oil & Gas",
+      "employer": "Smartest",
       "dow": [
-        "2024-07-03T23:00:00.000Z",
-        "2024-07-11T23:00:00.000Z"
+        "2024-06-29T23:00:00.000Z",
+        "2024-06-30T23:00:00.000Z"
       ],
       "agree": true
     }
@@ -999,654 +1106,6 @@
       "rpo": 101,
       "hkld": 6,
       "id": "5495"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 11,
-      "tqa": 21,
-      "rpm": 5001,
-      "tid": 1235,
-      "dmea": 51,
-      "dbtm": 31,
-      "rpo": 101,
-      "hkld": 6,
-      "id": "1668"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 12,
-      "tqa": 22,
-      "rpm": 5002,
-      "tid": 1236,
-      "dmea": 52,
-      "dbtm": 32,
-      "rpo": 102,
-      "hkld": 7,
-      "id": "a167"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 13,
-      "tqa": 23,
-      "rpm": 5003,
-      "tid": 1237,
-      "dmea": 53,
-      "dbtm": 33,
-      "rpo": 103,
-      "hkld": 8,
-      "id": "d2c0"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 14,
-      "tqa": 24,
-      "rpm": 5004,
-      "tid": 1238,
-      "dmea": 54,
-      "dbtm": 34,
-      "rpo": 104,
-      "hkld": 9,
-      "id": "1db0"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 15,
-      "tqa": 25,
-      "rpm": 5005,
-      "tid": 1239,
-      "dmea": 55,
-      "dbtm": 35,
-      "rpo": 105,
-      "hkld": 10,
-      "id": "040c"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 16,
-      "tqa": 26,
-      "rpm": 5006,
-      "tid": 1240,
-      "dmea": 56,
-      "dbtm": 36,
-      "rpo": 106,
-      "hkld": 11,
-      "id": "1f63"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 11,
-      "tqa": 21,
-      "rpm": 5001,
-      "tid": 1235,
-      "dmea": 51,
-      "dbtm": 31,
-      "rpo": 101,
-      "hkld": 6,
-      "id": "a802"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 12,
-      "tqa": 22,
-      "rpm": 5002,
-      "tid": 1236,
-      "dmea": 52,
-      "dbtm": 32,
-      "rpo": 102,
-      "hkld": 7,
-      "id": "5061"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 13,
-      "tqa": 23,
-      "rpm": 5003,
-      "tid": 1237,
-      "dmea": 53,
-      "dbtm": 33,
-      "rpo": 103,
-      "hkld": 8,
-      "id": "6c9f"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 14,
-      "tqa": 24,
-      "rpm": 5004,
-      "tid": 1238,
-      "dmea": 54,
-      "dbtm": 34,
-      "rpo": 104,
-      "hkld": 9,
-      "id": "0e0a"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 15,
-      "tqa": 25,
-      "rpm": 5005,
-      "tid": 1239,
-      "dmea": 55,
-      "dbtm": 35,
-      "rpo": 105,
-      "hkld": 10,
-      "id": "e9d4"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 16,
-      "tqa": 26,
-      "rpm": 5006,
-      "tid": 1240,
-      "dmea": 56,
-      "dbtm": 36,
-      "rpo": 106,
-      "hkld": 11,
-      "id": "7d81"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 17,
-      "tqa": 27,
-      "rpm": 5007,
-      "tid": 1241,
-      "dmea": 57,
-      "dbtm": 37,
-      "rpo": 107,
-      "hkld": 12,
-      "id": "7940"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 18,
-      "tqa": 28,
-      "rpm": 5008,
-      "tid": 1242,
-      "dmea": 58,
-      "dbtm": 38,
-      "rpo": 108,
-      "hkld": 13,
-      "id": "7682"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 19,
-      "tqa": 29,
-      "rpm": 5009,
-      "tid": 1243,
-      "dmea": 59,
-      "dbtm": 39,
-      "rpo": 109,
-      "hkld": 14,
-      "id": "5033"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 20,
-      "tqa": 30,
-      "rpm": 5010,
-      "tid": 1244,
-      "dmea": 60,
-      "dbtm": 40,
-      "rpo": 110,
-      "hkld": 15,
-      "id": "29ab"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 21,
-      "tqa": 31,
-      "rpm": 5011,
-      "tid": 1245,
-      "dmea": 61,
-      "dbtm": 41,
-      "rpo": 111,
-      "hkld": 16,
-      "id": "4e2d"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 22,
-      "tqa": 32,
-      "rpm": 5012,
-      "tid": 1246,
-      "dmea": 62,
-      "dbtm": 42,
-      "rpo": 112,
-      "hkld": 17,
-      "id": "e8a2"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 23,
-      "tqa": 33,
-      "rpm": 5013,
-      "tid": 1247,
-      "dmea": 63,
-      "dbtm": 43,
-      "rpo": 113,
-      "hkld": 18,
-      "id": "b47a"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 24,
-      "tqa": 34,
-      "rpm": 5014,
-      "tid": 1248,
-      "dmea": 64,
-      "dbtm": 44,
-      "rpo": 114,
-      "hkld": 19,
-      "id": "afa2"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 25,
-      "tqa": 35,
-      "rpm": 5015,
-      "tid": 1249,
-      "dmea": 65,
-      "dbtm": 45,
-      "rpo": 115,
-      "hkld": 20,
-      "id": "f86c"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 26,
-      "tqa": 36,
-      "rpm": 5016,
-      "tid": 1250,
-      "dmea": 66,
-      "dbtm": 46,
-      "rpo": 116,
-      "hkld": 21,
-      "id": "b807"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 27,
-      "tqa": 37,
-      "rpm": 5017,
-      "tid": 1251,
-      "dmea": 67,
-      "dbtm": 47,
-      "rpo": 117,
-      "hkld": 22,
-      "id": "f4c4"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 28,
-      "tqa": 38,
-      "rpm": 5018,
-      "tid": 1252,
-      "dmea": 68,
-      "dbtm": 48,
-      "rpo": 118,
-      "hkld": 23,
-      "id": "6119"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 29,
-      "tqa": 39,
-      "rpm": 5019,
-      "tid": 1253,
-      "dmea": 69,
-      "dbtm": 49,
-      "rpo": 119,
-      "hkld": 24,
-      "id": "e9bd"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 30,
-      "tqa": 40,
-      "rpm": 5020,
-      "tid": 1254,
-      "dmea": 70,
-      "dbtm": 50,
-      "rpo": 120,
-      "hkld": 25,
-      "id": "839e"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 31,
-      "tqa": 41,
-      "rpm": 5021,
-      "tid": 1255,
-      "dmea": 71,
-      "dbtm": 51,
-      "rpo": 121,
-      "hkld": 26,
-      "id": "89e1"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 32,
-      "tqa": 42,
-      "rpm": 5022,
-      "tid": 1256,
-      "dmea": 72,
-      "dbtm": 52,
-      "rpo": 122,
-      "hkld": 27,
-      "id": "9a66"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 33,
-      "tqa": 43,
-      "rpm": 5023,
-      "tid": 1257,
-      "dmea": 73,
-      "dbtm": 53,
-      "rpo": 123,
-      "hkld": 28,
-      "id": "8bf1"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 34,
-      "tqa": 44,
-      "rpm": 5024,
-      "tid": 1258,
-      "dmea": 74,
-      "dbtm": 54,
-      "rpo": 124,
-      "hkld": 29,
-      "id": "c992"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 35,
-      "tqa": 45,
-      "rpm": 5025,
-      "tid": 1259,
-      "dmea": 75,
-      "dbtm": 55,
-      "rpo": 125,
-      "hkld": 30,
-      "id": "71e0"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 11,
-      "tqa": 21,
-      "rpm": 5001,
-      "tid": 1235,
-      "dmea": 51,
-      "dbtm": 31,
-      "rpo": 101,
-      "hkld": 6,
-      "id": "5aa4"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 12,
-      "tqa": 22,
-      "rpm": 5002,
-      "tid": 1236,
-      "dmea": 52,
-      "dbtm": 32,
-      "rpo": 102,
-      "hkld": 7,
-      "id": "9d9f"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 13,
-      "tqa": 23,
-      "rpm": 5003,
-      "tid": 1237,
-      "dmea": 53,
-      "dbtm": 33,
-      "rpo": 103,
-      "hkld": 8,
-      "id": "8d54"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 14,
-      "tqa": 24,
-      "rpm": 5004,
-      "tid": 1238,
-      "dmea": 54,
-      "dbtm": 34,
-      "rpo": 104,
-      "hkld": 9,
-      "id": "64a3"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 15,
-      "tqa": 25,
-      "rpm": 5005,
-      "tid": 1239,
-      "dmea": 55,
-      "dbtm": 35,
-      "rpo": 105,
-      "hkld": 10,
-      "id": "9697"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 16,
-      "tqa": 26,
-      "rpm": 5006,
-      "tid": 1240,
-      "dmea": 56,
-      "dbtm": 36,
-      "rpo": 106,
-      "hkld": 11,
-      "id": "dc82"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 17,
-      "tqa": 27,
-      "rpm": 5007,
-      "tid": 1241,
-      "dmea": 57,
-      "dbtm": 37,
-      "rpo": 107,
-      "hkld": 12,
-      "id": "5aeb"
-    },
-    {
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 18,
-      "tqa": 28,
-      "rpm": 5008,
-      "tid": 1242,
-      "dmea": 58,
-      "dbtm": 38,
-      "rpo": 108,
-      "hkld": 13,
-      "id": "74b5"
-    },
-    {
-      "id": "1485",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 11,
-      "tqa": 21,
-      "rpm": 5001,
-      "tid": 1235,
-      "dmea": 51,
-      "dbtm": 31,
-      "rpo": 101,
-      "hkld": 6
-    },
-    {
-      "id": "a094",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 12,
-      "tqa": 22,
-      "rpm": 5002,
-      "tid": 1236,
-      "dmea": 52,
-      "dbtm": 32,
-      "rpo": 102,
-      "hkld": 7
-    },
-    {
-      "id": "ab8e",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 13,
-      "tqa": 23,
-      "rpm": 5003,
-      "tid": 1237,
-      "dmea": 53,
-      "dbtm": 33,
-      "rpo": 103,
-      "hkld": 8
-    },
-    {
-      "id": "f78b",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 14,
-      "tqa": 24,
-      "rpm": 5004,
-      "tid": 1238,
-      "dmea": 54,
-      "dbtm": 34,
-      "rpo": 104,
-      "hkld": 9
-    },
-    {
-      "id": "3067",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 15,
-      "tqa": 25,
-      "rpm": 5005,
-      "tid": 1239,
-      "dmea": 55,
-      "dbtm": 35,
-      "rpo": 105,
-      "hkld": 10
-    },
-    {
-      "id": "1f45",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 16,
-      "tqa": 26,
-      "rpm": 5006,
-      "tid": 1240,
-      "dmea": 56,
-      "dbtm": 36,
-      "rpo": 106,
-      "hkld": 11
-    },
-    {
-      "id": "3332",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 17,
-      "tqa": 27,
-      "rpm": 5007,
-      "tid": 1241,
-      "dmea": 57,
-      "dbtm": 37,
-      "rpo": 107,
-      "hkld": 12
-    },
-    {
-      "id": "70b4",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 18,
-      "tqa": 28,
-      "rpm": 5008,
-      "tid": 1242,
-      "dmea": 58,
-      "dbtm": 38,
-      "rpo": 108,
-      "hkld": 13
-    },
-    {
-      "id": "27fe",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 19,
-      "tqa": 29,
-      "rpm": 5009,
-      "tid": 1243,
-      "dmea": 59,
-      "dbtm": 39,
-      "rpo": 109,
-      "hkld": 14
-    },
-    {
-      "id": "f896",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 20,
-      "tqa": 30,
-      "rpm": 5010,
-      "tid": 1244,
-      "dmea": 60,
-      "dbtm": 40,
-      "rpo": 110,
-      "hkld": 15
-    },
-    {
-      "id": "9f80",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 21,
-      "tqa": 31,
-      "rpm": 5011,
-      "tid": 1245,
-      "dmea": 61,
-      "dbtm": 41,
-      "rpo": 111,
-      "hkld": 16
-    },
-    {
-      "id": "9219",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 22,
-      "tqa": 32,
-      "rpm": 5012,
-      "tid": 1246,
-      "dmea": 62,
-      "dbtm": 42,
-      "rpo": 112,
-      "hkld": 17
-    },
-    {
-      "id": "2343",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 23,
-      "tqa": 33,
-      "rpm": 5013,
-      "tid": 1247,
-      "dmea": 63,
-      "dbtm": 43,
-      "rpo": 113,
-      "hkld": 18
-    },
-    {
-      "id": "52f3",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 24,
-      "tqa": 34,
-      "rpm": 5014,
-      "tid": 1248,
-      "dmea": 64,
-      "dbtm": 44,
-      "rpo": 114,
-      "hkld": 19
-    },
-    {
-      "id": "1196",
-      "time": "2024-07-30T23:00:00.000Z",
-      "tva": 25,
-      "tqa": 35,
-      "rpm": 5015,
-      "tid": 1249,
-      "dmea": 65,
-      "dbtm": 45,
-      "rpo": 115,
-      "hkld": 20
     },
     {
       "id": "4022",

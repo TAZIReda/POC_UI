@@ -15,8 +15,11 @@ export class DataService {
   }
 
   getData() {
-    return this.http.get<any>('http://localhost:8000/work');
+  return this.http.get<any>('http://localhost:8000/work')
   }
+  getDataById(id:any) {
+    return this.http.get<any>('http://localhost:8000/work/'+id)
+    }
 
   async getRealTimeData(pageIndex: number, pageSize: number) {
     //resolve subscription
@@ -62,25 +65,26 @@ export class DataService {
     return this.http.delete('http://localhost:8000/work/' + data.id);
   }
 
-  updateRow(data: any) {
-    this.data = data;
-    return this.http.put('http://localhost:8000/work/' + data.id, data);
+  updateRow(id:any){
+    this.router.navigate(['/update',id])
   }
 
-  update() {
-    return this.data;
+  update(data:any){
+    return this.http.put('http://localhost:8000/work/'+ data.id, data)
+
   }
 
-  detailsRow(data: any) {
-    this.router.navigate(['/details']);
+  detailsRow(id:any){
+    this.router.navigate(['/details',id])
   }
-  a: any = '';
-  login(data: any): Observable<Boolean> {
-    if (data.username === 'reda' && data.password === '12345') {
-      this.a = true;
-    } else {
-      this.a = false;
+ isUser:any ='';
+
+  login(data:any):Observable<Boolean>{
+    if(data.username === 'reda' && data.password === '12345'){
+      this.isUser = true
+    }else {
+      this.isUser = false
     }
-    return this.a;
+    return this.isUser
   }
 }
