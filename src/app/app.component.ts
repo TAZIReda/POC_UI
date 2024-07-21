@@ -43,7 +43,7 @@ this.active=! this.active
   headerItems=[];
 
   ngOnInit() {
-    this.model.header = [
+    const myHeaders = [
       new TableHeaderItem({
         data: 'String',
         dataType: 'string',
@@ -65,6 +65,8 @@ this.active=! this.active
         className: 'my-class',
       }),
     ];
+
+    this.model.initializeHeaders(myHeaders)
 
     this.model.rowsSelectedChange.subscribe((event) => console.log(event));
     this.model.selectAllChange.subscribe((event) =>

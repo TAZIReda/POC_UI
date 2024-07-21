@@ -6,40 +6,56 @@ import { UpdateRowComponent } from './components/update-row/update-row.component
 import { DetailsRowComponent } from './components/details-row/details-row.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { TablePoc1Component } from './components/table_poc_1/table_poc_1.component';
+import { TablePoc2Component } from './components/table_poc_2/table_poc_2.component';
+import { TablePoc3Component } from './components/table_poc_3/table_poc_3.component';
 
 export const routes: Routes = [
-{
-    path:'',
-    redirectTo:'login',
-    pathMatch:'full'
-},
-{
-    path:'',
-    component:LayoutComponent,
-    children:[
-        {
-            path:'crud',
-            component:CrudComponent
-        },{
-            path:'widgets',
-            component:WidgetsComponent
-        },{
-            path:'create',
-            component:CreateRowComponent
-        },
-        {
-            path:'update',
-            component:UpdateRowComponent
-        },
-        {
-            path:'details',
-            component:DetailsRowComponent
-        },
-    ]
-},
-{
-    path:'login',
-    component:LoginComponent
-}
-
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'crud',
+        component: CrudComponent,
+      },
+      {
+        path: 'widgets',
+        component: WidgetsComponent,
+      },
+      {
+        path: 'table_poc_1',
+        component: TablePoc1Component,
+      },
+      {
+        path: 'table_poc_2',
+        component: TablePoc2Component,
+      },
+      {
+        path: 'table_poc_3',
+        component: TablePoc3Component,
+      },
+      {
+        path: 'create',
+        component: CreateRowComponent,
+      },
+      {
+        path: 'update',
+        component: UpdateRowComponent,
+      },
+      {
+        path: 'details',
+        component: DetailsRowComponent,
+      },
+    ],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
 ];
