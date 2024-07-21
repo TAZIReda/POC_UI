@@ -32,8 +32,7 @@ showCloseButton: boolean=false;
 datatoDelete:any = {}
 
 clickEdit(data:any) {
-  this.router.navigate(['/update'])
-  this.dataService.updateRow(data)
+  this.dataService.updateRow(data.id)
 }
 
 clickDelete(data:any) {
@@ -45,7 +44,6 @@ clickDetails(data:any) {
   this.dataService.detailsRow(data.id)
 }
 breadcrumps=[{
-  // content:'Users',
 
 },
 ]
@@ -71,7 +69,14 @@ constructor(private router: Router, private dataService:DataService) {}
   this.dataService.getData().subscribe((elements)=>{ 
   elements.forEach((element: any) => {
   element.hobbies = element.hobbies.map((hobby: any) => hobby.content);
-
+  element.dow = element.dow.map((dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0]; 
+   });
+   element.dob = element.dob.map((dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0]; 
+   });
     element.gender = element.gender[0].content
     arryData.push([
       new TableItem({ data: element.firstName}),

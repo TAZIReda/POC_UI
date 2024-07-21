@@ -1,97 +1,6 @@
 {
   "work": [
     {
-      "id": "39c8",
-      "tall": 175,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "reda",
-      "lastName": "mohamed",
-      "dob": [
-        "1996-07-01"
-      ],
-      "country": "USA",
-      "description": "Software engineer",
-      "phone": "112-222-2222",
-      "email": "mohamed@reda.dz",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Hiking",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Kayaking",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Fishing",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Surfing",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Swiming",
-          "selected": true
-        }
-      ],
-      "jobTitle": "Full stack developer",
-      "employer": "Smartest",
-      "dow": [
-        "2023-08-21",
-        "2024-07-17"
-      ],
-      "agree": true
-    },
-    {
-      "id": "4547",
-      "tall": 1,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "smartest",
-      "lastName": "algeria",
-      "dob": [
-        "2019-07-03"
-      ],
-      "country": "USA",
-      "description": "SMARTEST is an IT solutions provider",
-      "phone": "112-222-2222",
-      "email": "smartest@algeria.dz",
-      "hobbies": [
-        {
-          "parent": "literature",
-          "content": "Reading",
-          "selected": true
-        },
-        {
-          "parent": "literature",
-          "content": "Writing",
-          "selected": true
-        }
-      ],
-      "jobTitle": "Oil & Gas",
-      "employer": "SOVAC",
-      "dow": [
-        "2024-07-08",
-        "2024-07-18"
-      ],
-      "agree": true
-    },
-    {
       "id": "bdfd",
       "tall": 123,
       "gender": [
@@ -126,6 +35,173 @@
       "dow": [
         "2024-06-30",
         "2024-08-09"
+      ],
+      "agree": true
+    },
+    {
+      "id": "921c",
+      "tall": 120,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "user",
+      "lastName": "alpha",
+      "dob": [
+        "2024-06-30"
+      ],
+      "country": "USA",
+      "description": "desc",
+      "phone": "112-222-2222",
+      "email": "example123@example.com",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Hiking",
+          "selected": true
+        },
+        {
+          "parent": "literature",
+          "content": "Reading",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Fishing",
+          "selected": true
+        }
+      ],
+      "dow": [
+        "2024-07-01",
+        "2024-07-03"
+      ],
+      "jobTitle": "Oil & Gas",
+      "employer": "Smartest",
+      "agree": true
+    },
+    {
+      "id": "28c2",
+      "tall": null,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "reda",
+      "lastName": "s",
+      "dob": [
+        "2024-07-01T23:00:00.000Z"
+      ],
+      "country": "Canada",
+      "description": "sqsqx",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Kayaking",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Fishing",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Surfing",
+          "selected": true
+        }
+      ],
+      "jobTitle": "DFVD",
+      "employer": "DFV",
+      "dow": [
+        "2024-07-02T23:00:00.000Z",
+        "2024-07-12T23:00:00.000Z"
+      ],
+      "agree": true
+    },
+    {
+      "id": "aa89",
+      "tall": null,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "wccccc",
+      "lastName": "Smartest",
+      "dob": [
+        "2024-07-01T23:00:00.000Z"
+      ],
+      "description": "zrthhrt",
+      "country": "USA",
+      "phone": "111-111-1111",
+      "email": "azdzd@sjs.com",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Hiking",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Kayaking",
+          "selected": true
+        }
+      ],
+      "jobTitle": "zda",
+      "employer": "sqdqz",
+      "dow": [
+        "2024-07-02T23:00:00.000Z",
+        "2024-07-17T23:00:00.000Z"
+      ],
+      "agree": true
+    },
+    {
+      "id": "59fa",
+      "tall": 230,
+      "gender": [
+        {
+          "content": "Man",
+          "selected": true
+        }
+      ],
+      "firstName": "Last",
+      "lastName": "Test updated",
+      "dob": [
+        "2024-07-20T23:00:00.000Z"
+      ],
+      "country": "USA",
+      "description": "desc test",
+      "phone": "112-222-2222",
+      "email": "smartest@algeria.dz",
+      "hobbies": [
+        {
+          "parent": "Sport",
+          "content": "Hiking",
+          "selected": true
+        },
+        {
+          "parent": "Sport",
+          "content": "Kayaking",
+          "selected": true
+        },
+        {
+          "parent": "literature",
+          "content": "Reading",
+          "selected": true
+        }
+      ],
+      "jobTitle": "Oil & Gas",
+      "employer": "Smartest",
+      "dow": [
+        "2024-06-29T23:00:00.000Z",
+        "2024-06-30T23:00:00.000Z"
       ],
       "agree": true
     }

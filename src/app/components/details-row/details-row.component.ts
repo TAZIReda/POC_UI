@@ -33,8 +33,9 @@ ngOnInit(){
     this.dataService.getDataById(this.detailId).subscribe((data:any)=>{
       this.data=data
       this.form_data=data
+      console.log(this.form_data
+      );
     })
-    // this.form_data = this.data
   });
 }
 form_data:any = {}

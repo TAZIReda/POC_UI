@@ -1,5 +1,4 @@
-
-  <app-header-content title="Users" [breadcrumps]="breadcrumps"></app-header-content>
+<app-header-content title="Users" [breadcrumps]="breadcrumps"></app-header-content>
 <div class="container">
   <content>
     <cds-table-container style="height: 430px;">
@@ -11,10 +10,7 @@
 				[model]="model"
 				#toolbar>
 				<cds-table-toolbar-content >
-					<!-- <cds-table-toolbar-search
-						ngDefaultControl
-            >
-					</cds-table-toolbar-search> -->
+		
 				<custom-button (click)="navigateToRoute()">Create row</custom-button>
 			
 				</cds-table-toolbar-content>

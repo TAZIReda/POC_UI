@@ -39,6 +39,7 @@ export class CreateRowComponent {
   ]
 
 form_data:any = {};
+numberFormat= "#0.## 'cm'"
 formControls=[
     
 {
@@ -139,7 +140,7 @@ formControls=[
   type:'number',
   name:'tall',
   options: {
-    displayFormat:"#0.## cm"
+    displayFormat:this.numberFormat
  },
 },
     {
@@ -327,14 +328,7 @@ onCreate() {
   if(this.form && this.form.validateAll()){
 
 
-   this.form_data.dow = this.form_data.dow.map((dateString: string) => {
-    const date = new Date(dateString);
-    return date.toISOString().split('T')[0]; 
-   });
-   this.form_data.dob = this.form_data.dob.map((dateString: string) => {
-    const date = new Date(dateString);
-    return date.toISOString().split('T')[0]; 
-   });
+   
     this.dataService.setData(this.form_data).subscribe(()=>{})
     this.router.navigate(['/users'])
 

@@ -10,7 +10,6 @@ export class DataService {
 
   constructor(private http:HttpClient, private router: Router) { }
 
-  data : any;
   setData(data: any) {
     return this.http.post<any>('http://localhost:8000/work', data)
   }
@@ -26,25 +25,26 @@ export class DataService {
     return this.http.delete('http://localhost:8000/work/'+ data.id)
   }
 
-  updateRow(data:any){
-    this.data=data
-    return this.http.put('http://localhost:8000/work/'+ data.id, data)
+  updateRow(id:any){
+    this.router.navigate(['/update',id])
   }
 
-  update(){
-    return this.data
+  update(data:any){
+    return this.http.put('http://localhost:8000/work/'+ data.id, data)
+
   }
 
   detailsRow(id:any){
     this.router.navigate(['/details',id])
   }
- a:any='';
+ isUser:any ='';
+
   login(data:any):Observable<Boolean>{
     if(data.username === 'reda' && data.password === '12345'){
-      this.a=true
+      this.isUser = true
     }else {
-      this.a=false
+      this.isUser = false
     }
-    return this.a
+    return this.isUser
   }
 }

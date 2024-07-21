@@ -25,5 +25,4 @@ export class HeaderContentComponent {
   active = true;
   action =false;
   headerItems=[];
-  // breadrums:Breadcrumb[]
 }

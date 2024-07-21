@@ -36,7 +36,9 @@ apply() {
 throw new Error('Method not implemented.');
 }
 positionLegendValue: any;
+
 positions: any = [{content:'Top'},{content:'Right'},{content:'Bottom'},{content:'Left'},];
+
 format: string = "#0'%'";
 nameValue: any;
 descriptionValue: any;
@@ -45,7 +47,6 @@ descriptionValue: any;
 updateDate(a:any) {
 if(this.chartTypeValue.length >0){
   this.chartValue = a[0].content
-  console.log(this.chartValue);
 }
 ;}
   breadcrumps=[{
@@ -53,31 +54,35 @@ if(this.chartTypeValue.length >0){
   ]
 wellboreData  = [
   {
-    content: "one"
+    content: "wellbore one"
   },
   {
-    content: "two"
+    content: "wellbore two"
   },
   {
-    content: "three"
+    content: "wellbore three"
   },
 ]
 wellboreValue: any;
-operationsData =[{content:'item1'},{content:'item2'},{content:'item3'},{content:'item4'},];
-sectionData = [{content:'item1'},{content:'item2'},{content:'item3'},{content:'item4'},];
-tubularData = [{content:'item1'},{content:'item2'},{content:'item3'},{content:'item4'},];
+
+operationsData =[{content:'Drilling'},{content:'Tripping'},{content:'Cementing'},];
+
+sectionData = [{content:'Surface Hole Section'},{content:'Intermediate Hole Section'},{content:'Casing and Cementing Sections'}];
+
+tubularData = [{content:'item1'},{content:'item2'},{content:'item3'},];
+
 operationsValue: any;
 sectionValue: any;
 tubularValue: any;
 availableItems = [
   {
-    content: "one"
+    content: "Entity 1"
   },
   {
-    content: "two"
+    content: "Entity 2"
   },
   {
-    content: "three"
+    content: "Entity 3"
   },
 ];
 chartTypeValue: any;

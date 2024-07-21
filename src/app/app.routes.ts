@@ -28,7 +28,7 @@ export const routes: Routes = [
             component:CreateRowComponent
         },
         {
-            path:'update',
+            path:'update/:id',
             component:UpdateRowComponent
         },
         {
