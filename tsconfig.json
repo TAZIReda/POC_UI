@@ -25,6 +25,7 @@
     ],
      "paths": {
       "ui-components-lib":["../ui-libraries-workspace/dist/ui-components-lib"],
+      "data-lib":["../ui-libraries-workspace/data-lib-dist/"],
     }
   },
   "angularCompilerOptions": {
