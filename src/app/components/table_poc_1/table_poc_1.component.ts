@@ -18,6 +18,8 @@ import {
 import { HeaderContentComponent } from '../header-content/header-content.component';
 import { Router } from '@angular/router';
 import { DataService } from '../../data.service';
+import { PaginationProperties } from 'ui-components-lib/lib/components/table/table.component';
+import * as json from '../../data.json';
 
 @Component({
   selector: 'app-table_poc_1',
@@ -39,31 +41,28 @@ export class TablePoc1Component implements OnChanges {
   striped = false;
   sortable = true;
   isDataGrid = true;
-  showFilter = false;
+  showFilter = true;
   stickyHeader = false;
   skeleton = false;
   model = new TableModel();
+
+  enablePagination = true;
+  paginationProperties: PaginationProperties = {
+    pageLength: 7,
+  };
 
   filter1 = '';
 
   constructor(private dataService: DataService) {}
 
   title = 'Table POC 1';
-  get totalDataLength() {
-    return this.model.totalDataLength;
-  }
-  set totalDataLength(value) {
-    this.model.totalDataLength = value;
-  }
-
   @ViewChild('filter') filter: TemplateRef<any>;
   @ViewChild('filterableHeaderTemplate')
   protected filterableHeaderTemplate: TemplateRef<any>;
   @ViewChild('paginationTableItemTemplate')
   protected paginationTableItemTemplate: TemplateRef<any>;
 
-  ngOnInit() {
-    this.model.data = [[]];
+  async ngOnInit() {
     const myHeaders = [
       new TableHeaderItem({
         data: 'Time',
@@ -104,10 +103,15 @@ export class TablePoc1Component implements OnChanges {
     ];
 
     this.model.initializeHeaders(myHeaders);
+    
+    //TODO: check async call because the lib is working with customStore, so normal api calls will cause a problem
+    const jsonData = json['real-time-data'].map((element: Record<string, any>) => {
+      delete element['id'];
+      return element;
+    });
+    this.model.insertTableRowsFromJson(jsonData);
 
-    this.model.pageLength = 10;
-    this.selectPage(1);
-
+    this.paginationProperties.totalDataLength = this.model.data.length;
 
     // add real time data each 3 seconds
     let tva = 10;
@@ -147,14 +151,19 @@ export class TablePoc1Component implements OnChanges {
     //         this.model.pageLength
     //       );
 
-    //     const { newData } = this.model.jsonDataTotableModel(data);
+    //     const newData = this.model.jsonDataTotableModel(data);
 
     //     this.model.totalDataLength = totalDataLength;
+    //     // this.paginationProperties.totalDataLength = totalDataLength;
     //     this.model.data = newData;
 
     //     console.log(data, totalDataLength);
     //   }, 3000);
     // }
+    // this.paginationProperties.pageLength = 10;
+    // this.paginationProperties.totalDataLength = this.model.data.length;
+    // this.model.totalDataLength = this.paginationProperties.totalDataLength;
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -164,31 +173,6 @@ export class TablePoc1Component implements OnChanges {
     if (changes['data']) {
       this.model.data = changes['data'].currentValue;
     }
-  }
-
-  customSort(index: number) {
-    this.sort(this.model, index);
-  }
-
-  sort(model: TableModel, index: number) {
-    if (model.header[index].sorted) {
-      // if already sorted flip sorting direction
-      model.header[index].ascending = model.header[index].descending;
-    }
-    model.sort(index);
-  }
-
-  async selectPage(page: any) {
-    this.model.currentPage = page;
-    const { data, totalDataLength } = await this.dataService.getRealTimeData(
-      this.model.currentPage,
-      this.model.pageLength
-    );
-
-    const { newData } = this.model.jsonDataTotableModel(data);
-
-    this.model.totalDataLength = totalDataLength;
-    this.model.data = newData;
   }
 
   onRowClick(index: number) {

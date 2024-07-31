@@ -43,14 +43,10 @@
         (rowClick)="onRowClick($event)"
         [stickyHeader]="stickyHeader"
         [skeleton]="skeleton"
-        [showFilter]="true"
+        [enablePagination]="enablePagination"
+        [paginationProperties]="paginationProperties"
         >
-        <!-- (sort)="paginationSort($event)" -->
       </cds-table>
-      <cds-pagination
-        [model]="model"
-        (selectPage)="selectPage($event)"
-      ></cds-pagination>
     </cds-table-container>
   </content>
 </div>

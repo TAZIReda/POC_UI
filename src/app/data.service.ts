@@ -21,7 +21,7 @@ export class DataService {
     return this.http.get<any>('http://localhost:8000/work/'+id)
     }
 
-  async getRealTimeData(pageIndex: number, pageSize: number) {
+  async getRealTimeData() {
     //resolve subscription
     let data = await new Promise<any>((resolve, reject) => {
       this.http.get<any>('http://localhost:8000/real-time-data').subscribe(
@@ -41,7 +41,6 @@ export class DataService {
     });
 
     const totalDataLength = data.length;
-    data = data.slice((pageIndex - 1) * pageSize, pageSize * pageIndex);
     return { data, totalDataLength };
   }
 
