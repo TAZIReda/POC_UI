@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { HeaderContentComponent } from "../header-content/header-content.component";
 import { CommonModule } from '@angular/common';
-import {SideNavModule,ButtonModule,NumberModule,ComboBoxModule,PanelModule,TabsModule,NFormsModule,TagModule } from  'ui-components-lib';
+import {SideNavModule,ButtonModule,NumberModule,ComboBoxModule,PanelModule,TabsModule,NFormsModule,TagModule, ColorpickerModule, } from  'ui-components-lib';
 
 @Component({
   selector: 'app-widgets',
@@ -16,15 +16,18 @@ import {SideNavModule,ButtonModule,NumberModule,ComboBoxModule,PanelModule,TabsM
     TabsModule,
     NFormsModule,
     TagModule,
-    CommonModule
+    CommonModule,
+    ColorpickerModule,
   ],
   templateUrl: './widgets.component.html',
   styleUrl: './widgets.component.scss'
 })
 export class WidgetsComponent {
+
 applySettings() {
 throw new Error('Method not implemented.');
 }
+
 xAxisName: any;
 xMin: any;
 xMax: any;
@@ -32,17 +35,24 @@ yName: any;
 yMin: any;
 yMax: any;
 legendState: any;
+
 apply() {
 throw new Error('Method not implemented.');
 }
+
 positionLegendValue: any;
 
-positions: any = [{content:'Top'},{content:'Right'},{content:'Bottom'},{content:'Left'},];
+positions: any = [
+  {content:'Top'},
+  {content:'Right'},
+  {content:'Bottom'},
+  {content:'Left'},
+];
 
 format: string = "#0'%'";
 nameValue: any;
 descriptionValue: any;
-;
+valueColor:string;
 
 updateDate(a:any) {
 if(this.chartTypeValue.length >0){
@@ -52,6 +62,7 @@ if(this.chartTypeValue.length >0){
   breadcrumps=[{
   },
   ]
+
 wellboreData  = [
   {
     content: "wellbore one"
@@ -63,17 +74,31 @@ wellboreData  = [
     content: "wellbore three"
   },
 ]
+
 wellboreValue: any;
 
-operationsData =[{content:'Drilling'},{content:'Tripping'},{content:'Cementing'},];
+operationsData =[
+  {content:'Drilling'},
+  {content:'Tripping'},
+  {content:'Cementing'},
+];
 
-sectionData = [{content:'Surface Hole Section'},{content:'Intermediate Hole Section'},{content:'Casing and Cementing Sections'}];
+sectionData = [
+  {content:'Surface Hole Section'},
+  {content:'Intermediate Hole Section'},
+  {content:'Casing and Cementing Sections'}
+];
 
-tubularData = [{content:'item1'},{content:'item2'},{content:'item3'},];
+tubularData = [
+  {content:'item1'},
+  {content:'item2'},
+  {content:'item3'},
+];
 
 operationsValue: any;
 sectionValue: any;
 tubularValue: any;
+
 availableItems = [
   {
     content: "Entity 1"
@@ -85,7 +110,9 @@ availableItems = [
     content: "Entity 3"
   },
 ];
+
 chartTypeValue: any;
+
 chartTypeData=[{
   content:"Bar"
 },{
@@ -93,6 +120,7 @@ chartTypeData=[{
 },{
   content:"Pie"
 }];
+
 xUnitData: any[]= [{content:'foot'},{content:'inch'},{content:'meter'}];
 xUnitValue: any;
 yUnitData: any[]= [{content:'foot'},{content:'inch'},{content:'meter'}];

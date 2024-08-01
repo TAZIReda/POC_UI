@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { TableModule, NFormsModule, ProgressIndicatorModule,LoadingModule, FormComponent, range } from 'ui-components-lib';
+import { TableModule, NFormsModule, ProgressIndicatorModule,LoadingModule, FormComponent, range, displayValuesState } from 'ui-components-lib';
 import { HeaderContentComponent } from "../header-content/header-content.component";
 import { DataService } from '../../data.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,6 +38,7 @@ export class CreateRowComponent {
   },
   ]
 
+  display :displayValuesState=displayValuesState.Both
 form_data:any = {};
 numberFormat= "#0.## 'cm'"
 formControls=[
@@ -76,7 +77,6 @@ formControls=[
   type:'datepicker',
   name:'dob',
   options: {
-    label:'Date Of Birth',
     placeholder: 'Please enter your date of birth',
   },
   validators: [
@@ -238,6 +238,7 @@ formControls3=[
       placeholder:"select hobbies",
       type:'multi',
       isGrouped:'true',
+      displayValues:this.display,
       items: [
         
 
@@ -320,7 +321,7 @@ PreviousStep() {
 }
 
 back() {
-  this.router.navigate(['/crud'])
+  this.router.navigate(['/users'])
 
 }
 onCreate() {

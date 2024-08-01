@@ -69,10 +69,13 @@ constructor(private router: Router, private dataService:DataService) {}
   this.dataService.getData().subscribe((elements)=>{ 
   elements.forEach((element: any) => {
   element.hobbies = element.hobbies.map((hobby: any) => hobby.content);
-  element.dow = element.dow.map((dateString: string) => {
-    const date = new Date(dateString);
-    return date.toISOString().split('T')[0]; 
-   });
+  if(element.dow){
+    element.dow = element.dow.map((dateString: string) => {
+      const date = new Date(dateString);
+      return date.toISOString().split('T')[0]; 
+     });
+  }
+  
    element.dob = element.dob.map((dateString: string) => {
     const date = new Date(dateString);
     return date.toISOString().split('T')[0]; 

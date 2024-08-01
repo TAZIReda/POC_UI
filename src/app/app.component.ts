@@ -8,7 +8,9 @@ import {
   TableModule,
   TableModel,
   TableHeaderItem,
-  TableItem
+  TableItem,
+  ColorpickerModule,
+  ColorpickerComponent,
 } from 'ui-components-lib';
 import { HeaderContentComponent } from "./components/header-content/header-content.component";
 @Component({
@@ -23,7 +25,8 @@ import { HeaderContentComponent } from "./components/header-content/header-conte
         SideNavModule,
         HeaderContentComponent,
         TableModule,
-        HttpClientModule
+        HttpClientModule,
+        ColorpickerModule
     ]
 })
 export class AppComponent {
