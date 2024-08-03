@@ -1,16 +1,12 @@
-<app-header-content></app-header-content>
-<div class="container">
-  <content>
-    <cds-table-container style="height: 430px">
-      <cds-table-header>
-        <h4 cdsTableHeaderTitle>{{ title }}</h4>
-        <p cdsTableHeaderDescription>
-          Multi-level header  |  Export .
-        </p>
-      </cds-table-header>
+<cds-table-container>
+  <cds-table-header>
+    <h4 cdsTableHeaderTitle>{{ title }}</h4>
+    <p cdsTableHeaderDescription>Multi-level header | Export .</p>
+  </cds-table-header>
 
-
-      <cds-table
+  <div class="table-container">
+    <cds-table
+      style="overflow-x: scroll"
       [model]="model"
       size="md"
       [skeleton]="skeleton"
@@ -28,6 +24,5 @@
     >
       <ng-content></ng-content>
     </cds-table>
-    </cds-table-container>
-  </content>
-</div>
+  </div>
+</cds-table-container>

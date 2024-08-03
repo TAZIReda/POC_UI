@@ -1,52 +1,46 @@
-<app-header-content></app-header-content>
-<div class="container">
-  <content>
-    <cds-table-container style="height: 430px">
-      <cds-table-header>
-        <h4 cdsTableHeaderTitle>{{ title }}</h4>
-        <p cdsTableHeaderDescription>
-          Real time data Insert (Big data ) | pagination | filtering & sorting.
-        </p>
-      </cds-table-header>
+<cds-table-container>
+  <cds-table-header>
+    <h4 cdsTableHeaderTitle>{{ title }}</h4>
+    <p cdsTableHeaderDescription>
+      Real time data Insert (Big data ) | pagination | filtering & sorting.
+    </p>
+  </cds-table-header>
 
-      <ng-template #paginationTableItemTemplate let-data="data">
-        <a [attr.href]="data.link">{{ data.name }} {{ data.surname }}</a>
-      </ng-template>
-      <ng-template #filterableHeaderTemplate let-data="data">
-        <i
-          ><a [attr.href]="data.link">{{ data.name }}</a></i
-        >
-      </ng-template>
-      <ng-template #filter let-popover="popover" let-filter="data">
-        <cds-label class="first-label">
-          Value
-          <input type="text" [(ngModel)]="filter1" class="input-field" />
-          <button
-            class="btn--primary"
-            (click)="filter.data = filter1; popover.doClose()"
-          >
-            Apply
-          </button>
-          <button class="btn--secondary" (click)="popover.doClose()">
-            Cancel
-          </button>
-        </cds-label>
-      </ng-template>
-
-      <cds-table
-        [sortable]="sortable"
-        [skeleton]="skeleton"
-        [showSelectionColumn]="showSelectionColumn"
-        [model]="model"
-        [showFilter]="showFilter"
-        [attr.style]="showFilter ? 'overflow-x: visible;' : ''"
-        (rowClick)="onRowClick($event)"
-        [stickyHeader]="stickyHeader"
-        [skeleton]="skeleton"
-        [enablePagination]="enablePagination"
-        [paginationProperties]="paginationProperties"
-        >
-      </cds-table>
-    </cds-table-container>
-  </content>
-</div>
+  <ng-template #paginationTableItemTemplate let-data="data">
+    <a [attr.href]="data.link">{{ data.name }} {{ data.surname }}</a>
+  </ng-template>
+  <ng-template #filterableHeaderTemplate let-data="data">
+    <i
+      ><a [attr.href]="data.link">{{ data.name }}</a></i
+    >
+  </ng-template>
+  <ng-template #filter let-popover="popover" let-filter="data">
+    <cds-label class="first-label">
+      Value
+      <input type="text" [(ngModel)]="filter1" class="input-field" />
+      <button
+        class="btn--primary"
+        (click)="filter.data = filter1; popover.doClose()"
+      >
+        Apply
+      </button>
+      <button class="btn--secondary" (click)="popover.doClose()">Cancel</button>
+    </cds-label>
+  </ng-template>
+  <div class="table-container">
+    <cds-table
+      [sortable]="sortable"
+      [skeleton]="skeleton"
+      [showSelectionColumn]="showSelectionColumn"
+      [model]="model"
+      [showFilter]="showFilter"
+      [attr.style]="showFilter ? 'overflow-x: visible;' : ''"
+      (rowClick)="onRowClick($event)"
+      [stickyHeader]="stickyHeader"
+      [skeleton]="skeleton"
+      [enablePagination]="enablePagination"
+      [paginationProperties]="paginationProperties"
+    >
+    </cds-table>
+  </div>
+</cds-table-container>
