@@ -26,6 +26,7 @@
     "flatpickr": "^4.6.13",
     "json-server": "^1.0.0-beta.1",
     "ldml-number": "^1.1.0",
+    "ngx-color-picker": "^17.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "ui-components-lib": "file:../ui-libraries-workspace/dist/ui-components-lib",
