@@ -1,0 +1,45 @@
+
+<!-- <div class="container">
+  <content> -->
+    <cds-table-container style="width: 100%; padding: 3rem; height: 80%;">
+      <cds-table-header>
+        <h4 cdsTableHeaderTitle>{{ title }}</h4>
+        <p cdsTableHeaderDescription>Grouped-by + Lookup column + templates.</p>
+      </cds-table-header>
+      
+      <cds-table-toolbar
+      [model]="model"
+      [batchText]="batchText"
+      size="md"
+      [enableSearch]="enableSearch"
+      [searchProperties]="searchProperties"
+      #toolbar
+      >
+      <cds-table-toolbar-content>
+      </cds-table-toolbar-content>
+    </cds-table-toolbar>
+
+    <ng-template #statusesTemplate>
+      <span class="status running">Running</span>
+      <span class="status inactive">Inactive</span>
+      <span class="status completed">Completed</span>
+    </ng-template>
+    <ng-template #actionsTemplate>
+      <button class="action-button start">Start</button>
+      <button class="action-button stop">Stop</button>
+      <button class="action-button pause">Pause</button>
+    </ng-template>
+
+      <cds-table
+        [model]="model"
+        [sortable]="sortable"
+        [dataSummary]="false"
+        [showFilter]="true"
+        [attr.style]="true ? 'overflow-x: visible;' : ''"
+      >
+        <ng-content></ng-content>
+      </cds-table>
+    </cds-table-container>
+  <!-- </content>
+</div> -->
+

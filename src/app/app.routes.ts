@@ -9,6 +9,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { TablePoc1Component } from './components/table_poc_1/table_poc_1.component';
 import { TablePoc2Component } from './components/table_poc_2/table_poc_2.component';
 import { TablePoc3Component } from './components/table_poc_3/table_poc_3.component';
+import { TablePoc4Component } from './components/table_poc_4/table_poc_4.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,10 @@ export const routes: Routes = [
       {
         path: 'table_poc_3',
         component: TablePoc3Component,
+      },
+      {
+        path: 'table_poc_4',
+        component: TablePoc4Component,
       },
       {
         path: 'create',

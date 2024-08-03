@@ -1,0 +1,51 @@
+.container {
+    margin: 5%;
+
+}
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.running {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.completed {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.action-button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.start {
+  background-color: #fff;
+  color: #000;
+}
+
+.stop {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.pause {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
