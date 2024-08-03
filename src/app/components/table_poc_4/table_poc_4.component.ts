@@ -19,6 +19,7 @@ import {
 import { HeaderContentComponent } from '../header-content/header-content.component';
 import { Router } from '@angular/router';
 import { DataService } from '../../data.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-table_poc_4',
@@ -28,6 +29,7 @@ import { DataService } from '../../data.service';
     HeaderContentComponent,
     DialogModule,
     NFormsModule,
+    CommonModule,
     ModalModule,
     PaginationModule,
     SearchModule,
@@ -60,6 +62,7 @@ export class TablePoc4Component {
   searchProperties = {
     expandable: false,
   };
+
   @ViewChild('statusesTemplate')
   statusesTemplate: TemplateRef<any>[] | undefined;
 
@@ -67,7 +70,9 @@ export class TablePoc4Component {
   actionsTemplate: TemplateRef<any>[] | undefined;
 
   constructor(private cdr: ChangeDetectorRef) {}
-  ngOnInit() {
+
+  ngAfterViewInit(): void {
+    // Now the templates are available
     const myHeaders = [
       new TableHeaderItem({
         data: 'Title',
@@ -133,20 +138,44 @@ export class TablePoc4Component {
             savedValue: 3,
           },
         },
+        {
+          Title: 'Title 4',
+          Description: 'Description 2',
+          Class: {
+            displayedValue: 'Class A',
+            savedValue: 3,
+          },
+        },
+        {
+          Title: 'Title 5',
+          Description: 'Description 1',
+          Class: {
+            displayedValue: 'Class C',
+            savedValue: 3,
+          },
+        },
       ];
-
-      this.model.insertTableRowsFromJson(myData);
+      const newData = this.model.jsonDataTotableModel(myData);
+      const finalRows = newData.map((row, index) => {
+        row[3] = new TableItem({
+          data: {
+            status: 'inactive',
+            id: index,
+          },
+          template: this.statusesTemplate,
+        });
+        row[4] = new TableItem({
+          data: {
+            status: 'inactive',
+            id: index,
+          },
+          template: this.actionsTemplate,
+        });
+        return row;
+      });
+      this.model.insertTableRowsGroupedByColumn(finalRows, 'Class');
+      this.cdr.detectChanges();
     }
-  }
-
-  ngAfterViewInit(): void {
-    // Now the templates are available
-    this.model.data = this.model.data.map((row) => {
-      row[3] = new TableItem({ template: this.statusesTemplate });
-      row[4] = new TableItem({ template: this.actionsTemplate });
-      return row;
-    });
-    this.cdr.detectChanges();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -163,5 +192,46 @@ export class TablePoc4Component {
 
   onRowClick(index: number) {
     console.log('Row item selected:', index);
+  }
+
+  start(data: any) {
+    console.log(data);
+    this.model.data.forEach((row: any) => {
+      row[0].expandedData.forEach((item: TableItem[], index: number) => {
+        if (item[3].data.id === data.id) {
+          item[3].data.status = 'running';
+          item[4].data.status = 'running';
+        }
+      });
+    });
+    this.cdr.detectChanges();
+  }
+
+  stop(data: any) {
+    this.model.data.forEach((row: any) => {
+      row[0].expandedData.forEach((item: TableItem[], index: number) => {
+        if (item[3].data.id === data.id) {
+          item[3].data.status = 'inactive';
+          item[4].data.status = 'inactive';
+        }
+      });
+    });
+    this.cdr.detectChanges();
+  }
+
+  complete(data: any) {
+    this.model.data.forEach((row: any) => {
+      row[0].expandedData.forEach((item: TableItem[], index: number) => {
+        if (item[3].data.id === data.id) {
+          item[3].data.status = 'completed';
+          item[4].data.status = 'completed';
+        }
+      });
+    });
+    this.cdr.detectChanges();
+  }
+
+  expandAllRows(event: boolean) {
+    this.model.rowsExpanded = new Array<boolean>(this.model.data.length).fill(event);
   }
 }
