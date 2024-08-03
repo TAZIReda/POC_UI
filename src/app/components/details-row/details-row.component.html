@@ -1,18 +1,20 @@
-<app-header-content title="Details {{data.firstName}} {{data.lastName}}" [breadcrumps]="breadcrumps"></app-header-content>
-<cds-tabs
-			[type]="'line'"
-			[followFocus]="true"
-			[isNavigation]="true"
-			[cacheActive]="true">
-			<cds-tab heading="Personal Informations">
-                <lib-form #form [formControls]="formControls" [(formData)]="form_data"></lib-form>
+<app-header-content title="Details {{form_data?.firstName}} {{form_data?.lastName}}" [breadcrumps]="breadcrumps"></app-header-content>
+<div style="min-height: 510px;">
+	<cds-tabs
+	[type]="'line'"
+	[followFocus]="true"
+	[isNavigation]="true"
+	[cacheActive]="true">
+	<cds-tab heading="Personal Informations">
+		<lib-form #form [formControls]="formControls" [colCount]="2" [(formData)]="form_data"></lib-form>
 
 
-            </cds-tab>
-			<cds-tab heading="Contact">
-                <lib-form #form [formControls]="formControls2" [(formData)]="form_data"></lib-form>
-            </cds-tab>
-			<cds-tab heading="Professional Informations">
-                <lib-form #form [formControls]="formControls3" [(formData)]="form_data"></lib-form>
-            </cds-tab>
-		</cds-tabs>
+	</cds-tab>
+	<cds-tab heading="Contact">
+		<lib-form #form [formControls]="formControls2" [colCount]="2" [(formData)]="form_data"></lib-form>
+	</cds-tab>
+	<cds-tab heading="Professional Informations">
+		<lib-form #form [formControls]="formControls3" [colCount]="2" [(formData)]="form_data"></lib-form>
+	</cds-tab>
+</cds-tabs>
+</div>

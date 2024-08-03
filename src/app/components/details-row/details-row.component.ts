@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TabsModule,FormComponent,NFormsModule } from 'ui-components-lib';
+import { TabsModule,FormComponent,NFormsModule, displayValuesState } from 'ui-components-lib';
 import { DataService } from '../../data.service';
 
 import { HeaderContentComponent } from "../header-content/header-content.component";
@@ -18,7 +18,7 @@ export class DetailsRowComponent {
   constructor(private route: ActivatedRoute,
     private dataService: DataService
   ) { }
-
+  form_data:any = {}
   breadcrumps=[{
     content:'Users',
     href:'users'
@@ -26,24 +26,26 @@ export class DetailsRowComponent {
     content:'Details',
   },
   ]
+  dis=displayValuesState.Selected
 
 ngOnInit(){
   this.route.paramMap.subscribe(params => {
     this.detailId = params.get('id');
     this.dataService.getDataById(this.detailId).subscribe((data:any)=>{
       this.data=data
-      this.form_data=data
-      console.log(this.form_data
-      );
+      this.form_data = data
+      console.log(this.form_data);
     })
   });
 }
-form_data:any = {}
+
 formControls=[
     
   {
     label:'First Name',
+    colSpan:1,
     type:'text',
+    
     name:'firstName',
     options: {
       placeholder: 'Your First Name',
@@ -57,6 +59,7 @@ formControls=[
   },
   {
     label:'Last Name',
+    colSpan:1,
     type:'text',
     name:'lastName',
     options: {
@@ -73,9 +76,9 @@ formControls=[
   {
     label:'Date Of Birth',
     type:'datepicker',
+    colSpan:1,
     name:'dob',
     options: {
-      label:'Date Of Birth',
       placeholder: 'Please enter your date of birth',
       disabled:true
 
@@ -89,6 +92,7 @@ formControls=[
   {
     label:'Gender',
     type:'advanced_select',
+    colSpan:1,
     name:'gender',
     options: {
       displaySelectedValues: false,
@@ -115,6 +119,7 @@ formControls=[
   {
     label:'Country',
     type:'select',
+    colSpan:1,
     name:'country',
     options: {
              
@@ -140,6 +145,7 @@ formControls=[
   {
     label:'Height',
     type:'number',
+    colSpan:1,
     name:'tall',
     options: {
       displayFormat:"#0.## cm",
@@ -150,6 +156,7 @@ formControls=[
       {
         label: 'Description',
         type: 'textarea',
+        colSpan:2,
         name: 'description',
         options: {
           invalidText: 'Description is required',
@@ -195,6 +202,7 @@ formControls=[
       formControls3=[
         {
           label:'Job Title',
+          colSpan:1,
           type:'text',
           name:'jobTitle',
           options:{
@@ -209,6 +217,7 @@ formControls=[
         },
         {
           label:'Employer',
+          colSpan:1,
           type:'text',
           name:'employer',
           options:{
@@ -223,6 +232,7 @@ formControls=[
         },
         {
           label:'Date Of start work',
+          colSpan:2,
           type:'datepicker',
           name:'dow',
           options: {
@@ -237,10 +247,11 @@ formControls=[
         }, 
         {
           label:'Hobbies',
+          colSpan:2,
           type:'advanced_select',
           name:'hobbies',
           options: {
-            displaySelectedValues: true,
+            displayValues: this.dis,  
             disabled:true,
             placeholder:"select hobbies",
             type:'multi',
@@ -276,6 +287,7 @@ formControls=[
         },
         {
           label:'Do you agree with Terms',
+          colSpan:2,
           type:'checkbox',
           name:'agree',
           options:{

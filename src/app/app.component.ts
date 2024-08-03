@@ -8,7 +8,9 @@ import {
   TableModule,
   TableModel,
   TableHeaderItem,
-  TableItem
+  TableItem,
+  ColorpickerModule,
+  ColorpickerComponent,
 } from 'ui-components-lib';
 import { HeaderContentComponent } from "./components/header-content/header-content.component";
 import { TablePoc1Component } from './components/table_poc_1/table_poc_1.component';
@@ -31,6 +33,7 @@ import { TablePoc4Component } from './components/table_poc_4/table_poc_4.compone
     TablePoc4Component,
     TableModule,
     HttpClientModule,
+    ColorpickerModule,
   ],
 })
 export class AppComponent {

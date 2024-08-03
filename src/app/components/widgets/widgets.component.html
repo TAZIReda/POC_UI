@@ -1,65 +1,72 @@
 <app-header-content title="Widget settings"[breadcrumps]="breadcrumps"></app-header-content>
-<div class="container">
+<div class="container" style="height: 525px;" >
     <div class="charts">
     </div>
-    <div class="side_nav">
+    <div class="side_nav"  style="    position: absolute;
+    right: 0;
+    top: 127px;
+    height: calc(100% - 161px);
+    width: 300px;
+">
     
         <cds-tabs
 			[type]="'line'"
 			[followFocus]="true"
 			[isNavigation]="true"
 			[cacheActive]="true">
-			<cds-tab heading="Content">
+			<cds-tab heading="Content" >
+             <div >
+              <div class="form-field">
+                <cds-label>Name</cds-label>
+                <cds-text-label [(value)]="nameValue"></cds-text-label>
+              </div>
+            
+              <div class="form-field">
+                <cds-label>Description</cds-label>
+                <cds-textarea-label [(value)]="descriptionValue"></cds-textarea-label>
+              </div>
+            
+              <div class="form-field">
+                <cds-label>Wellbore</cds-label>
+                <cds-combo-box [items]="wellboreData" [(values)]="wellboreValue">
+                  <cds-dropdown-list></cds-dropdown-list>
+                </cds-combo-box>
+              </div>
+            
+              <div class="form-field">
+                <cds-label>Operations</cds-label>
+                <cds-combo-box [items]="operationsData" [(values)]="operationsValue">
+                  <cds-dropdown-list></cds-dropdown-list>
+                </cds-combo-box>
+              </div>
+            
+              <div class="form-field">
+                <cds-label>Section</cds-label>
+                <cds-combo-box [items]="sectionData" [(values)]="sectionValue" [type]="'multi'">
+                  <cds-dropdown-list></cds-dropdown-list>
+                </cds-combo-box>
+              </div>
+            
+              <div class="form-field">
+                <cds-label>Tubular</cds-label>
+                <cds-combo-box [items]="tubularData" [(values)]="tubularValue" [type]="'multi'">
+                  <cds-dropdown-list></cds-dropdown-list>
+                </cds-combo-box>
+              </div>
+            
+              <div class="form-field">
+                <cds-label>Entity</cds-label>
+                <lib-tag-box [availableItems]="availableItems"></lib-tag-box>
+              </div>
+             </div>
              
-                <div class="form-field">
-                  <cds-label>Name</cds-label>
-                  <cds-text-label [(value)]="nameValue"></cds-text-label>
-                </div>
               
-                <div class="form-field">
-                  <cds-label>Description</cds-label>
-                  <cds-textarea-label [(value)]="descriptionValue"></cds-textarea-label>
-                </div>
-              
-                <div class="form-field">
-                  <cds-label>Wellbore</cds-label>
-                  <cds-combo-box [items]="wellboreData" [(values)]="wellboreValue">
-                    <cds-dropdown-list></cds-dropdown-list>
-                  </cds-combo-box>
-                </div>
-              
-                <div class="form-field">
-                  <cds-label>Operations</cds-label>
-                  <cds-combo-box [items]="operationsData" [(values)]="operationsValue">
-                    <cds-dropdown-list></cds-dropdown-list>
-                  </cds-combo-box>
-                </div>
-              
-                <div class="form-field">
-                  <cds-label>Section</cds-label>
-                  <cds-combo-box [items]="sectionData" [(values)]="sectionValue" [type]="'multi'">
-                    <cds-dropdown-list></cds-dropdown-list>
-                  </cds-combo-box>
-                </div>
-              
-                <div class="form-field">
-                  <cds-label>Tubular</cds-label>
-                  <cds-combo-box [items]="tubularData" [(values)]="tubularValue" [type]="'multi'">
-                    <cds-dropdown-list></cds-dropdown-list>
-                  </cds-combo-box>
-                </div>
-              
-                <div class="form-field">
-                  <cds-label>Entity</cds-label>
-                  <lib-tag-box [availableItems]="availableItems"></lib-tag-box>
-                </div>
-              
-                <div class="button-field">
-                  <custom-button style="width: 100%;" (click)="apply()">Apply</custom-button>
-                </div>
-              
+            
             </cds-tab>
 			<cds-tab heading="Settings">
+           <div>
+            
+           </div>
                 <div class="form-field">
                 <cds-label>Chart Type</cds-label>
                 <cds-combo-box [items]="chartTypeData"  [(values)]="chartTypeValue" (valuesChange)="updateDate($event)"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
@@ -117,6 +124,11 @@
                     </div>
                 </div>
 
+         <div class="form-field">         
+              <!-- <cds-label>Pick a color</cds-label> -->
+              <lib-colorpicker></lib-colorpicker>
+         </div>
+
            <div class="check-field">
             
             <cds-checkbox [(checked)]="legendState"></cds-checkbox>
@@ -130,11 +142,16 @@
            </div>
 
                 </div>
-                <div class="button-field">
+                <!-- <div class="button-field">
                 <custom-button (click)="applySettings()">Apply</custom-button>
-                </div>
+                </div> -->
             </cds-tab>
 		</cds-tabs>
+    <div class="button-field">
+      <custom-button style="width: 100%;" (click)="apply()">Apply</custom-button>
+    </div>
+  
+
     </div>
 
 </div>
