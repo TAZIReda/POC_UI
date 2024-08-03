@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TabsModule,FormComponent,NFormsModule, displayValuesState } from 'ui-components-lib';
+import { TabsModule,FormComponent,NFormsModule, ComboboxDisplayValuesEnum } from 'ui-components-lib';
 import { DataService } from '../../data.service';
 
 import { HeaderContentComponent } from "../header-content/header-content.component";
@@ -26,7 +26,7 @@ export class DetailsRowComponent {
     content:'Details',
   },
   ]
-  dis=displayValuesState.Selected
+  dis=ComboboxDisplayValuesEnum.Selected
 
 ngOnInit(){
   this.route.paramMap.subscribe(params => {
