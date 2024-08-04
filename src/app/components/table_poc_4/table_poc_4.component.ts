@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   SimpleChanges,
@@ -37,7 +38,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './table_poc_4.component.html',
   styleUrl: './table_poc_4.component.scss',
 })
-export class TablePoc4Component {
+export class TablePoc4Component implements AfterViewInit {
   title = 'Table POC 4';
   size = 'md';
   showSelectionColumn = true;
@@ -83,6 +84,10 @@ export class TablePoc4Component {
         dataType: 'string',
       }),
       new TableHeaderItem({
+        data: 'Day',
+        dataType: 'date',
+      }),
+      new TableHeaderItem({
         data: 'Class',
         dataType: 'lookup',
         lookupDetails: {
@@ -117,6 +122,7 @@ export class TablePoc4Component {
         {
           Title: 'Title 1',
           Description: 'Description 1',
+          Day: new Date('2021-01-01'),
           Class: {
             displayedValue: 'Class A',
             savedValue: 1,
@@ -125,6 +131,7 @@ export class TablePoc4Component {
         {
           Title: 'Title 2',
           Description: 'Description 2',
+          Day: new Date('2021-02-01'),
           Class: {
             displayedValue: 'Class B',
             savedValue: 2,
@@ -133,6 +140,7 @@ export class TablePoc4Component {
         {
           Title: 'Title 3',
           Description: 'Description 3',
+          Day: new Date('2021-01-01'),
           Class: {
             displayedValue: 'Class C',
             savedValue: 3,
@@ -141,30 +149,50 @@ export class TablePoc4Component {
         {
           Title: 'Title 4',
           Description: 'Description 2',
+          Day: new Date('2021-02-02'),
           Class: {
             displayedValue: 'Class A',
-            savedValue: 3,
+            savedValue: 1,
           },
         },
         {
           Title: 'Title 5',
           Description: 'Description 1',
+          Day: new Date('2021-03-01'),
           Class: {
             displayedValue: 'Class C',
             savedValue: 3,
           },
         },
+        {
+          Title: 'Title 4',
+          Description: 'Description 3',
+          Day: new Date('2021-02-02'),
+          Class: {
+            displayedValue: 'Class A',
+            savedValue: 1,
+          },
+        },
+        {
+          Title: 'Title 2',
+          Description: 'Description 3',
+          Day: new Date('2021-03-04'),
+          Class: {
+            displayedValue: 'Class B',
+            savedValue: 2,
+          },
+        },
       ];
       const newData = this.model.jsonDataTotableModel(myData);
       const finalRows = newData.map((row, index) => {
-        row[3] = new TableItem({
+        row[4] = new TableItem({
           data: {
             status: 'inactive',
             id: index,
           },
           template: this.statusesTemplate,
         });
-        row[4] = new TableItem({
+        row[5] = new TableItem({
           data: {
             status: 'inactive',
             id: index,
@@ -173,7 +201,7 @@ export class TablePoc4Component {
         });
         return row;
       });
-      this.model.insertTableRowsGroupedByColumn(finalRows, 'Class');
+      this.model.insertTableRowsGroupedByColumn(finalRows, 'Day');
       this.cdr.detectChanges();
     }
   }
@@ -198,9 +226,9 @@ export class TablePoc4Component {
     console.log(data);
     this.model.data.forEach((row: any) => {
       row[0].expandedData.forEach((item: TableItem[], index: number) => {
-        if (item[3].data.id === data.id) {
-          item[3].data.status = 'running';
+        if (item[4].data.id === data.id) {
           item[4].data.status = 'running';
+          item[5].data.status = 'running';
         }
       });
     });
@@ -210,9 +238,9 @@ export class TablePoc4Component {
   stop(data: any) {
     this.model.data.forEach((row: any) => {
       row[0].expandedData.forEach((item: TableItem[], index: number) => {
-        if (item[3].data.id === data.id) {
-          item[3].data.status = 'inactive';
+        if (item[4].data.id === data.id) {
           item[4].data.status = 'inactive';
+          item[5].data.status = 'inactive';
         }
       });
     });
@@ -222,9 +250,9 @@ export class TablePoc4Component {
   complete(data: any) {
     this.model.data.forEach((row: any) => {
       row[0].expandedData.forEach((item: TableItem[], index: number) => {
-        if (item[3].data.id === data.id) {
-          item[3].data.status = 'completed';
+        if (item[4].data.id === data.id) {
           item[4].data.status = 'completed';
+          item[5].data.status = 'completed';
         }
       });
     });
