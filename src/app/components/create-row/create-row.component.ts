@@ -38,7 +38,7 @@ export class CreateRowComponent {
   },
   ]
 
-  display :ComboboxDisplayValuesEnum=ComboboxDisplayValuesEnum.Both
+  display :ComboboxDisplayValuesEnum = ComboboxDisplayValuesEnum.Both
 form_data:any = {};
 numberFormat= "#0.## 'cm'"
 formControls=[
