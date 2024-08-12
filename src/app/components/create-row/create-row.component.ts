@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { TableModule, NFormsModule, ProgressIndicatorModule,LoadingModule, FormComponent, range, displayValuesState } from 'ui-components-lib';
+import { TableModule, NFormsModule, ProgressIndicatorModule,LoadingModule, FormComponent, range, ComboboxDisplayValuesEnum } from 'ui-components-lib';
 import { HeaderContentComponent } from "../header-content/header-content.component";
 import { DataService } from '../../data.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,7 +38,7 @@ export class CreateRowComponent {
   },
   ]
 
-  display :displayValuesState=displayValuesState.Both
+  display :ComboboxDisplayValuesEnum = ComboboxDisplayValuesEnum.Both
 form_data:any = {};
 numberFormat= "#0.## 'cm'"
 formControls=[

@@ -61,8 +61,9 @@ title: any;
 open=false
 constructor(private router: Router, private dataService:DataService) {}
 
-  ngOnInit() {
+  ngAfterViewInit(){
     this.fetchData();
+
   }
   fetchData(){
     const arryData: any=[]
