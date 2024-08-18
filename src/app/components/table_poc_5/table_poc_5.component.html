@@ -45,6 +45,11 @@
       [allowDeleting]="allowDeleting"
       [enablePagination]="enablePagination"
       [paginationProperties]="paginationProperties"
+      [remoteOperationsEnabled]="true"
+      [remoteOperations]="remoteOperations"
+      (rowInserted)="onRowInserted($event)"
+      (rowUpdated)="onRowUpdated($event)"
+      (rowRemoved)="onRowDeleted($event)"
     >
     </cds-table>
   </div>

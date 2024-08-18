@@ -1,11 +1,5 @@
 import { DataSource, CustomStore } from 'data-lib';
-import {
-  Component,
-  OnChanges,
-  SimpleChanges,
-  TemplateRef,
-  ViewChild,
-} from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import {
   TableHeaderItem,
   TableItem,
@@ -21,7 +15,6 @@ import { DataService } from '../../data.service';
 import { PaginationProperties } from 'ui-components-lib/lib/components/table/table.component';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
 
 // Use the imported functions/variables as needed
 
@@ -39,7 +32,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './table_poc_5.component.html',
   styleUrl: './table_poc_5.component.scss',
 })
-export class TablePoc5Component implements OnChanges {
+export class TablePoc5Component {
   size = 'md';
   showSelectionColumn = true;
   striped = false;
@@ -56,17 +49,24 @@ export class TablePoc5Component implements OnChanges {
   exportEnabled = true;
   model = new TableModel();
 
+  remoteOperations = {
+    paging: true,
+  };
+
   enablePagination = true;
   paginationProperties: PaginationProperties = {
-    pageLength: 7,
+    pageLength: 10,
+    totalDataLength: 100,
   };
 
   filter1 = '';
 
-  constructor(private dataService: DataService, private httpClient : HttpClient) {}
+  constructor(
+    private dataService: DataService,
+    private httpClient: HttpClient
+  ) {}
 
   dataSource: DataSource;
-  
 
   title = 'Table POC 5';
   @ViewChild('filter') filter: TemplateRef<any>;
@@ -79,43 +79,58 @@ export class TablePoc5Component implements OnChanges {
     const SERVICE_URL = 'https://jsonplaceholder.typicode.com/posts';
     const customStore = new CustomStore({
       // these are example of crud operations that can be done on the model using custom store
-      load: (loadOptions: any) => {
-        return lastValueFrom(this.httpClient.get(SERVICE_URL));
-      },
 
+      load: (loadOptions: any) => {
+        let basicUrl = SERVICE_URL;
+
+        if (loadOptions.remoteOperations?.paging && loadOptions.params) {
+          const page = loadOptions.params.pagination?.pageIndex;
+          const pageSize = loadOptions.params.pagination?.pageSize || 10;
+          basicUrl += `?_page=${page}&_limit=${pageSize}`;
+        }
+        console.log(basicUrl);
+        if (
+          loadOptions.remoteOperations?.filtering &&
+          loadOptions.params &&
+          loadOptions.params.filtering?.filters.length > 0
+        ) {
+          //construct filter from filter object and add it to the url
+          const filters = loadOptions.params.filtering?.filters;
+
+          // usage example of filters list:
+          // construct a concatinated string from the filterObject ( this is needs to be a custom function that will do the concatination )
+          let filterString = '';
+          for (let filter of filters) {
+            if (filter.filterData.operation == 'reset') continue;
+            if (filter.filterData.data && filter.filterData.operation) {
+              filterString += `${filter.headerName}=${filter.filterData.data}`;
+              basicUrl += `&${filterString}`;
+            }
+          }
+          console.log(basicUrl);
+        }
+
+        return lastValueFrom(this.httpClient.get(basicUrl));
+      },
       byKey: async (key: any) => {
         return await lastValueFrom(
           this.httpClient.get(SERVICE_URL + '/' + encodeURIComponent(key))
         );
       },
 
-      insert: async (values: any) => {
-        const row: any = await lastValueFrom(
-          this.httpClient.post(SERVICE_URL, values)
-        );
-        var newRow : TableItem[] = [];
-        for (let key in row) {
-          newRow.push(new TableItem({ data: row[key]  }));
-        }
-        //add the row to the model
-        this.model.addRow(newRow);
+      insert: (values: any) => {
+        return lastValueFrom(this.httpClient.post(SERVICE_URL, values));
       },
 
-      update: async (key: any, values: any) => {
-        return await lastValueFrom(
-          this.httpClient.put(SERVICE_URL + encodeURIComponent(key), values)
+      update: (key: any, values: any) => {
+        return lastValueFrom(
+          this.httpClient.put(SERVICE_URL + "/" + encodeURIComponent(key), values)
         );
       },
 
-      remove: async (key: any) => {
+      remove: (key: any) => {
         console.log(key);
-        const removed = await lastValueFrom(
-          this.httpClient.delete(`${SERVICE_URL}/${key}`)
-        );
-
-        if (removed) {
-          this.model.deleteRow(key);
-        }
+        return lastValueFrom(this.httpClient.delete(`${SERVICE_URL}/${key}`));
       },
     });
     this.dataSource = new DataSource(customStore);
@@ -127,30 +142,77 @@ export class TablePoc5Component implements OnChanges {
 
     if (!this.noData && !this.skeleton) {
       this.model.dataSource = this.dataSource;
-      this.model.customStore 
-      .load()
-      .then((data: any) => {
-        // create rows TableItem[][] from JSON data
-        this.model.insertTableRowsFromJson(data);
-        // fill out header if not provided from this.model.header
-        this.model.initializeHeadersFromJson(data);
-      })
-      .catch((error: any) => {
-        console.log(error, 'error');
-      });
-    }
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    // when get data from server
-    if (changes['data']) {
-      this.model.data = changes['data'].currentValue;
+      this.model.customStore
+        .load({
+          remoteOperations: {
+            paging: true,
+          },
+          params: {
+            pagination: {
+              pageIndex: 1,
+              pageSize: this.paginationProperties.pageLength,
+            },
+          },
+        })
+        .then((data: any) => {
+          // create rows TableItem[][] from JSON data
+          this.model.insertTableRowsFromJson(data);
+          // fill out header if not provided from this.model.header
+          this.model.initializeHeadersFromJson(data);
+        })
+        .catch((error: any) => {
+          console.log(error, 'error');
+        });
     }
   }
 
   onRowClick(index: number) {
     console.log('Row item selected:', index);
+  }
+
+  onRowInserted(rowData: TableItem[]) {
+    console.log('Row inserted!', rowData);
+    const jsonRow = this.tableItemToJSON(rowData);
+    this.model.customStore
+      .insert(jsonRow)
+      .then((data: any) => {
+        console.log(data);
+      })
+      .catch((error: any) => {
+        console.log(error, 'error');
+      });
+  }
+
+  tableItemToJSON(tableItem: TableItem[]) {
+    let json = {};
+    tableItem.forEach((item, index) => {
+      json[this.model.header[index].data] = item.data;
+    });
+    console.log(json);
+    return json;
+  }
+  onRowUpdated(rowData: TableItem[]) {
+    console.log('Row updated!', rowData);
+    const jsonRow = this.tableItemToJSON(rowData);
+    this.model.customStore
+      .update(jsonRow['id'], jsonRow)
+      .then((data: any) => {
+        console.log(data);
+      })
+      .catch((error: any) => {
+        console.log(error, 'error');
+      });
+  }
+
+  onRowDeleted(rowIndex: number) {
+    console.log('Row deleted!', rowIndex);
+    this.model.customStore
+      .remove(rowIndex)
+      .then((data: any) => {
+        console.log(data);
+      })
+      .catch((error: any) => {
+        console.log(error, 'error');
+      });
   }
 }
