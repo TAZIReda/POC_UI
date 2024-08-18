@@ -2,12 +2,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "preserveConstEnums": true,
     "outDir": "./dist/out-tsc",
     "resolveJsonModule": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
@@ -26,7 +28,6 @@
     ],
      "paths": {
       "ui-components-lib":["../ui-libraries-workspace/dist/ui-components-lib"],
-      "data-lib":["../ui-libraries-workspace/data-lib-dist/"],
     }
   },
   "angularCompilerOptions": {
