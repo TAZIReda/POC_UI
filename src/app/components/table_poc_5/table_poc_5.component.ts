@@ -49,6 +49,7 @@ export class TablePoc5Component {
   exportEnabled = true;
   model = new TableModel();
 
+  remoteOperationsEnabled = true;
   remoteOperations = {
     paging: true,
   };
@@ -122,14 +123,19 @@ export class TablePoc5Component {
         return lastValueFrom(this.httpClient.post(SERVICE_URL, values));
       },
 
-      update: (key: any, values: any) => {
+      update: (values: any) => {
+        // extract key from values
+        // in our case the key is the 'id' field
+        let key = values.id;
         return lastValueFrom(
           this.httpClient.put(SERVICE_URL + "/" + encodeURIComponent(key), values)
         );
       },
 
-      remove: (key: any) => {
-        console.log(key);
+      remove: (values: any) => {
+        // extract key from values
+        // in our case the key is the 'id' field
+        let key = values.id;
         return lastValueFrom(this.httpClient.delete(`${SERVICE_URL}/${key}`));
       },
     });
@@ -171,48 +177,14 @@ export class TablePoc5Component {
   }
 
   onRowInserted(rowData: TableItem[]) {
-    console.log('Row inserted!', rowData);
-    const jsonRow = this.tableItemToJSON(rowData);
-    this.model.customStore
-      .insert(jsonRow)
-      .then((data: any) => {
-        console.log(data);
-      })
-      .catch((error: any) => {
-        console.log(error, 'error');
-      });
+    console.log('Row inserted successfully!', rowData);
   }
 
-  tableItemToJSON(tableItem: TableItem[]) {
-    let json = {};
-    tableItem.forEach((item, index) => {
-      json[this.model.header[index].data] = item.data;
-    });
-    console.log(json);
-    return json;
-  }
   onRowUpdated(rowData: TableItem[]) {
-    console.log('Row updated!', rowData);
-    const jsonRow = this.tableItemToJSON(rowData);
-    this.model.customStore
-      .update(jsonRow['id'], jsonRow)
-      .then((data: any) => {
-        console.log(data);
-      })
-      .catch((error: any) => {
-        console.log(error, 'error');
-      });
+    console.log('Row updated successfully!', rowData);
   }
 
   onRowDeleted(rowIndex: number) {
-    console.log('Row deleted!', rowIndex);
-    this.model.customStore
-      .remove(rowIndex)
-      .then((data: any) => {
-        console.log(data);
-      })
-      .catch((error: any) => {
-        console.log(error, 'error');
-      });
+    console.log('Row deleted successfully!', rowIndex);
   }
 }
