@@ -1,0 +1,62 @@
+<app-header-content title="Other Components" [breadcrumps]="breadcrumps"></app-header-content>
+<div class="actions" style="display: flex;justify-content:space-between;margin-top: 5px;">
+  <custom-button [kind]="'primary'" size="sm"> Delete all</custom-button>
+  <custom-button [kind]="'primary'" size="sm" (click)="refresh()"> Refresh</custom-button>
+</div>
+<div class="grid_container" style="min-height: 395px;">
+  <div style="padding-bottom: 20px;">
+    <cds-label>Users</cds-label>
+    <lib-tag-box
+    [availableItems]="availableItems"
+  (tagsChange)="onClick($event)"
+  ></lib-tag-box>
+  </div>
+  <div style="padding-bottom: 20px;">
+
+    <ng-template #apple let-icon >
+			<svg ibmIcon="add" size="16"></svg>
+		</ng-template>
+   
+    <cds-contained-list label="Users" >
+      <cds-contained-list-item *ngFor="let user of users" [action]="action" [icon]="apple"  [clickable]="true" (click)="ItemClick(user)">
+        <ng-container ibmContainedListItemButton>{{user.text}}</ng-container>
+        <ng-template #action let-item>
+          <cds-icon-button
+          buttonId="icon-btn1"
+          type="button"
+          [kind]="'primary'"
+          [size]="'md'"
+          [align]="'bottom'"
+          [disabled]="false"
+          (click)="onDelete(user)"
+          >
+          <svg class="cds--btn__icon" cdsIcon="subtract" size="16"></svg>
+        </cds-icon-button>
+        </ng-template>
+      </cds-contained-list-item>
+    </cds-contained-list>
+  </div>
+
+<div style="padding-bottom: 20px;">
+  <cds-structured-list  [condensed]="false" >
+    <cds-list-header>
+      <cds-list-column [nowrap]="true">User</cds-list-column>
+      <cds-list-column [nowrap]="true">Job</cds-list-column>
+      <cds-list-column>Description</cds-list-column>
+    </cds-list-header>
+    <cds-list-row *ngFor="let user of details">
+      <cds-list-column>{{user.content}}</cds-list-column>
+      <cds-list-column [nowrap]="true">{{user.job}}</cds-list-column>
+      <cds-list-column>
+        {{user.desc}}
+      </cds-list-column>
+    </cds-list-row>
+   
+  </cds-structured-list>
+</div>
+
+
+
+</div>
+
+
