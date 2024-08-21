@@ -1,328 +1,180 @@
 {
   "work": [
     {
-      "id": "bdfd",
-      "tall": 123,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "lastName": "Alpha",
-      "firstName": "User",
-      "dob": [
-        "2013-07-03"
-      ],
-      "country": "Canada",
-      "description": "User alpha description",
-      "phone": "112-222-2222",
-      "email": "userAlpha@example.com",
-      "hobbies": [
-        {
-          "parent": "literature",
-          "content": "Writing",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Fishing",
-          "selected": true
-        }
-      ],
-      "jobTitle": "Data Analyst",
-      "employer": "Smartest",
-      "dow": [
-        "2024-06-30",
-        "2024-08-09"
-      ],
-      "agree": true
-    },
-    {
-      "id": "921c",
-      "tall": 120,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "user",
-      "lastName": "alpha",
-      "dob": [
-        "2024-06-30"
-      ],
-      "country": "USA",
-      "description": "desc",
-      "phone": "112-222-2222",
-      "email": "example123@example.com",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Hiking",
-          "selected": true
-        },
-        {
-          "parent": "literature",
-          "content": "Reading",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Fishing",
-          "selected": true
-        }
-      ],
-      "dow": [
-        "2024-07-01",
-        "2024-07-03"
-      ],
-      "jobTitle": "Oil & Gas",
-      "employer": "Smartest",
-      "agree": true
-    },
-    {
-      "id": "28c2",
-      "tall": null,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "reda",
-      "lastName": "s",
-      "dob": [
-        "2024-07-01T23:00:00.000Z"
-      ],
-      "country": "Canada",
-      "description": "sqsqx",
-      "phone": "112-222-2222",
-      "email": "vexample123@example.com",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Kayaking",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Fishing",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Surfing",
-          "selected": true
-        }
-      ],
-      "jobTitle": "DFVD",
-      "employer": "DFV",
-      "dow": [
-        "2024-07-02T23:00:00.000Z",
-        "2024-07-12T23:00:00.000Z"
-      ],
-      "agree": true
-    },
-    {
-      "id": "aa89",
-      "tall": null,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "wccccc",
-      "lastName": "Smartest",
-      "dob": [
-        "2024-07-01T23:00:00.000Z"
-      ],
-      "description": "zrthhrt",
-      "country": "USA",
-      "phone": "111-111-1111",
-      "email": "azdzd@sjs.com",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Hiking",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Kayaking",
-          "selected": true
-        }
-      ],
-      "jobTitle": "zda",
-      "employer": "sqdqz",
-      "dow": [
-        "2024-07-02T23:00:00.000Z",
-        "2024-07-17T23:00:00.000Z"
-      ],
-      "agree": true
-    },
-    {
-      "id": "59fa",
-      "tall": 230,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "Last",
-      "lastName": "Test updated",
-      "dob": [
-        "2024-07-20T23:00:00.000Z"
-      ],
-      "country": "USA",
-      "description": "desc test",
-      "phone": "112-222-2222",
-      "email": "smartest@algeria.dz",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Hiking",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Kayaking",
-          "selected": true
-        },
-        {
-          "parent": "literature",
-          "content": "Reading",
-          "selected": true
-        }
-      ],
-      "jobTitle": "Oil & Gas",
-      "employer": "Smartest",
-      "dow": [
-        "2024-06-29T23:00:00.000Z",
-        "2024-06-30T23:00:00.000Z"
-      ],
-      "agree": true
-    },
-    {
-      "id": "ad73",
+      "id": "7cd6",
       "tall": 0,
+      "dob": [
+        "2024-07-31T23:00:00.000Z"
+      ],
       "gender": [
         {
           "content": "Man",
           "selected": true
         }
       ],
-      "firstName": "Smartest 22",
-      "lastName": "true",
-      "dob": [
-        "2024-07-02T23:00:00.000Z"
-      ],
+      "firstName": "smartes up",
+      "lastName": "algeria",
       "country": "USA",
-      "phone": "0772837018",
-      "email": "redamartest@algeria.dz",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
       "hobbies": [],
-      "jobTitle": "asw",
-      "employer": "Smartest"
-    },
-    {
-      "id": "bdfd",
-      "tall": 123,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "lastName": "Alpha",
-      "firstName": "User",
-      "dob": [
-        "2013-07-03"
-      ],
-      "country": "Canada",
-      "description": "User alpha description",
-      "phone": "112-222-2222",
-      "email": "userAlpha@example.com",
-      "hobbies": [
-        {
-          "parent": "literature",
-          "content": "Writing",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Fishing",
-          "selected": true
-        }
-      ],
-      "jobTitle": "Data Analyst",
-      "employer": "Smartest",
-      "dow": [
-        "2024-06-30",
-        "2024-08-09"
-      ],
-      "agree": true
-    },
-    {
-      "id": "921c",
-      "tall": 120,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "user",
-      "lastName": "alpha",
-      "dob": [
-        "2024-06-30"
-      ],
-      "country": "USA",
-      "description": "desc",
-      "phone": "112-222-2222",
-      "email": "example123@example.com",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Hiking",
-          "selected": true
-        },
-        {
-          "parent": "literature",
-          "content": "Reading",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Fishing",
-          "selected": true
-        }
-      ],
-      "dow": [
-        "2024-07-01",
-        "2024-07-03"
-      ],
       "jobTitle": "Oil & Gas",
-      "employer": "Smartest",
-      "agree": true
+      "employer": "SOVAC",
+      "dow": [
+        "2024-07-31T23:00:00.000Z",
+        "2024-08-01T23:00:00.000Z"
+      ]
     },
     {
-      "id": "28c2",
-      "tall": null,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "reda",
-      "lastName": "s",
+      "id": "4425",
+      "tall": 1,
       "dob": [
-        "2024-07-01T23:00:00.000Z"
+        "2024-07-29T23:00:00.000Z"
       ],
+      "firstName": "smart",
+      "lastName": "algeria",
+      "gender": "Man",
       "country": "Canada",
-      "description": "sqsqx",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
+      "hobbies": [],
+      "jobTitle": "Oil & Gas",
+      "employer": "SOVAC",
+      "dow": [
+        "2024-08-07T23:00:00.000Z",
+        "2024-08-09T23:00:00.000Z"
+      ]
+    },
+    {
+      "id": "d267",
+      "tall": 0,
+      "dob": [
+        "2024-07-29T23:00:00.000Z"
+      ],
+      "firstName": "Info 11",
+      "lastName": "sdff",
+      "gender": "Woman",
+      "country": "USA",
+      "phone": "786-307-3615",
+      "email": "example123@example.com",
+      "hobbies": [],
+      "jobTitle": "azerty",
+      "employer": "vddvqv",
+      "dow": [
+        "2024-08-06T23:00:00.000Z",
+        "2024-08-08T23:00:00.000Z"
+      ]
+    },
+    {
+      "id": "b792",
+      "tall": 0,
+      "dob": [
+        "2024-08-08T23:00:00.000Z"
+      ],
+      "firstName": "alpha",
+      "lastName": "beta",
+      "gender": "Man",
+      "country": "USA",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
+      "hobbies": [],
+      "jobTitle": "Oil & Gas",
+      "employer": "SOVAC",
+      "dow": [
+        "2024-07-30T23:00:00.000Z",
+        "2024-08-02T23:00:00.000Z"
+      ]
+    },
+    {
+      "id": "6630",
+      "tall": 0,
+      "dob": [
+        "2024-07-31T23:00:00.000Z"
+      ],
+      "firstName": "hi",
+      "lastName": "dd",
+      "gender": "Woman",
+      "country": "UK",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
+      "hobbies": [],
+      "jobTitle": "Full stack developer",
+      "employer": "SOVAC",
+      "dow": [
+        "2024-07-30T23:00:00.000Z",
+        "2024-08-02T23:00:00.000Z"
+      ]
+    },
+    {
+      "id": "6e57",
+      "tall": 0,
+      "dob": [
+        "2024-08-01T23:00:00.000Z"
+      ],
+      "firstName": "toast",
+      "lastName": "notif",
+      "gender": "Woman",
+      "country": "USA",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
+      "hobbies": [],
+      "jobTitle": "Data Analyst",
+      "employer": "SOVAC",
+      "dow": [
+        "2024-07-30T23:00:00.000Z",
+        "2024-08-02T23:00:00.000Z"
+      ]
+    },
+    {
+      "id": "13b3",
+      "tall": 0,
+      "dob": [
+        "2024-07-30T23:00:00.000Z"
+      ],
+      "firstName": "notif",
+      "lastName": "toast",
+      "gender": "Woman",
+      "country": "USA",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
+      "hobbies": [],
+      "jobTitle": "Oil & Gas",
+      "employer": "DFV",
+      "dow": [
+        "2024-08-01T23:00:00.000Z",
+        "2024-08-07T23:00:00.000Z"
+      ]
+    },
+    {
+      "id": "e395",
+      "tall": 0,
+      "dob": [
+        "2024-07-29T23:00:00.000Z"
+      ],
+      "firstName": "s",
+      "lastName": "c",
+      "gender": "Woman",
+      "country": "USA",
+      "phone": "112-222-2222",
+      "email": "vexample123@example.com",
+      "hobbies": [],
+      "jobTitle": "DFVD",
+      "employer": "DFV",
+      "dow": [
+        "2024-07-30T23:00:00.000Z",
+        "2024-08-01T23:00:00.000Z"
+      ]
+    },
+    {
+      "id": "7ee1",
+      "tall": 0,
+      "dob": [
+        "2024-07-30T23:00:00.000Z"
+      ],
+      "firstName": "alpha",
+      "lastName": "beta",
+      "gender": "Man",
+      "country": "USA",
       "phone": "112-222-2222",
       "email": "vexample123@example.com",
       "hobbies": [
@@ -330,106 +182,14 @@
           "parent": "Sport",
           "content": "Kayaking",
           "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Fishing",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Surfing",
-          "selected": true
-        }
-      ],
-      "jobTitle": "DFVD",
-      "employer": "DFV",
-      "dow": [
-        "2024-07-02T23:00:00.000Z",
-        "2024-07-12T23:00:00.000Z"
-      ],
-      "agree": true
-    },
-    {
-      "id": "aa89",
-      "tall": null,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "wccccc",
-      "lastName": "Smartest",
-      "dob": [
-        "2024-07-01T23:00:00.000Z"
-      ],
-      "description": "zrthhrt",
-      "country": "USA",
-      "phone": "111-111-1111",
-      "email": "azdzd@sjs.com",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Hiking",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Kayaking",
-          "selected": true
-        }
-      ],
-      "jobTitle": "zda",
-      "employer": "sqdqz",
-      "dow": [
-        "2024-07-02T23:00:00.000Z",
-        "2024-07-17T23:00:00.000Z"
-      ],
-      "agree": true
-    },
-    {
-      "id": "59fa",
-      "tall": 230,
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "Last",
-      "lastName": "Test updated",
-      "dob": [
-        "2024-07-20T23:00:00.000Z"
-      ],
-      "country": "USA",
-      "description": "desc test",
-      "phone": "112-222-2222",
-      "email": "smartest@algeria.dz",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Hiking",
-          "selected": true
-        },
-        {
-          "parent": "Sport",
-          "content": "Kayaking",
-          "selected": true
-        },
-        {
-          "parent": "literature",
-          "content": "Reading",
-          "selected": true
         }
       ],
       "jobTitle": "Oil & Gas",
-      "employer": "Smartest",
+      "employer": "SOVAC",
       "dow": [
-        "2024-06-29T23:00:00.000Z",
-        "2024-06-30T23:00:00.000Z"
-      ],
-      "agree": true
+        "2024-07-19T23:00:00.000Z",
+        "2024-07-30T23:00:00.000Z"
+      ]
     }
   ],
   "real-time-data": [
@@ -2796,6 +2556,75 @@
       "dbtm": 45,
       "rpo": 115,
       "hkld": 20
+    }
+  ],
+  "settings": [
+    {
+      "id": "00f3",
+      "nameValue": "First day",
+      "descriptionValue": "first day of drilling in hassi",
+      "wellboreValue": [
+        {
+          "content": "wellbore two",
+          "selected": true
+        }
+      ],
+      "operationsValue": [
+        {
+          "content": "Drilling",
+          "selected": true
+        }
+      ],
+      "sectionValue": [
+        {
+          "content": "Intermediate Hole Section",
+          "selected": true
+        }
+      ],
+      "tubularValue": [
+        {
+          "content": "item1",
+          "selected": true
+        }
+      ],
+      "chartTypeValue": [
+        {
+          "content": "Pie",
+          "selected": true
+        }
+      ],
+      "xUnitValue": [],
+      "pieSizeValue": 4,
+      "valueColor": "#7c1717",
+      "legendState": true,
+      "positionLegendValue": [
+        {
+          "content": "Right",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "id": "418b",
+      "nameValue": "First day",
+      "descriptionValue": "first day of drilling in hassi",
+      "wellboreValue": [
+        "wellbore two"
+      ],
+      "operationsValue": [
+        "Drilling"
+      ],
+      "sectionValue": [
+        "Intermediate Hole Section"
+      ],
+      "tubularValue": [
+        "item1"
+      ],
+      "chartTypeValue": [
+        "Pie"
+      ],
+      "pieSizeValue": 4,
+      "valueColor": "#7c1717"
     }
   ]
 }
