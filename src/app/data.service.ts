@@ -1,15 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, retry } from 'rxjs';
 import { ModalContent } from 'ui-components-lib';
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
+  setDataSettings(settingsObject:any) {
+    return this.http.post<any>('http://localhost:8000/settings', settingsObject).subscribe(
+    
+    );
+  }
+
+  getDataSettings() {
+    return this.http.get<any>('http://localhost:8000/settings/00f3');
+  }
+  notificationData: any;
+  isUser:any ='';
+  data: any;
+  public dataSubject = new BehaviorSubject<any>({});
+
+
   constructor(private http: HttpClient, private router: Router) {}
 
-  data: any;
+
   setData(data: any) {
     return this.http.post<any>('http://localhost:8000/work', data);
   }
@@ -17,12 +32,12 @@ export class DataService {
   getData() {
   return this.http.get<any>('http://localhost:8000/work')
   }
+
   getDataById(id:any) {
     return this.http.get<any>('http://localhost:8000/work/'+id)
     }
 
   async getRealTimeData() {
-    //resolve subscription
     let data = await new Promise<any>((resolve, reject) => {
       this.http.get<any>('http://localhost:8000/real-time-data').subscribe(
         (res) => {
@@ -31,7 +46,6 @@ export class DataService {
             delete element.id;
             return element
           });  
-          console.log(res)
           resolve(res);
         },
         (error) => {
@@ -58,8 +72,6 @@ export class DataService {
     return newRow;
   }
 
-
-
   deleteRow(data: any) {
     return this.http.delete('http://localhost:8000/work/' + data.id);
   }
@@ -76,7 +88,6 @@ export class DataService {
   detailsRow(id:any){
     this.router.navigate(['/details',id])
   }
- isUser:any ='';
 
   login(data:any):Observable<Boolean>{
     if(data.username === 'reda' && data.password === '12345'){
@@ -85,5 +96,15 @@ export class DataService {
       this.isUser = false
     }
     return this.isUser
+  }
+
+  setNotification(data:any): void{
+    
+    this.dataSubject.next(data);
+
+  }
+  getNotification(): Observable<any>
+  {
+    return this.dataSubject.asObservable();
   }
 }

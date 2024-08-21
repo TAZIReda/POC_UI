@@ -1,5 +1,6 @@
 <app-header-content title="Users" [breadcrumps]="breadcrumps"></app-header-content>
 <div class="container" style="overflow: auto;">
+  <div class="notification-container"></div>
   <content>
     <cds-table-container style="height: 525px;">
       <cds-table-header>
@@ -15,8 +16,6 @@
 			
 				</cds-table-toolbar-content>
 			</cds-table-toolbar>
-
-      <div></div>
 
       <ng-template #overflowMenuItemTemplate let-data="data">
         <cds-overflow-menu>
@@ -64,3 +63,4 @@
      </ng-container>
   </cds-modal-footer>
 </cds-modal>
+

@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { TableModule, NFormsModule, ProgressIndicatorModule,LoadingModule, FormComponent, range, ComboboxDisplayValuesEnum } from 'ui-components-lib';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { TableModule, NFormsModule, ProgressIndicatorModule,LoadingModule, FormComponent, range, ComboboxDisplayValuesEnum,NotificationModule, NotificationService } from 'ui-components-lib';
 import { HeaderContentComponent } from "../header-content/header-content.component";
 import { DataService } from '../../data.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-create-row',
     standalone: true,
-    providers:[DataService],
+    providers:[],
     templateUrl: './create-row.component.html',
     styleUrl: './create-row.component.scss',
     imports: [
@@ -19,7 +19,8 @@ import { Router } from '@angular/router';
       HttpClientModule,
       CommonModule,
       ProgressIndicatorModule,
-      LoadingModule
+      LoadingModule,
+      NotificationModule
     ]
 })
 export class CreateRowComponent {
@@ -28,8 +29,12 @@ export class CreateRowComponent {
 
   constructor(
     private dataService :DataService,
-    private router: Router
-  ){}
+    private router: Router,
+    protected notificationService: NotificationService,
+    private viewContainer: ViewContainerRef,
+  ){
+    this.notificationService.viewContainer = viewContainer;
+  }
   breadcrumps=[{
     content:'Users',
     href:'users'
@@ -41,6 +46,7 @@ export class CreateRowComponent {
   display :ComboboxDisplayValuesEnum = ComboboxDisplayValuesEnum.Both
 form_data:any = {};
 numberFormat= "#0.## 'cm'"
+// dateFormat = 'y-m-d'
 formControls=[
     
 {
@@ -78,6 +84,7 @@ formControls=[
   name:'dob',
   options: {
     placeholder: 'Please enter your date of birth',
+    // dateFormat:this.dateFormat,
   },
   validators: [
     {
@@ -88,28 +95,17 @@ formControls=[
 },
 {
   label:'Gender',
-  type:'advanced_select',
+  type:'radio',
   name:'gender',
   options: {
-    displaySelectedValues: false,
-    placeholder:"select your gender",
-    type:'single',
-    items: [
-      {
-        content: "Man"
-      },
-      {
-        content: "Woman"
-      },
-    ],
-   
+    options: ['Man', 'Woman'],
   },
-  validators: [
-    {
-      type: 'required',
-      message: 'Gender is required'
-    },
-  ],
+  // validators: [
+  //   {
+  //     type: 'required',
+  //     message: 'Gender is required'
+  //   },
+  // ],
 },
 {
   label:'Country',
@@ -140,7 +136,8 @@ formControls=[
   type:'number',
   name:'tall',
   options: {
-    displayFormat:this.numberFormat
+    displayFormat:this.numberFormat,
+ 
  },
 },
     {
@@ -152,6 +149,7 @@ formControls=[
         placeholder: 'Enter your Description',
       },
     },
+    
   ]
   
 
@@ -298,6 +296,7 @@ showNextButton = true;
 showBacktButton = false;  
 
 nextStep() {
+
   if(this.form && this.form.validateAll()){
     if (this.current < this.maxStep) {
       this.current += 1;
@@ -324,18 +323,38 @@ back() {
   this.router.navigate(['/users'])
 
 }
+
+formatDate(date:any) {
+  const d = new Date(date);
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  const year = d.getFullYear();
+  return [`${month}/${day}/${year}`];
+}
+
 onCreate() {
-
   if(this.form && this.form.validateAll()){
-
-
-   
-    this.dataService.setData(this.form_data).subscribe(()=>{})
-    this.router.navigate(['/users'])
-
+    this.dataService.setData(this.form_data).subscribe((element)=>{
+      element.dob = this.formatDate(this.form_data.dob[0])
+    })
+    this.sendData();
+      this.router.navigate(['/users'])
   }
 
 }
+notificationObject:any = {
+  type:'showActionable',
+  data:{
+    type: "success",
+    title: "SUCCESS",
+    message: "User created successfully",
+    lowContrast: true,
+    target: ".notification-container",
+  }
+}
 
+sendData(): void {
+  this.dataService.setNotification(this.notificationObject);
+}
 
 }

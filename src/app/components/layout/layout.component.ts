@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -8,9 +8,13 @@ import {
   TableModule,
   TableModel,
   TableHeaderItem,
-  TableItem
+  TableItem,
+  NotificationService,
+  NotificationModule
 } from 'ui-components-lib';
 import { HeaderContentComponent } from '../header-content/header-content.component';
+import { DataService } from '../../data.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -23,97 +27,26 @@ import { HeaderContentComponent } from '../header-content/header-content.compone
     SideNavModule,
     HeaderContentComponent,
     TableModule,
-    HttpClientModule
+    HttpClientModule,
+    NotificationModule,
+    CommonModule
 ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
-  // model = new TableModel();
-  // headerItems=[];
+  notificationObject: any;
+  dataS: any;
+ 
+  constructor(
+    
+    private viewContainer: ViewContainerRef,
+    private dataService:DataService
+  ){}
+
+
+
   active = true;
-  // simpleModel: TableModel;
-
-  // constructor() {
-  //   this.simpleModel = new TableModel();
-  // }
-  
-  // ngOnInit() {
-  //   this.model.header = [
-  //     new TableHeaderItem({
-  //       data: 'String',
-  //       dataType: 'string',
-  //       title: 'Table header title',
-  //     }),
-  //     new TableHeaderItem({
-  //       data: 'Number',
-  //       dataType: 'number',
-  //       className: 'my-class',
-  //     }),
-  //     new TableHeaderItem({
-  //       data: 'Date',
-  //       dataType: 'date',
-  //       className: 'my-class',
-  //     }),
-  //     new TableHeaderItem({
-  //       data: 'Boolean',
-  //       dataType: 'boolean',
-  //       className: 'my-class',
-  //     }),
-  //   ];
-
-  //   this.model.rowsSelectedChange.subscribe((event) => console.log(event));
-  //   this.model.selectAllChange.subscribe((event) =>
-  //     console.log(event ? 'All rows selected!' : 'All rows deselected!')
-  //   );
-
-   
-  //     // this.model.data = [
-  //     //   [
-  //     //     new TableItem({ data: 'Name 1', title: 'Table item title' }),
-  //     //     new TableItem({ data: 21 }),
-  //     //     new TableItem({ data: new Date() }),
-  //     //     new TableItem({ data: true }),
-  //     //   ],
-  //     //   [
-  //     //     new TableItem({ data: 'Name 3' }),
-  //     //     new TableItem({ data: 1323 }),
-  //     //     new TableItem({ data: new Date() }),
-  //     //     new TableItem({ data: false }),
-  //     //   ],
-  //     //   [
-  //     //     new TableItem({ data: 'Name 2' }),
-  //     //     new TableItem({ data: 9432 }),
-  //     //     new TableItem({ data: new Date() }),
-  //     //     new TableItem({ data: true }),
-  //     //   ],
-  //     //   [
-  //     //     new TableItem({ data: 'Name 4' }),
-  //     //     new TableItem({ data: 4939 }),
-  //     //     new TableItem({ data: new Date() }),
-  //     //     new TableItem({ data: false }),
-  //     //   ],
-  //     //   [
-  //     //     new TableItem({ data: 'Name 5' }),
-  //     //     new TableItem({ data: 0 }),
-  //     //     new TableItem({ data: new Date() }),
-  //     //     new TableItem({ data: true }),
-  //     //   ],
-  //     //   [
-  //     //     new TableItem({ data: 'Name 6' }),
-  //     //     new TableItem({ data: 20 }),
-  //     //     new TableItem({ data: new Date('05/15/2024') }),
-  //     //     new TableItem({ data: false }),
-  //     //   ],
-  //     //   [
-  //     //     new TableItem({ data: 'Name 7' }),
-  //     //     new TableItem({ data: 1 }),
-  //     //     new TableItem({ data: new Date('01/15/2024') }),
-  //     //     new TableItem({ data: true }),
-  //     //   ],
-  //     // ];
-   
-  // }
 
   expanded($event: MouseEvent) {
     this.active=! this.active

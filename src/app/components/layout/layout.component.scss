@@ -3,11 +3,13 @@
 }
 
 .active-sideNav {
-  margin-left: 51px;
+  margin-left: 48px;
+  // margin-left: 3.8%;
 }
 
 .inactive-sideNav {
-  margin-left: 271px;
+  margin-left: 256px;
+  // margin-left: 20.2%;
 }
 ::ng-deep .cds--header {
   background-color: black !important;
@@ -21,4 +23,17 @@ a.cds--header__name:hover {
 ::ng-deep .cds--header__menu-trigger > svg,
 .cds--header__menu-trigger > svg:hover {
   fill: white !important;
+}
+
+
+.toast-container{
+  position: fixed;
+  top: 55px;
+  right: 10px;
+  width: 300px;
+  z-index: 1001;
+}
+
+::ng-deep .cds--toast-notification{
+  width: 100% !important;
 }
