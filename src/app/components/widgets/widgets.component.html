@@ -1,6 +1,25 @@
 <app-header-content title="Widget settings"[breadcrumps]="breadcrumps"></app-header-content>
-<div class="container" style="height: 525px;" >
-    <div class="charts">
+<div class="container" style="height: 450px;" >
+    <div *ngIf="!displaySettings" class="charts" style="display: flex;flex-direction: row;padding-right: 20%;justify-content: space-around;">
+      <div class="content" style="display: flex;flex-direction: column;justify-content: space-around;">
+        <span>Content Name : {{settingsObject.nameValue}}</span>
+        <span>Content Description : {{settingsObject.descriptionValue}}</span>
+        <span>Wellbore : {{settingsObject.wellboreValue}}</span>
+        <span>Operation : {{settingsObject.operationsValue}}</span>
+        <span>Section : {{settingsObject.sectionValue}}</span>
+        <span>Tubular : {{settingsObject.tubularValue}}</span>
+        <span>Entities : {{settingsObject.operationsValue}}</span>
+      </div>
+      <div class="settings" style="display: flex;flex-direction: column;justify-content: space-around;">
+        <span>Type chart : {{settingsObject.chartTypeValue}}</span>
+        <div *ngIf="settingsObject.xAxisName">
+          <span>Name axis x : {{settingsObject.xAxisName}}</span>
+          <span>Name axis y : {{settingsObject.yName}}</span>
+        </div>
+        <span>Pie size : {{settingsObject.pieSizeValue}}</span>
+        <span>Color : {{settingsObject.valueColor}}</span>
+      </div>
+      
     </div>
     <div class="side_nav"  style="    position: absolute;
     right: 0;
@@ -56,7 +75,7 @@
             
               <div class="form-field">
                 <cds-label>Entity</cds-label>
-                <lib-tag-box [availableItems]="availableItems"></lib-tag-box>
+                <lib-tag-box [availableItems]="availableItems" (tagsChange)="tagsEntity"></lib-tag-box>
               </div>
              </div>
              
@@ -82,7 +101,7 @@
 
                         <div class="form-field">
                             <cds-label>X Axis Unit</cds-label>
-                            <cds-combo-box  [items]="yUnitData" [(values)]="yUnitValue"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
+                            <cds-combo-box  [items]="xUnitData" [(values)]="xUnitValue"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
                         </div>
                       
                         <div class="form-field">
@@ -102,7 +121,7 @@
                    
                          <div class="form-field">
                             <cds-label>Y Axis Unit</cds-label>
-                            <cds-combo-box [items]="xUnitData" [(values)]="xUnitValue"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
+                            <cds-combo-box [items]="yUnitData" [(values)]="yUnitValue"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
                         </div>
                       
                           <div class="form-field">
@@ -117,16 +136,19 @@
                         
                     </div>
                     <div class="chart_type_pie" *ngIf="chartValue === 'Pie'">
-
+                      <!-- <div class="form-field">
+                        <cds-label>Y Axis Unit</cds-label>
+                        <cds-combo-box [items]="xUnitData" [(values)]="xUnitValue"><cds-dropdown-list></cds-dropdown-list></cds-combo-box>
+                    </div> -->
                          <div class="form-field">         
                              <cds-label>Pie size</cds-label>
-                         <cds-number [displayFormat]="format" [min]="0" [max]="100" [(value)]="pieSize"></cds-number>
+                         <cds-number [displayFormat]="format" [min]="0" [max]="100" [(value)]="pieSizeValue"></cds-number>
                     </div>
                 </div>
 
          <div class="form-field">         
               <!-- <cds-label>Pick a color</cds-label> -->
-              <lib-colorpicker></lib-colorpicker>
+              <lib-colorpicker [(value)]="valueColor"></lib-colorpicker>
          </div>
 
            <div class="check-field">
