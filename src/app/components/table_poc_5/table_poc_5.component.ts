@@ -50,7 +50,6 @@ export class TablePoc5Component {
   enablePagination = true;
   paginationProperties: PaginationProperties = {
     pageLength: 10,
-    totalDataLength: 100,
   };
 
   filter1 = '';
