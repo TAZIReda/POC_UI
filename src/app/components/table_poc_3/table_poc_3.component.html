@@ -4,7 +4,10 @@
     <p cdsTableHeaderDescription>Inline actions | DataSummary.</p>
   </cds-table-header>
 
-  <div class="table-container">
+  <div
+    class="table-container"
+    [attr.style]="showFilter ? 'overflow-x: visible;' : 'overflow-x: auto'"
+  >
     <cds-table
       [model]="model"
       size="md"

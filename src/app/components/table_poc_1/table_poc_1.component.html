@@ -27,7 +27,10 @@
       <button class="btn--secondary" (click)="popover.doClose()">Cancel</button>
     </cds-label>
   </ng-template>
-  <div class="table-container">
+  <div
+    class="table-container"
+    [attr.style]="showFilter ? 'overflow-x: visible;' : 'overflow-x: auto'"
+  >
     <cds-table
       [sortable]="sortable"
       [skeleton]="skeleton"

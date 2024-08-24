@@ -2,7 +2,8 @@
   <cds-table-header>
     <h4 cdsTableHeaderTitle>{{ title }}</h4>
     <p cdsTableHeaderDescription>
-      Inline actions | Custom store | built-in Events | Export | Pagination | Filter
+      Inline actions | Custom store | built-in Events | Export | Pagination |
+      Filter
     </p>
   </cds-table-header>
 
@@ -27,7 +28,10 @@
       <button class="btn--secondary" (click)="popover.doClose()">Cancel</button>
     </cds-label>
   </ng-template>
-  <div class="table-container">
+  <div
+    class="table-container"
+    [attr.style]="showFilter ? 'overflow-x: visible;' : 'overflow-x: auto'"
+  >
     <cds-table
       [sortable]="sortable"
       [skeleton]="skeleton"
@@ -45,8 +49,6 @@
       [allowDeleting]="allowDeleting"
       [enablePagination]="enablePagination"
       [paginationProperties]="paginationProperties"
-      [remoteOperationsEnabled]="remoteOperationsEnabled"
-      [remoteOperations]="remoteOperations"
       (rowInserted)="onRowInserted($event)"
       (rowUpdated)="onRowUpdated($event)"
       (rowRemoved)="onRowDeleted($event)"
