@@ -1,7 +1,6 @@
 import { DataSource, CustomStore } from 'data-lib';
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import {
-  TableHeaderItem,
   TableItem,
   TableModel,
   TableModule,
@@ -11,7 +10,6 @@ import {
   PaginationModule,
 } from 'ui-components-lib';
 import { HeaderContentComponent } from '../header-content/header-content.component';
-import { DataService } from '../../data.service';
 import { PaginationProperties } from 'ui-components-lib/lib/components/table/table.component';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -49,11 +47,6 @@ export class TablePoc5Component {
   exportEnabled = true;
   model = new TableModel();
 
-  remoteOperationsEnabled = true;
-  remoteOperations = {
-    paging: true,
-  };
-
   enablePagination = true;
   paginationProperties: PaginationProperties = {
     pageLength: 10,
@@ -63,8 +56,7 @@ export class TablePoc5Component {
   filter1 = '';
 
   constructor(
-    private dataService: DataService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) {}
 
   dataSource: DataSource;
@@ -81,9 +73,11 @@ export class TablePoc5Component {
     const customStore = new CustomStore({
       // these are example of crud operations that can be done on the model using custom store
 
-      load: (loadOptions: any) => {
+      load: (loadOptions: any = {}) => {
         let basicUrl = SERVICE_URL;
-
+        if(Object.keys(loadOptions).length === 0) {
+          return lastValueFrom(this.httpClient.get(basicUrl));
+        }
         if (loadOptions.remoteOperations?.paging && loadOptions.params) {
           const page = loadOptions.params.pagination?.pageIndex;
           const pageSize = loadOptions.params.pagination?.pageSize || 10;
@@ -149,17 +143,7 @@ export class TablePoc5Component {
     if (!this.noData && !this.skeleton) {
       this.model.dataSource = this.dataSource;
       this.model.customStore
-        .load({
-          remoteOperations: {
-            paging: true,
-          },
-          params: {
-            pagination: {
-              pageIndex: 1,
-              pageSize: this.paginationProperties.pageLength,
-            },
-          },
-        })
+        .load()
         .then((data: any) => {
           // create rows TableItem[][] from JSON data
           this.model.insertTableRowsFromJson(data);
