@@ -4,10 +4,7 @@
     <p cdsTableHeaderDescription>Inline actions | DataSummary.</p>
   </cds-table-header>
 
-  <div
-    class="table-container"
-    [attr.style]="showFilter ? 'overflow-x: visible;' : 'overflow-x: auto'"
-  >
+  <div class="table-container">
     <cds-table
       [model]="model"
       size="md"
@@ -26,7 +23,6 @@
       [allowAdding]="allowAdding"
       [allowDeleting]="allowDeleting"
       [showFilter]="showFilter"
-      [attr.style]="showFilter ? 'overflow-x: visible;' : ''"
     >
       <ng-content></ng-content>
     </cds-table>

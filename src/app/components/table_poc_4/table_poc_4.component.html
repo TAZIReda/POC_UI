@@ -64,17 +64,13 @@
     </div>
   </ng-template>
 
-  <div
-    class="table-container"
-    [attr.style]="showFilter ? 'overflow-x: visible;' : 'overflow-x: auto'"
-  >
+  <div class="table-container">
     <cds-table
       [model]="model"
       [sortable]="sortable"
       [showSelectionColumn]="false"
       [dataSummary]="false"
-      [showFilter]="true"
-      [attr.style]="true ? 'overflow-x: visible;' : ''"
+      [showFilter]="showFilter"
     >
       <ng-content></ng-content>
     </cds-table>
