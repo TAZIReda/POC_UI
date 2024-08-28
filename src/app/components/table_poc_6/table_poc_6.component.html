@@ -4,6 +4,93 @@
     <p cdsTableHeaderDescription>Custom Toolbar</p>
   </cds-table-header>
 
+  <cds-table-toolbar
+    [model]="model"
+    [batchText]="batchText"
+    size="md"
+    [enableSearch]="enableSearch"
+    [searchProperties]="searchProperties"
+    (cancel)="cancelMethod()"
+    #toolbar
+  >
+    <cds-combo-box
+      [items]="items"
+      type="multi"
+      placeholder="Select countries"
+      (selected)="onSelectedColumnsChange($event)"
+    >
+      <cds-dropdown-list></cds-dropdown-list>
+    </cds-combo-box>
+    <!-- <cds-table-toolbar-search
+      ngDefaultControl
+      [placeholder]="
+        !searchProperties['placeholder']
+          ? 'Search'
+          : searchProperties['placeholder']
+      "
+      (valueChange)="onChange($event)"
+      [expandable]="!!searchProperties.expandable"
+    >
+    </cds-table-toolbar-search> -->
+    <cds-table-toolbar-actions>
+      <button cdsButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+        Delete
+        <svg cdsIcon="trash-can" size="16" class="cds--btn__icon"></svg>
+      </button>
+      <button cdsButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+        Save
+        <svg cdsIcon="save" size="16" class="cds--btn__icon"></svg>
+      </button>
+      <button cdsButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+        Download
+        <svg cdsIcon="download" size="16" class="cds--btn__icon"></svg>
+      </button>
+    </cds-table-toolbar-actions>
+    <cds-table-toolbar-content
+      style="display: flex; justify-content: center; align-items: center"
+      *ngIf="!toolbar.selected"
+    >
+      <!-- <cds-combo-box
+        [items]="items"
+        type="multi"
+        placeholder="Select countries"
+        (selected)="onSelectedColumnsChange($event)"
+      >
+        <cds-dropdown-list></cds-dropdown-list>
+      </cds-combo-box> -->
+      <cds-checkbox
+        [checked]="true"
+        (checkedChange)="changeBoolean($event)"
+        [disabled]="false"
+        >filter</cds-checkbox
+      >
+      <cds-overflow-menu
+        triggerClass="cds--toolbar-action"
+        [customTrigger]="customTrigger"
+        placement="bottom"
+        [offset]="offset"
+      >
+        <cds-overflow-menu-option>Option 1</cds-overflow-menu-option>
+        <cds-overflow-menu-option>Option 2</cds-overflow-menu-option>
+        <cds-overflow-menu-option [disabled]="true"
+          >Disabled</cds-overflow-menu-option
+        >
+        <cds-overflow-menu-option type="danger"
+          >Danger option</cds-overflow-menu-option
+        >
+      </cds-overflow-menu>
+      <button
+        cdsButton="primary"
+        size="sm"
+        (click)="logDates()"
+        [tabindex]="toolbar.selected ? -1 : 0"
+      >
+        Log Dates
+        <!-- <svg cdsIcon="add" size="20" class="cds--btn__icon"></svg> -->
+      </button>
+    </cds-table-toolbar-content>
+  </cds-table-toolbar>
+
   <div class="table-container">
     <cds-table
       [model]="model"
@@ -22,4 +109,7 @@
       <ng-content></ng-content>
     </cds-table>
   </div>
+  <ng-template #customTrigger
+    ><svg cdsIcon="settings" size="16"></svg
+  ></ng-template>
 </cds-table-container>

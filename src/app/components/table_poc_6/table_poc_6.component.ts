@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   SimpleChanges,
   TemplateRef,
@@ -13,21 +14,23 @@ import {
   NFormsModule,
   ModalModule,
   PaginationModule,
+  IconModule,
 } from 'ui-components-lib';
 import { HeaderContentComponent } from '../header-content/header-content.component';
-import { Router } from '@angular/router';
-import { DataService } from '../../data.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-table_poc_6',
   standalone: true,
   imports: [
     TableModule,
+    CommonModule,
     HeaderContentComponent,
     DialogModule,
     NFormsModule,
     ModalModule,
     PaginationModule,
+    IconModule,
   ],
   templateUrl: './table_poc_6.component.html',
   styleUrl: './table_poc_6.component.scss',
@@ -35,7 +38,7 @@ import { DataService } from '../../data.service';
 export class TablePoc6Component {
   title = 'Table POC 6';
   size = 'md';
-  showSelectionColumn = true;
+  showSelectionColumn = false;
   striped = false;
   sortable = true;
   isDataGrid = true;
@@ -48,11 +51,34 @@ export class TablePoc6Component {
   ariaLabelledby = 'This is a table POC 6';
   ariaDescribedby = 'This is a table POC 6';
 
-allowUpdating: boolean = true;
-allowAdding: boolean = true;
-allowDeleting: boolean = true;
+  enableSearch = true;
+  searchProperties = {
+    expandable: false,
+  };
+  batchText = {
+    SINGLE: '1 item selected',
+    MULTIPLE: '{{count}} items selected',
+  };
+  offset = {
+    x: -9,
+    y: 0,
+  } as { x: number; y: number };
 
+  items: { content: string; selected: boolean }[] = [];
+  staticLookupData = [
+    { id: 1, name: 'Algeria' },
+    { id: 2, name: 'Tunisia' },
+    { id: 3, name: 'Morocco' },
+  ];
+
+  constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit() {
+    this.items = this.staticLookupData.map((item) => {
+      return {
+        content: item.name,
+        selected: false,
+      };
+    });
     const myHeaders = [
       new TableHeaderItem({
         data: 'String',
@@ -99,6 +125,15 @@ allowDeleting: boolean = true;
         className: 'my-class',
         dataSummaryType: 'count',
       }),
+      new TableHeaderItem({
+        data: 'Country',
+        dataType: 'lookup',
+        lookupDetails: {
+          dataSource: this.staticLookupData,
+          displayExpr: 'name',
+          valueExpr: 'id',
+        },
+      }),
     ];
 
     this.model.initializeHeaders(myHeaders);
@@ -115,30 +150,60 @@ allowDeleting: boolean = true;
           new TableItem({ data: 21 }),
           new TableItem({ data: new Date() }),
           new TableItem({ data: true }),
+          new TableItem({
+            data: {
+              displayedValue: 'Tunisia',
+              savedValue: 2,
+            },
+          }),
         ],
         [
           new TableItem({ data: 'Name 3' }),
           new TableItem({ data: 1323 }),
           new TableItem({ data: new Date() }),
           new TableItem({ data: false }),
+          new TableItem({
+            data: {
+              displayedValue: 'Morocco',
+              savedValue: 3,
+            },
+          }),
         ],
         [
           new TableItem({ data: 'Name 2' }),
           new TableItem({ data: 9432 }),
           new TableItem({ data: new Date() }),
           new TableItem({ data: true }),
+          new TableItem({
+            data: {
+              displayedValue: 'Algeria',
+              savedValue: 1,
+            },
+          }),
         ],
         [
           new TableItem({ data: 'Name 4' }),
           new TableItem({ data: 4939 }),
           new TableItem({ data: new Date() }),
           new TableItem({ data: false }),
+          new TableItem({
+            data: {
+              displayedValue: 'Tunisia',
+              savedValue: 2,
+            },
+          }),
         ],
         [
           new TableItem({ data: 'Name 5' }),
           new TableItem({ data: 0 }),
           new TableItem({ data: new Date() }),
           new TableItem({ data: true }),
+          new TableItem({
+            data: {
+              displayedValue: 'Morocco',
+              savedValue: 3,
+            },
+          }),
         ],
         [
           new TableItem({ data: 'Name 6' }),
@@ -146,6 +211,12 @@ allowDeleting: boolean = true;
           // formatDate is a function that formats the date in a specific way
           new TableItem({ data: new Date('05/15/2024') }),
           new TableItem({ data: false }),
+          new TableItem({
+            data: {
+              displayedValue: 'Algeria',
+              savedValue: 1,
+            },
+          }),
         ],
         [
           new TableItem({ data: 'Name 7' }),
@@ -153,9 +224,16 @@ allowDeleting: boolean = true;
           new TableItem({ data: new Date('01/15/2024') }),
           //you can call this.formatDate(...) for display
           new TableItem({ data: true }),
+          new TableItem({
+            data: {
+              displayedValue: 'Tunisia',
+              savedValue: 2,
+            },
+          }),
         ],
       ];
     }
+    this.cdr.detectChanges();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -164,6 +242,8 @@ allowDeleting: boolean = true;
         column.sortable = changes['sortable'].currentValue;
       }
     }
+
+    this.cdr.detectChanges();
   }
 
   formatDate(date: Date): string {
@@ -172,5 +252,108 @@ allowDeleting: boolean = true;
 
   onRowClick(index: number) {
     console.log('Row item selected:', index);
+  }
+
+  cancelMethod() {
+    console.log('Cancel button clicked');
+  }
+
+  onChange(event) {
+    // global search on this.model.data with the search event value
+    let areRowsExpanded = false;
+    this.model.header.forEach((header) => {
+      if (header.groupBy) {
+        areRowsExpanded = true;
+      }
+    });
+
+    if (areRowsExpanded) {
+      this.model.data = this.model.dataset.reduce((acc, row) => {
+        // Filter the expandedData
+        let filteredExpandedData = row[0].expandedData.filter((expandedRow) => {
+          return expandedRow.some((cell) => {
+            if (typeof cell.data !== 'object') {
+              return cell.data
+                ?.toString()
+                .toLowerCase()
+                .includes(event.toLowerCase());
+            } else {
+              return cell.data.displayedValue
+                ?.toString()
+                .toLowerCase()
+                .includes(event.toLowerCase());
+            }
+          });
+        });
+
+        // Only include this row if there's matching expandedData
+        if (filteredExpandedData.length > 0) {
+          // Create a new row array
+          let newRow = [
+            // Create a new object for the first element, copying only necessary properties
+            new TableItem({
+              ...Object.keys(row[0]).reduce((obj, key) => {
+                if (key !== 'expandedData') {
+                  obj[key] = row[0][key];
+                }
+                return obj;
+              }, {}),
+              expandedData: filteredExpandedData,
+            }),
+            // Copy the rest of the row elements as is
+            ...row.slice(1),
+          ];
+
+          acc.push(newRow);
+        }
+
+        return acc;
+      }, [] as TableItem[][]);
+    } else {
+      this.model.data = this.model?.dataset.filter((row) => {
+        return Object.values(row).some((value) => {
+          if (typeof value.data !== 'object') {
+            return value.data
+              ?.toString()
+              .toLowerCase()
+              .includes(event.toLowerCase());
+          } else {
+            return value.data.displayedValue
+              ?.toString()
+              .toLowerCase()
+              .includes(event.toLowerCase());
+          }
+        });
+      });
+    }
+  }
+
+  onSelectedColumnsChange(event) {
+    if (!event.some((country) => country.selected)) {
+      this.model.data = this.model.dataset;
+      return;
+    }
+    console.log('Selected columns:', event);
+    const selectedCountries = event.map((country) => country.content);
+    console.log('Selected countries:', selectedCountries);
+    console.log(this.model.dataset);
+    this.model.data = this.model.dataset.filter((row) => {
+      console.log(row[4].data.displayedValue);
+      return selectedCountries.includes(row[4].data.displayedValue);
+    });
+  }
+
+  changeBoolean(event) {
+    console.log('Boolean changed:', event);
+    this.model.data = this.model.dataset.filter((row) => {
+      return row[3].data === event;
+    });
+  }
+
+  logDates() {
+    const dates = this.model.dataset.map((row) => {
+      return row[2].data;
+    });
+    console.log('Dates:', dates);
   }
 }
