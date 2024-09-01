@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NFormsModule } from 'ui-components-lib';
+import {  NFormsModule,LoadingModule } from 'ui-components-lib';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -11,7 +11,8 @@ import { DataService } from '../../data.service';
   imports: [
     NFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    LoadingModule
     ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -19,11 +20,17 @@ import { DataService } from '../../data.service';
 export class LoginComponent {
 
 isUser = {}
-
+isActive=false;
+overlay=false;
 login() {
   this.isUser = this.dataService.login(this.form_data)
+  this.overlay=true
+  this.isActive=true;
   if(this.isUser === true){
-this.router.navigate(['users'])
+    setTimeout(()=>{
+      this.router.navigate(['users'])
+    },1000)
+
   }else{
     alert('invalid password or username')
   }

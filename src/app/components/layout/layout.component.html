@@ -5,7 +5,7 @@
       style="color: white"
     ></cds-hamburger>
   </cds-header>
-
+ 
   <div class="nav">
     <cds-sidenav
       [expanded]="active"
@@ -31,9 +31,13 @@
         <svg cdsIcon="fade" size="16"></svg>
         Table_poc_3
       </cds-sidenav-item>
-      <cds-sidenav-item [route]="['table_poc_4']">
+      <!-- <cds-sidenav-item [route]="['table_poc_4']">
         <svg cdsIcon="fade" size="16"></svg>
         Table_poc_4
+      </cds-sidenav-item> -->
+      <cds-sidenav-item [route]="['test_poc']">
+        <svg cdsIcon="fade" size="16"></svg>
+        Other_components
       </cds-sidenav-item>
       <cds-sidenav-item [route]="['table_poc_5']">
         <svg cdsIcon="fade" size="16"></svg>
@@ -46,16 +50,18 @@
     </cds-sidenav>
   </div>
 
-  <div
-    class="content"
+  <div class="content"
     style="
       background-color: rgb(239, 238, 238);
-      margin-top: 51px;
+      margin-top: 48px;
+
     "
     [class]="!active ? 'active-sideNav' : 'inactive-sideNav'"
   >
     <router-outlet></router-outlet>
+   
   </div>
 
-  <!-- min-height: 650px; -->
+  <div class="toast-container"></div>
+
 </div>
