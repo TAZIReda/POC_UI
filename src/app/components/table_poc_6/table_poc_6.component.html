@@ -8,8 +8,6 @@
     [model]="model"
     [batchText]="batchText"
     size="md"
-    [enableSearch]="enableSearch"
-    [searchProperties]="searchProperties"
     (cancel)="cancelMethod()"
     #toolbar
   >
@@ -47,17 +45,28 @@
       </button>
     </cds-table-toolbar-actions>
     <cds-table-toolbar-content
-      style="display: flex; justify-content: center; align-items: center"
+      style="display: flex; justify-content: center; align-items: center;"
       *ngIf="!toolbar.selected"
     >
-      <!-- <cds-combo-box
-        [items]="items"
-        type="multi"
-        placeholder="Select countries"
-        (selected)="onSelectedColumnsChange($event)"
-      >
-        <cds-dropdown-list></cds-dropdown-list>
-      </cds-combo-box> -->
+    <!-- <cds-combo-box
+    [items]="items"
+    type="multi"
+    placeholder="Select countries"
+    (selected)="onSelectedColumnsChange($event)"
+    >
+    <cds-dropdown-list></cds-dropdown-list>
+  </cds-combo-box> -->
+  <cds-table-toolbar-search
+    ngDefaultControl
+    [placeholder]="
+      !searchProperties['placeholder']
+        ? 'Search'
+        : searchProperties['placeholder']
+    "
+    (valueChange)="onChange($event)"
+    [expandable]="!!searchProperties.expandable"
+  >
+  </cds-table-toolbar-search>
       <cds-checkbox
         [checked]="true"
         (checkedChange)="changeBoolean($event)"
