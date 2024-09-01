@@ -41,10 +41,27 @@ export class LayoutComponent {
   constructor(
     
     private viewContainer: ViewContainerRef,
+    protected notificationService: NotificationService,
     private dataService:DataService
-  ){}
+  ){ this.notificationService.viewContainer = viewContainer;}
 
-
+  ngOnInit(){
+    this.dataService.dataSubject.subscribe((res)=>{
+  this.notificationObject = res.data;
+console.log(res);
+  if (Object.keys(res).length > 0){
+    console.log(this.notificationObject);
+    this.showNotification(this.notificationObject)
+  }
+});
+// this.notificationService.notifySuccessfulAction()
+  }
+  showNotification(val:any) {
+    this.notificationService.notify(val.title,val.message,val.type);
+    // console.log(val);
+    // this.notificationService.notifySuccessfulAction()
+    
+  }
 
   active = true;
 

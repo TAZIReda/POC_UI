@@ -46,7 +46,6 @@ export class CreateRowComponent {
   display :ComboboxDisplayValuesEnum = ComboboxDisplayValuesEnum.Both
 form_data:any = {};
 numberFormat= "#0.## 'cm'"
-// dateFormat = 'y-m-d'
 formControls=[
     
 {
@@ -100,13 +99,7 @@ formControls=[
   options: {
     options: ['Man', 'Woman'],
   },
-  // validators: [
-  //   {
-  //     type: 'required',
-  //     message: 'Gender is required'
-  //   },
-  // ],
-},
+ },
 {
   label:'Country',
   type:'select',
@@ -137,8 +130,15 @@ formControls=[
   name:'tall',
   options: {
     displayFormat:this.numberFormat,
+    activeUpDown:false
  
  },
+   validators: [
+    {
+      type: 'required',
+      message: 'Gender is required'
+    },
+  ],
 },
     {
       label: 'Description',
@@ -296,7 +296,6 @@ showNextButton = true;
 showBacktButton = false;  
 
 nextStep() {
-
   if(this.form && this.form.validateAll()){
     if (this.current < this.maxStep) {
       this.current += 1;
@@ -349,7 +348,7 @@ notificationObject:any = {
     title: "SUCCESS",
     message: "User created successfully",
     lowContrast: true,
-    target: ".notification-container",
+    target: ".toast-container",
   }
 }
 

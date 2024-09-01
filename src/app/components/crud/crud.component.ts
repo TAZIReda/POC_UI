@@ -70,11 +70,11 @@ selectedIndex = null;
 
 
   ngOnInit(){
-    
     this.dataService.dataSubject.subscribe((res)=>{
+      
   this.notificationObject = res.data;
   if (Object.keys(res).length > 0){
-    this.showNotification(this.notificationObject)
+    // this.showNotification(this.notificationObject)
   }
 });
 
@@ -87,13 +87,15 @@ confirmDelete() {
   this.open=false;
   this.dataService.deleteRow(this.datatoDelete).subscribe((res:any)=>{
     if(res){
-    this.notificationService.notifySuccessfulAction();
+    this.sendData()
       this.fetchData()
     }
   });
   }
 
-  
+  sendData(): void {
+    this.dataService.setNotification(this.notificationObjectDelete);
+  }
 
 cancel() {
   this.open=false
@@ -268,7 +270,7 @@ const myHeaders= [
       title: "SUCCESS",
       message: "User deleted successfully",
       lowContrast: true,
-      target: ".notification-container",
+      target: ".toast-container",
     }
   }
   

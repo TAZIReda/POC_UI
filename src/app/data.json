@@ -1,37 +1,12 @@
 {
   "work": [
     {
-      "id": "7cd6",
-      "tall": 0,
-      "dob": [
-        "2024-07-31T23:00:00.000Z"
-      ],
-      "gender": [
-        {
-          "content": "Man",
-          "selected": true
-        }
-      ],
-      "firstName": "smartes up",
-      "lastName": "algeria",
-      "country": "USA",
-      "phone": "112-222-2222",
-      "email": "vexample123@example.com",
-      "hobbies": [],
-      "jobTitle": "Oil & Gas",
-      "employer": "SOVAC",
-      "dow": [
-        "2024-07-31T23:00:00.000Z",
-        "2024-08-01T23:00:00.000Z"
-      ]
-    },
-    {
       "id": "4425",
       "tall": 1,
       "dob": [
         "2024-07-29T23:00:00.000Z"
       ],
-      "firstName": "smart",
+      "firstName": "smartest updated 2",
       "lastName": "algeria",
       "gender": "Man",
       "country": "Canada",
@@ -46,66 +21,6 @@
       ]
     },
     {
-      "id": "d267",
-      "tall": 0,
-      "dob": [
-        "2024-07-29T23:00:00.000Z"
-      ],
-      "firstName": "Info 11",
-      "lastName": "sdff",
-      "gender": "Woman",
-      "country": "USA",
-      "phone": "786-307-3615",
-      "email": "example123@example.com",
-      "hobbies": [],
-      "jobTitle": "azerty",
-      "employer": "vddvqv",
-      "dow": [
-        "2024-08-06T23:00:00.000Z",
-        "2024-08-08T23:00:00.000Z"
-      ]
-    },
-    {
-      "id": "b792",
-      "tall": 0,
-      "dob": [
-        "2024-08-08T23:00:00.000Z"
-      ],
-      "firstName": "alpha",
-      "lastName": "beta",
-      "gender": "Man",
-      "country": "USA",
-      "phone": "112-222-2222",
-      "email": "vexample123@example.com",
-      "hobbies": [],
-      "jobTitle": "Oil & Gas",
-      "employer": "SOVAC",
-      "dow": [
-        "2024-07-30T23:00:00.000Z",
-        "2024-08-02T23:00:00.000Z"
-      ]
-    },
-    {
-      "id": "6630",
-      "tall": 0,
-      "dob": [
-        "2024-07-31T23:00:00.000Z"
-      ],
-      "firstName": "hi",
-      "lastName": "dd",
-      "gender": "Woman",
-      "country": "UK",
-      "phone": "112-222-2222",
-      "email": "vexample123@example.com",
-      "hobbies": [],
-      "jobTitle": "Full stack developer",
-      "employer": "SOVAC",
-      "dow": [
-        "2024-07-30T23:00:00.000Z",
-        "2024-08-02T23:00:00.000Z"
-      ]
-    },
-    {
       "id": "6e57",
       "tall": 0,
       "dob": [
@@ -113,7 +28,7 @@
       ],
       "firstName": "toast",
       "lastName": "notif",
-      "gender": "Woman",
+      "gender": "Man",
       "country": "USA",
       "phone": "112-222-2222",
       "email": "vexample123@example.com",
@@ -126,69 +41,23 @@
       ]
     },
     {
-      "id": "13b3",
-      "tall": 0,
+      "id": "400d",
+      "tall": 1,
       "dob": [
-        "2024-07-30T23:00:00.000Z"
+        "2019-08-31T23:00:00.000Z"
       ],
-      "firstName": "notif",
-      "lastName": "toast",
-      "gender": "Woman",
-      "country": "USA",
-      "phone": "112-222-2222",
-      "email": "vexample123@example.com",
-      "hobbies": [],
-      "jobTitle": "Oil & Gas",
-      "employer": "DFV",
-      "dow": [
-        "2024-08-01T23:00:00.000Z",
-        "2024-08-07T23:00:00.000Z"
-      ]
-    },
-    {
-      "id": "e395",
-      "tall": 0,
-      "dob": [
-        "2024-07-29T23:00:00.000Z"
-      ],
-      "firstName": "s",
-      "lastName": "c",
-      "gender": "Woman",
-      "country": "USA",
-      "phone": "112-222-2222",
-      "email": "vexample123@example.com",
-      "hobbies": [],
-      "jobTitle": "DFVD",
-      "employer": "DFV",
-      "dow": [
-        "2024-07-30T23:00:00.000Z",
-        "2024-08-01T23:00:00.000Z"
-      ]
-    },
-    {
-      "id": "7ee1",
-      "tall": 0,
-      "dob": [
-        "2024-07-30T23:00:00.000Z"
-      ],
-      "firstName": "alpha",
-      "lastName": "beta",
+      "firstName": "Smartest",
+      "lastName": "Algeria",
       "gender": "Man",
       "country": "USA",
       "phone": "112-222-2222",
       "email": "vexample123@example.com",
-      "hobbies": [
-        {
-          "parent": "Sport",
-          "content": "Kayaking",
-          "selected": true
-        }
-      ],
+      "hobbies": [],
       "jobTitle": "Oil & Gas",
-      "employer": "SOVAC",
+      "employer": "FNI",
       "dow": [
-        "2024-07-19T23:00:00.000Z",
-        "2024-07-30T23:00:00.000Z"
+        "2024-09-02T23:00:00.000Z",
+        "2024-09-06T23:00:00.000Z"
       ]
     }
   ],

@@ -1,6 +1,6 @@
 <app-header-content title="Users" [breadcrumps]="breadcrumps"></app-header-content>
 <div class="container" style="overflow: auto;">
-  <div class="notification-container"></div>
+  
   <content>
     <cds-table-container style="height: 525px;">
       <cds-table-header>
@@ -37,7 +37,6 @@
     </cds-table>
     </cds-table-container>
 </content>
-</div>
 
 <cds-modal [open]="open"  (overlaySelected)="open = false" >
   <cds-modal-header (closeSelect)="open = false" [showCloseButton]="showCloseButton">

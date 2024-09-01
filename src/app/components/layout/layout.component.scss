@@ -1,3 +1,12 @@
+.container{
+display: flex;
+flex-direction: column;
+}
+
+.content{
+  min-height: 100%;
+}
+
 .nav {
   color: rgb(175, 169, 161);
 }
