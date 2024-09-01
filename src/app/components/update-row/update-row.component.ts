@@ -51,6 +51,7 @@ breadcrumps=[{
 
   onCreate() {
     this.dataService.update(this.form_data).subscribe(()=>{})
+    this.sendData()
     this.router.navigate(['/users'])
   }
 
@@ -103,20 +104,11 @@ formControls=[
   ],
 },
 { label:'Gender',
-  type:'advanced_select',
+  type:'radio',
   name:'gender',
   options: {
-    displaySelectedValues: false,
     placeholder:"select your gender",
-    type:'single',
-    items: [
-      {
-        content: "Man"
-      },
-      {
-        content: "Woman"
-      },
-    ],
+    options: [ "Man", "Woman"],
    
   },
   validators: [
@@ -302,6 +294,21 @@ formControls=[
 
 back() {
   this.router.navigate(['/users'])
+}
+
+notificationObject:any = {
+  type:'showActionable',
+  data:{
+    type: "success",
+    title: "SUCCESS",
+    message: "User updated successfully",
+    lowContrast: true,
+    target: ".toast-container",
+  }
+}
+
+sendData(): void {
+  this.dataService.setNotification(this.notificationObject);
 }
 
 }

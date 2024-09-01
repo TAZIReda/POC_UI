@@ -1,0 +1,114 @@
+<app-header-content title="Other Components" [breadcrumps]="breadcrumps"></app-header-content>
+
+
+<div class="grid_container">
+
+  <cds-content-switcher (selected)="selected($event)">
+    <button cdsContentOption name="User" [active]="true">User</button>
+    <button cdsContentOption name="Data">Data</button>
+    <button cdsContentOption name="Grid">Grid-List</button>
+  </cds-content-switcher>
+  <div class="actions">
+    <!-- <custom-button [kind]="'primary'" size="sm"> Delete all</custom-button> -->
+    <custom-button [kind]="'primary'" size="sm" (click)="refresh()"> Refresh</custom-button>
+  </div>
+  <div *ngIf="selectedOption === 'User'">
+    <div class="content" >
+      <cds-label>Users</cds-label>
+      <lib-tag-box [availableItems]="availableItems" [(selectedTagsInput)]="tags" (tagsChange)="onClick($event)"></lib-tag-box>
+    </div>
+    <div class="content"> 
+
+      <ng-template #apple let-icon>
+        <svg ibmIcon="add" size="16"></svg>
+      </ng-template>
+
+      <cds-contained-list label="Users">
+        <cds-contained-list-item *ngFor="let user of users" [action]="action" [icon]="apple" [clickable]="true"
+          (click)="ItemClick(user)">
+          <ng-container ibmContainedListItemButton>{{user.text}}</ng-container>
+          <ng-template #action let-item>
+            <cds-icon-button buttonId="icon-btn1" type="button" [kind]="'primary'" [size]="'md'" [align]="'bottom'"
+              [disabled]="false" (click)="onDelete(user)">
+              <svg class="cds--btn__icon" cdsIcon="subtract" size="16"></svg>
+            </cds-icon-button>
+          </ng-template>
+        </cds-contained-list-item>
+      </cds-contained-list>
+    </div>
+    <div class="content">
+      <cds-structured-list [condensed]="false">
+        <cds-list-header>
+          <cds-list-column [nowrap]="true">User</cds-list-column>
+          <cds-list-column [nowrap]="true">Job</cds-list-column>
+          <cds-list-column>Description</cds-list-column>
+        </cds-list-header>
+        <cds-list-row *ngFor="let user of details">
+          <cds-list-column>{{user.content}}</cds-list-column>
+          <cds-list-column [nowrap]="true">{{user.job}}</cds-list-column>
+          <cds-list-column>
+            {{user.desc}}
+          </cds-list-column>
+        </cds-list-row>
+
+      </cds-structured-list>
+    </div>
+  </div>
+  <div *ngIf="selectedOption === 'Data'">
+
+    <cds-file-uploader [title]="'Json Upload'" [buttonText]="'Select file'" [buttonType]="'ghost'" [accept]="accept"
+      [multiple]="false" [(files)]="files" [size]="'md'" [fileItemSize]="'md'" [disabled]="false">
+    </cds-file-uploader>
+    <div class="btn-time">
+      <button cdsButton *ngIf="files && files.size > 0" (click)="onUpload()" style="margin-top:20px">
+        Upload
+      </button>
+      <div *ngIf="TimeValue">
+        <cds-timepicker [(value)]="TimeValue" label="Upload time">
+          <cds-timepicker-select (valueChange)="timePickerSelectChange($event)" [(ngModel)]="period"
+            ariaLabel="Open list of options">
+            <option selected value="AM">AM</option>
+            <option value="PM">PM</option>
+          </cds-timepicker-select>
+          <cds-timepicker-select (valueChange)="timePickerSelectChange($event)" [(ngModel)]="timeZone"
+            ariaLabel="Open list of options">
+            <option selected value="Time Zone 1">Time Zone 1</option>
+            <option value="Time Zone 2">Time Zone 2</option>
+          </cds-timepicker-select>
+        </cds-timepicker>
+      </div>
+    </div>
+
+    
+      <span *ngIf="TimeValue">Uploaded file :</span>
+      <div class="sinppet-code" *ngIf="TimeValue">
+      <cds-code-snippet [display]="multi"
+        style="background-color: rgb(225, 227, 227);">{{jsonContent}}</cds-code-snippet>
+    </div>
+
+  </div>
+<div *ngIf="selectedOption === 'Grid'">
+  <lib-grid-list-view [colCount]="3" [gridTemplate]="customTemplate" [listTemplate]="listTemplate"
+  [value]="object" [isGrouped]="false" 
+  [enablePagination]="true" [groupByProperty]="'name'" [height]="'150px'">
+  <ng-template #customTemplate let-item="item">
+    <div class="custom-item-grid">
+      <div class="icon" style="width: 50%;"><img [src]="item.url" alt="Icon" style="width: 100%;" /></div>
+      <div class="desc" style="width: 50%;font-size: small;">
+        <p style="font-size: x-small;">name:</p>
+        <p > {{ item.content }} </p>
+        <p>job:</p>
+        <p>{{item.job}}</p></div>
+      
+    </div>
+  </ng-template>
+  <ng-template #listTemplate let-item="item">
+    <div class="custom-item-list">
+      <div><p>{{ item.content }}</p></div>
+      <div> <p>{{item.job}}</p></div>
+      <div><p>{{item.desc}}</p></div>
+    </div>
+  </ng-template>
+</lib-grid-list-view>
+</div>
+</div>

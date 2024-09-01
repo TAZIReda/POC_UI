@@ -1,35 +1,106 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { TableHeaderItem, TableItem, TableModel,TableModule,DialogModule,NFormsModule, ModalModule } from 'ui-components-lib';
+import { Component, TemplateRef, ViewChild, ViewContainerRef, viewChild } from '@angular/core';
+import { TableHeaderItem, TableItem, TableModel,TableModule,DialogModule,NFormsModule, ModalModule,NotificationModule, NotificationService, NotificationContent } from 'ui-components-lib';
 import { HeaderContentComponent } from "../header-content/header-content.component";
 import { Router } from '@angular/router';
 import { DataService } from '../../data.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-crud',
   standalone: true,
-  imports: [TableModule,HeaderContentComponent,
-    DialogModule,NFormsModule,ModalModule
+  imports: [
+    TableModule,
+    CommonModule,
+    HeaderContentComponent,
+    DialogModule,
+    NFormsModule,
+    ModalModule,
+    NotificationModule
   ],
   templateUrl: './crud.component.html',
   styleUrl: './crud.component.scss'
 })
 export class CrudComponent {
 
-  
+  constructor(private router: Router,
+    protected notificationService: NotificationService,
+     private dataService:DataService  ,  private viewContainer: ViewContainerRef,
+    ){
+      this.notificationService.viewContainer = viewContainer;
+    }
+
+     @ViewChild("overflowMenuItemTemplate")
+overflowMenuItemTemplate: TemplateRef<any>[] | undefined;
+
+@ViewChild("notification") notification:Notification
+
+  notificationObject: any;
+  showCloseButton: boolean=false;
+  datatoDelete:any = {}
+  breadcrumps=[{
+
+  },
+  ]
+  model = new TableModel();
+headerItems=[];
+title: any;
+open=false
+isOpen=false
+
+steps = [
+  {
+    text: 'General Information',
+    state: ['incomplete'],
+  },
+  {
+    text: 'Step 2',
+    state: ['incomplete'],
+  },
+];
+current = 0;
+isLoading: boolean | undefined;
+maxStep = 1;
+spacing = 'default';
+showCreateButton = false;
+showNextButton = true;
+showBacktButton = false;  
+
+selectedIndex = null;
+
+
+  ngOnInit(){
+    this.dataService.dataSubject.subscribe((res)=>{
+      
+  this.notificationObject = res.data;
+  if (Object.keys(res).length > 0){
+    // this.showNotification(this.notificationObject)
+  }
+});
+
+  }
+  ngAfterViewInit(){
+    this.fetchData();
+  }
+
 confirmDelete() {
   this.open=false;
   this.dataService.deleteRow(this.datatoDelete).subscribe((res:any)=>{
-    if(res){this.fetchData()}
+    if(res){
+    this.sendData()
+      this.fetchData()
+    }
   });
+  }
+
+  sendData(): void {
+    this.dataService.setNotification(this.notificationObjectDelete);
   }
 
 cancel() {
   this.open=false
 }
-showCloseButton: boolean=false;
 
-datatoDelete:any = {}
 
 clickEdit(data:any) {
   this.dataService.updateRow(data.id)
@@ -43,59 +114,34 @@ clickDelete(data:any) {
 clickDetails(data:any) {
   this.dataService.detailsRow(data.id)
 }
-breadcrumps=[{
-
-},
-]
-@ViewChild("overflowMenuItemTemplate")
-overflowMenuItemTemplate: TemplateRef<any>[] | undefined;
-
 
 navigateToRoute() {
 this.router.navigate(['/create'])
 }
 
-model = new TableModel();
-headerItems=[];
-title: any;
-open=false
-constructor(private router: Router, private dataService:DataService) {}
-
-  ngOnInit() {
-    this.fetchData();
+  showNotification(val:any) {
+    // this.notification. ;
+    // this.notificationService.showActionable(val);
+    this.notificationService.notifySuccessfulAction();
   }
+
   fetchData(){
     const arryData: any=[]
   this.dataService.getData().subscribe((elements)=>{ 
   elements.forEach((element: any) => {
   element.hobbies = element.hobbies.map((hobby: any) => hobby.content);
-  if(element.dow){
-    element.dow = element.dow.map((dateString: string) => {
-      const date = new Date(dateString);
-      return date.toISOString().split('T')[0]; 
-     });
-  }
-  
    element.dob = element.dob.map((dateString: string) => {
     const date = new Date(dateString);
-    return date.toISOString().split('T')[0]; 
+    return date.toISOString()
    });
-    element.gender = element.gender[0].content
+    // element.gender = element.gender[0].content
     arryData.push([
       new TableItem({ data: element.firstName}),
       new TableItem({ data: element.lastName }),
       new TableItem({ data: element.dob }),
       new TableItem({ data: element.gender }),
       new TableItem({ data: element.country }),
-      new TableItem({ data: element.tall }),
-      new TableItem({ data: element.description }),
-      new TableItem({ data: element.phone }),
-      new TableItem({ data: element.email }),
       new TableItem({ data: element.jobTitle }),
-      new TableItem({ data: element.employer }),
-      new TableItem({ data: element.dow }),
-      new TableItem({ data: element.hobbies }),
-      new TableItem({ data: element.agree }),
       new TableItem({ data: element , template: this.overflowMenuItemTemplate })
     ]) 
  } 
@@ -130,51 +176,51 @@ const myHeaders= [
         dataType: 'select',
         title: 'my-class',
       }),
-      new TableHeaderItem({
-        data: 'Height (cm)',
-        dataType: 'string',
-        title: 'my-class',
-      }),
-      new TableHeaderItem({
-        data: 'Description',
-        dataType: 'textarea',
-        className: 'my-class',
-      }),
-      new TableHeaderItem({
-        data: 'Phone',
-        dataType: 'text',
-        className: 'my-class',
-      }),
-      new TableHeaderItem({
-        data: 'Email',
-        dataType: 'text',
-        className: 'my-class',
-      }),
+      // new TableHeaderItem({
+      //   data: 'Height (cm)',
+      //   dataType: 'string',
+      //   title: 'my-class',
+      // }),
+      // new TableHeaderItem({
+      //   data: 'Description',
+      //   dataType: 'textarea',
+      //   className: 'my-class',
+      // }),
+      // new TableHeaderItem({
+      //   data: 'Phone',
+      //   dataType: 'text',
+      //   className: 'my-class',
+      // }),
+      // new TableHeaderItem({
+      //   data: 'Email',
+      //   dataType: 'text',
+      //   className: 'my-class',
+      // }),
       new TableHeaderItem({
         data: 'JobTitle',
         dataType: 'text',
         className: 'my-class',
       }),
-      new TableHeaderItem({
-        data: 'Employer',
-        dataType: 'text',
-        className: 'my-class',
-      }),
-      new TableHeaderItem({
-        data: 'Date Of Work',
-        dataType: 'date',
-        className: 'my-class',
-      }),
-         new TableHeaderItem({
-          data: 'Hobbies',
-          dataType: 'advanced_select',
-          className: 'my-class',
-        }),
-        new TableHeaderItem({
-          data: 'Agree',
-          dataType: 'boolean',
-          className: 'my-class',
-        }),
+      // new TableHeaderItem({
+      //   data: 'Employer',
+      //   dataType: 'text',
+      //   className: 'my-class',
+      // }),
+      // new TableHeaderItem({
+      //   data: 'Date Of Work',
+      //   dataType: 'date',
+      //   className: 'my-class',
+      // }),
+      //    new TableHeaderItem({
+      //     data: 'Hobbies',
+      //     dataType: 'advanced_select',
+      //     className: 'my-class',
+      //   }),
+      //   new TableHeaderItem({
+      //     data: 'Agree',
+      //     dataType: 'boolean',
+      //     className: 'my-class',
+      //   }),
       new TableHeaderItem({ 
         data: 'Actions',
         dataType: 'string',
@@ -191,26 +237,7 @@ const myHeaders= [
     );
   }
 
-  steps = [
-    {
-      text: 'General Information',
-      state: ['incomplete'],
-    },
-    {
-      text: 'Step 2',
-      state: ['incomplete'],
-    },
-  ];
-  current = 0;
-  isLoading: boolean | undefined;
-  maxStep = 1;
-  spacing = 'default';
-  showCreateButton = false;
-  showNextButton = true;
-  showBacktButton = false;  
 
-  selectedIndex = null;
-  
   nextStep() {
       if (this.current < this.maxStep) {
         this.current += 1;
@@ -234,4 +261,17 @@ const myHeaders= [
   back() {
     this.router.navigate(['/users'])
   }
+
+
+  notificationObjectDelete:any = {
+    type:'showActionable',
+    data:{
+      type: "success",
+      title: "SUCCESS",
+      message: "User deleted successfully",
+      lowContrast: true,
+      target: ".toast-container",
+    }
+  }
+  
 }

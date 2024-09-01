@@ -1,0 +1,28 @@
+<cds-table-container>
+  <cds-table-header>
+    <h4 cdsTableHeaderTitle>{{ title }}</h4>
+    <p cdsTableHeaderDescription>Multi-level header | Export .</p>
+  </cds-table-header>
+
+  <div class="table-container">
+    <cds-table
+      style="overflow-x: scroll"
+      [model]="model"
+      size="md"
+      [skeleton]="skeleton"
+      [showSelectionColumn]="showSelectionColumn"
+      [enableSingleSelect]="enableSingleSelect"
+      (rowClick)="onRowClick($event)"
+      [allowExportSelectedData]="allowExportSelectedData"
+      [exportEnabled]="exportEnabled"
+      [sortable]="sortable"
+      [stickyHeader]="stickyHeader"
+      [striped]="striped"
+      [isDataGrid]="isDataGrid"
+      [ariaLabelledby]="ariaLabelledby"
+      [ariaDescribedby]="ariaDescribedby"
+    >
+      <ng-content></ng-content>
+    </cds-table>
+  </div>
+</cds-table-container>

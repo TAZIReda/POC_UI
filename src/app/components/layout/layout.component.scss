@@ -1,23 +1,48 @@
-.nav{
-    color: rgb(175, 169, 161);
- }
- 
- .active-sideNav {
-    margin-left: 3.45%; 
-  }
-  
-  .inactive-sideNav {
-    margin-left: 18%;  
-  }
-  ::ng-deep .cds--header {
-    background-color: black !important;
-    color: white !important;
-  }
- 
-  ::ng-deep a.cds--header__name, a.cds--header__name:hover {
-    color: white !important;
-  }
- ::ng-deep .cds--header__menu-trigger > svg, .cds--header__menu-trigger > svg:hover {
-    fill:white !important;
- }
- 
+.container{
+display: flex;
+flex-direction: column;
+}
+
+.content{
+  min-height: 100%;
+}
+
+.nav {
+  color: rgb(175, 169, 161);
+}
+
+.active-sideNav {
+  margin-left: 48px;
+  // margin-left: 3.8%;
+}
+
+.inactive-sideNav {
+  margin-left: 256px;
+  // margin-left: 20.2%;
+}
+::ng-deep .cds--header {
+  background-color: black !important;
+  color: white !important;
+}
+
+::ng-deep a.cds--header__name,
+a.cds--header__name:hover {
+  color: white !important;
+}
+::ng-deep .cds--header__menu-trigger > svg,
+.cds--header__menu-trigger > svg:hover {
+  fill: white !important;
+}
+
+
+.toast-container{
+  position: fixed;
+  top: 55px;
+  right: 10px;
+  width: 300px;
+  z-index: 1001;
+}
+
+::ng-deep .cds--toast-notification{
+  width: 100% !important;
+}
