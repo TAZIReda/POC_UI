@@ -2,7 +2,8 @@
   <cds-table-header>
     <h4 cdsTableHeaderTitle>{{ title }}</h4>
     <p cdsTableHeaderDescription>
-      Real time data Insert (Big data ) | pagination | filtering & sorting.
+      Inline actions | Custom store | built-in Events | Export | Pagination |
+      Filter
     </p>
   </cds-table-header>
 
@@ -37,8 +38,16 @@
       (rowClick)="onRowClick($event)"
       [stickyHeader]="stickyHeader"
       [skeleton]="skeleton"
+      [allowExportSelectedData]="allowExportSelectedData"
+      [exportEnabled]="exportEnabled"
+      [allowAdding]="allowAdding"
+      [allowUpdating]="allowUpdating"
+      [allowDeleting]="allowDeleting"
       [enablePagination]="enablePagination"
       [paginationProperties]="paginationProperties"
+      (rowInserted)="onRowInserted($event)"
+      (rowUpdated)="onRowUpdated($event)"
+      (rowRemoved)="onRowDeleted($event)"
     >
     </cds-table>
   </div>

@@ -49,7 +49,7 @@ export class TablePoc4Component implements AfterViewInit {
   skeleton = false;
   model = new TableModel();
   enableSingleSelect = false;
-  showFilter = false;
+  showFilter = true;
   noData = false;
   ariaLabelledby = 'This is a table POC 4';
   ariaDescribedby = 'This is a table POC 4';

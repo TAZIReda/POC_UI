@@ -48,7 +48,8 @@ export class TablePoc1Component implements OnChanges {
 
   enablePagination = true;
   paginationProperties: PaginationProperties = {
-    pageLength: 7,
+    pageLength: 10,
+    totalDataLength: 200,
   };
 
   filter1 = '';
@@ -111,8 +112,6 @@ export class TablePoc1Component implements OnChanges {
     });
     this.model.insertTableRowsFromJson(jsonData);
 
-    this.paginationProperties.totalDataLength = this.model.data.length;
-
     // add real time data each 3 seconds
     let tva = 10;
     let tqa = 20;
@@ -154,15 +153,12 @@ export class TablePoc1Component implements OnChanges {
     //     const newData = this.model.jsonDataTotableModel(data);
 
     //     this.model.totalDataLength = totalDataLength;
-    //     // this.paginationProperties.totalDataLength = totalDataLength;
     //     this.model.data = newData;
 
     //     console.log(data, totalDataLength);
     //   }, 3000);
     // }
     // this.paginationProperties.pageLength = 10;
-    // this.paginationProperties.totalDataLength = this.model.data.length;
-    // this.model.totalDataLength = this.paginationProperties.totalDataLength;
 
   }
 

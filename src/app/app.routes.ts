@@ -10,7 +10,9 @@ import { TablePoc1Component } from './components/table_poc_1/table_poc_1.compone
 import { TablePoc2Component } from './components/table_poc_2/table_poc_2.component';
 import { TablePoc3Component } from './components/table_poc_3/table_poc_3.component';
 import { PocTestComponentComponent } from './components/poc-test-component/poc-test-component.component';
-// import { TablePoc4Component } from './components/table_poc_4/table_poc_4.component';
+import { TablePoc4Component } from './components/table_poc_4/table_poc_4.component';
+import { TablePoc5Component } from './components/table_poc_5/table_poc_5.component';
+import { TablePoc6Component } from './components/table_poc_6/table_poc_6.component';
 
 export const routes: Routes = [
   {
@@ -42,10 +44,18 @@ export const routes: Routes = [
         path: 'table_poc_3',
         component: TablePoc3Component,
       },
-      // {
-      //   path: 'table_poc_4',
-      //   component: TablePoc4Component,
-      // },
+      {
+        path: 'table_poc_4',
+        component: TablePoc4Component,
+      },
+      {
+        path: 'table_poc_5',
+        component: TablePoc5Component,
+      },
+      {
+        path: 'table_poc_6',
+        component: TablePoc6Component,
+      },
       {
         path: 'create',
         component: CreateRowComponent,
