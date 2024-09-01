@@ -104,20 +104,11 @@ formControls=[
   ],
 },
 { label:'Gender',
-  type:'advanced_select',
+  type:'radio',
   name:'gender',
   options: {
-    displaySelectedValues: false,
     placeholder:"select your gender",
-    type:'single',
-    items: [
-      {
-        content: "Man"
-      },
-      {
-        content: "Woman"
-      },
-    ],
+    options: [ "Man", "Woman"],
    
   },
   validators: [
@@ -127,23 +118,6 @@ formControls=[
     },
   ],
 },
-// { label:'Gender',
-//   type:'radio',
-//   name:'gender',
-//   options: {
-//     // displaySelectedValues: false,
-//     placeholder:"select your gender",
-//     // type:'single',
-//     options: [ "Man", "Woman"],
-   
-//   },
-//   validators: [
-//     {
-//       type: 'required',
-//       message: 'Gender is required'
-//     },
-//   ],
-// },
 { label:'Country',
   type:'select',
   name:'country',
@@ -329,7 +303,7 @@ notificationObject:any = {
     title: "SUCCESS",
     message: "User updated successfully",
     lowContrast: true,
-    target: ".notification-container",
+    target: ".toast-container",
   }
 }
 

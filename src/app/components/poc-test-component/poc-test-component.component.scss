@@ -1,0 +1,58 @@
+.grid_container{
+    min-height: 531px;
+}
+
+.actions{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 5px;
+}
+
+.content{
+    padding-bottom: 20px;
+    position: relative;
+  overflow: visible;
+}
+
+// ::ng-deep .cds--list-box--expanded {
+//  width: 99.8%;
+//   }
+
+// .content {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     min-height: 200px;
+//   }
+
+.sinppet-code{
+    height: 263px;
+    overflow: auto;
+    
+}
+
+.btn-time{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+::ng-deep .cds--content-switcher {
+     width: 100% !important; 
+}
+
+.custom-item-grid{
+display: flex;
+flex-direction: row;
+}
+
+.desc{
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-item-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
